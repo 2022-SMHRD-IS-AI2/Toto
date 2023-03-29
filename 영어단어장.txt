@@ -1,4 +1,0 @@
-interactivity  : 상호 작용성
-render : 환산
-property : 소유물
-modifier: 바꾸다
