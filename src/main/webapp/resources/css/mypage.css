@@ -1,0 +1,50 @@
+@import "reset.css";
+.mypage-title{position: absolute;top: 60px;left: 400px;}
+.page-content{width: 1300px;height: 650px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 120px;}
+.mypage-form{width: 1200px; height: 1000px; }
+.mypage-form1{width: 1000px;height: 320px;margin-top: 100px;display: flex;padding-left: 60px;}
+
+.mypage-img{background: #f4f7fa; width: 460px;height: 250px;display: flex;flex-direction: column;align-items: center;}
+.mypage-img label{display: inline-block;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;}
+.mypage-img input[type="file"] {  /* 파일 필드 숨기기 */
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+      }
+
+.mypage-img>img{width: 150px;height: 150px;border-radius: 50%;margin-bottom: 20px;}
+.mypage-form1-content{margin-left: 160px; width: 660px;height: 300px;display: flex;flex-direction: column;justify-content: center;align-items:flex-start;}
+.btnModify{width: 1200px;height: 80px;display: flex;justify-content: center;align-items: center;}
+
+
+.btn {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+ 
+
+ 
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+    <!-- Annotation 활성화 -->
+    <annotation-driven />
+
+    <!-- 
+        DispatcherServlet의 매핑 url-pattern 이 '/*' 일때
+        jsp안에서 사용하는 js,css,image 등 resource 파일 불러오는데 문제가 생김
+        resource file만 매핑하는 구문입니다.
+        즉, resource file들은 /resources/ 위치에 만들어 사용해야함
+    -->
+    <resources mapping="/resources/**" location="/resources/" />
+
+    <!-- 
+        View의 prefix와 suffix지정.. @Controller에서 뷰리턴시 적용됨
+        예를들어 Index Controller에서 "index"를 리턴하면 /WEB-INF/views/index.jsp 파일이 리턴됨 
+    -->
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/" />
+        <beans:property name="suffix" value=".jsp" />
+    </beans:bean>
+	
+    <!-- 
+        자바공통파일 패키지지정. 해당패키지 안에서만 Annotation명시 파일들이 사용가능
+        default: @component, @Controller, @Service, @Repository
+    -->
+    
+    <!-- FrontController가 POJO의 위치를 알 수 있게 하는 부분 -->
+    <context:component-scan base-package="kr.toto.controller" />
+	
+</beans:beans>

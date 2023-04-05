@@ -1,0 +1,29 @@
+@import "reset.css";
+.myquestion-title{width: 200px;height: 60px; position: absolute;left: 360px;top: 100px;}
+.myquestion-content{width: 1300px;height: 600px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 200px;margin-bottom: 60px;}
+.content-size{width: 1300px;}
+.myq-date{padding-left: 130px;}
+ .collapse.show{display: inline-table;background: white;margin-top: 20px;}
+
+ thead th:nth-child(1) {
+    width: 100px;
+  }
+  thead th:nth-child(2) {
+    width: 400px;
+  }
+  thead th:nth-child(3) {
+    width: 150px;
+  }
+  thead th{margin-bottom: 15px;}
+  
+
+  tbody th:nth-child(1) {
+    width: 100px;
+  }
+  tbody td:nth-child(2) {
+    width: 400px;
+  }
+  tbody td:nth-child(3) {
+    width: 150px;
+  }
+

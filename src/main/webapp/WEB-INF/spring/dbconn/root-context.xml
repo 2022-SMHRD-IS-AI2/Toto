@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    
+    
+    <!-- DB연결작업 : API(HikariCP) -->
+    <!-- HikariConfig && HikariDataSource 사용 -->
+    
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		    
+		    
+		   	<property name="driverClassName" value ="com.mysql.jdbc.Driver"/>
+    		<property name="jdbcUrl" value = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_A_2"/>
+    		<property name="username" value = "smhrd_A_2"/>
+    		<property name="password" value = "smhrd2"/>
+    </bean>
+    
+    <!-- SqlSessionFactory를 만들어내는 역할(Connection POOL) -->
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+    <!--HikariConfig 안의 정보를 보고 DB 연결하는 class -> CP를 만듦 -->
+    	<constructor-arg ref="hikariConfig"/>
+    </bean>
+    
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- SqlSessionFactory와 Spring 연결 -->
+    <!-- Spring에서 SqlSessionFactory와 연결해서 사용할 객체설정 -->
+    <!-- SqlSessionFactoryBean implements boardMapper 즉, boardMapper의 구현체 -->
+    	<property name="dataSource" ref="hikariDataSource"/>
+    </bean>
+    
+    <!-- Mapper가 있는 위치를 연결 -->
+    <mybatis-spring:scan base-package="kr.toto.mapper"/>
+    
+</beans>

@@ -1,0 +1,235 @@
+body{
+    position: absolute;
+    top: 0px; left: 0px; margin: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+
+.container{
+    display: grid;
+    /* grid-template-columns: 100px 1fr 1fr; */
+    height: 100vh;
+    /* grid-template-areas: 
+        "header header"
+        "main main "
+        "footer footer";  */
+    /* max-width: 1200px; */
+    width: 100vw;
+    background-color: rgb(228, 238, 247);
+}
+
+/* body {
+    background-color: #efefef;
+  } */
+
+/* 사이드바 */
+.header{
+    grid-area: header;
+    /* background-color: green; */
+    height: 100px;
+    width: 220px;
+}
+
+.header-img{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 220px;
+    background: white;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+  }
+  
+.profile-img{
+    margin-left: 8px;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+
+.profile-user-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h3{
+    margin-left: 75px;
+}
+
+h4{
+    margin-left: 15px;
+}
+
+li a {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    color: #000;
+    font-weight: bold;
+    /* font-size: 20px; */
+}
+  
+li a:hover {
+    background: #333;
+    color: #fff;
+}
+  
+li a.home {
+    background : #333;
+    color: #fff;
+}
+
+/* 문항게시판 */
+.contents {
+    margin-left: 250px;
+    /* background-color: bisque; */
+}
+
+.text{
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+hr{
+    /* width: 50%; */
+    height: 5px;
+    background-color: #333;
+    border: 0;
+}
+
+/* 게시판 */
+.all-box{
+    display: grid;
+    margin-top: 60px;
+    margin-left: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    /* background-color: yellow; */
+
+    height: 550px;
+    width: 1600px;
+}
+
+.box{
+    border: 2px solid black;
+    height: 250px;
+    width: 350px;
+    margin-left: 20px;
+}
+
+/* .box hr{
+    height: 3px;
+    margin-top: 150px;
+} */
+
+/* 검색바 */
+.select{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-left: 620px;
+    margin-top: 120px;
+    
+}
+
+.search{
+    display: inline-block;
+}
+
+.search > input{
+    width: 280px;
+    height: 25px;
+}
+
+.button{
+    display: inline-block;
+}
+
+.button > button{
+    height: 30px;
+}
+
+/* .search{
+    width: 400px;
+    height: 40px;
+    background-color: red;
+}
+.search_area{
+    width: 300px;
+    height: 40px;
+    background-color: rgba(0,0,0,0.0);
+    border-radius: 5px;
+    y축으로 24px 내려옴
+    margin-top: 100px;
+    margin-left: 700px;
+}
+
+.search_area > form > input{
+    search 안에 있는 input의 디자인 없애기
+    border: none;
+    width: 250px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    padding-left: 10px;
+}
+
+.search_area > form > span{
+    width: 50px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+} */
+
+/* .box{
+    background-color: #ddd;
+    padding: var(--gap);
+    display: flex;
+    gap: var(--gap);
+    min-height: 400px;
+    flex-direction: row;
+}
+
+.box-sidebar,
+.box-contents {
+    background-color: rgba(0,0,0,0.1);
+    padding: var(--gap);
+}
+
+.box-sidebar {
+    width: 140px;
+    flex-shrink: 0;
+}
+
+.box-contents {
+    flex-grow: 1;
+    min-width: 0;
+} */
+
+/* .side{
+    grid-area: side;
+    background-color: blue;
+}
+
+.main{
+    grid-area: main;
+    background-color: green;
+}
+
+.footer{
+    grid-area: footer;
+    background-color: yellow;
+} */

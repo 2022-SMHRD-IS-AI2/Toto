@@ -1,0 +1,267 @@
+@import url(reset.css);
+
+.q-nav{
+    display: flex;
+}
+/* 사이드바 */
+.q-nav-profile{
+    top: 20px; 
+    width: 200px;
+    height: 800px; 
+    left: 77px; 
+    display: flex; 
+    flex-direction: column; 
+    position: fixed; 
+    /* background-color: #acc9e6; */
+}
+
+.q-nav-profile img{ 
+    width: 150px;
+    height: 150px;
+    margin-top: -27px;
+}
+
+.profile{
+    width: 200px;
+    height: 260px;
+    margin-top: 30px;
+}
+
+.profile-img>img{
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profile-info{ 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.profile-info>span:last-child{
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.q-board{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.q-board>li{
+    padding: 30px 30px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.q-board-span{
+    position: relative;
+}
+
+.q-board-span::after {
+    position: absolute; 
+    content:""; 
+    display: block;
+    margin-top: 3px; 
+    border-bottom: 3px solid #acc9e6; 
+    transition: width 250ms ease-out; 
+    left: auto; 
+    right: 0;  
+    width: 0;
+}
+
+.q-board-span:hover::after {
+    width: 100%; 
+    left: 0;
+    right: auto;
+}
+
+/* 문항게시판 */
+.text-1{
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    display: inline-block;
+    /* margin-left: 580px; */
+    padding-left: 354px;
+}
+
+.q-contents{
+    width: 1300px;
+    /* width: 1000px; */
+    height: auto;
+    margin-left: 354px;
+    /* margin-left: 450px; */
+    /* margin-left: 580px; */
+    margin-top: 20px;
+    background-color: #acc9e6;
+}
+
+.text-2{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    /* background-color: aliceblue; */
+    /* margin-left: 250px; */
+    margin-bottom: 20px;
+}
+
+/* .right-hr{
+    margin-right: 0;
+} */
+
+hr{
+    /* width: 1050px; */
+    height: 5px;
+    /* margin-left: 250px; */
+    background-color: #333;
+    border: 0;
+    /* margin-right: 0; */
+}
+
+.text-3{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+    /* background-color: aliceblue; */
+    /* margin-left: 250px; */
+    margin-top: 20px;
+}
+
+/* .text-2 div{
+    text-align: justify;
+} */
+
+/* .text-2 span{
+    text-align: justify;
+} */
+
+/* 게시판 */
+.all-text-box{
+    display: grid;
+    justify-content: center;
+    margin-top: 40px;
+    /* margin-left: 60px; */
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* grid-template-rows: repeat(2, 1fr); */
+    /* 최소한 100px, 최대는 자동으로 늘어나게 */
+    grid-template-rows: repeat(2, minmax(250px, auto));
+    /* column-gap: 10px;
+    row-gap: 10px; */
+    gap: 40px;
+    /* background-color: yellow; */
+
+    /* margin-left: 250px; */
+
+    /* height: 550px;
+    width: 1450px; */
+}
+
+/* .text-box{
+    border: 2px solid #333;
+    height: 250px;
+    width: 1000px;
+} */
+
+.text-box1{
+    border: 2px solid #333;
+    /* height: 250px; */
+    width: 1000px;
+    /* width: 1300px; */
+    text-align: left;
+    background-color: white;
+}
+
+.text-box2{
+    border: 2px solid #333;
+    /* height: 250px; */
+    width: 1000px;
+    text-align: left;
+    background-color: white;
+}
+
+/* 버튼 */
+.btn{
+    display: flex;
+    justify-content: space-between;
+    /* margin-left: 240px; */
+    margin-top: 50px;
+}
+
+.button{
+    width: 100px;
+    height: 30px;
+    color: black;
+    font-weight: bolder;
+    font-size: 15px;
+    background-color: transparent;
+}
+
+/* 게시판 댓글 */
+.chat-board{
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    width: 1000px;
+    margin-left: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* background-color: aliceblue; */
+}
+
+.chat-board thead th{
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: black;
+    border-bottom: 3px solid #333;
+}
+
+.chat-board td{
+    /* width: 350px; */
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    text-align: center;
+}
+
+.td-1{
+    width: 180px;
+    /* padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid rgb(175, 175, 175); */
+}
+
+.td-2{
+    width: 1000px;
+    /* padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid rgb(175, 175, 175); */
+}
+
+.td-3{
+    width: 90px;
+    /* padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid rgb(175, 175, 175); */
+}
+
+.td-4{
+    width: 90px;
+    /* padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid rgb(175, 175, 175); */
+}
+
+.td-5{
+    width: 230px;
+    /* padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid rgb(175, 175, 175); */
+}
