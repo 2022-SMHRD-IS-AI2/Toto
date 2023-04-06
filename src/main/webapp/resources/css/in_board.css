@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(reset.css);
 
 .q-nav{
@@ -101,13 +100,15 @@
     /* margin-left: 450px; */
     /* margin-left: 580px; */
     margin-top: 20px;
-    background-color: #acc9e6;
+    /* background-color: #acc9e6; */
+    background-color: #f4f7fa;
 }
 
 .text-2{
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: large;
     /* background-color: aliceblue; */
     /* margin-left: 250px; */
     margin-bottom: 20px;
@@ -119,9 +120,10 @@
 
 hr{
     /* width: 1050px; */
-    height: 5px;
+    height: 4px;
     /* margin-left: 250px; */
-    background-color: #333;
+    /* background-color: #333; */
+    background-color: grey;
     border: 0;
     /* margin-right: 0; */
 }
@@ -129,10 +131,14 @@ hr{
 .text-3{
     display: flex;
     justify-content: flex-end;
-    font-size: 18px;
+    /* font-size: 18px; */
+    font-size: large;
     /* background-color: aliceblue; */
-    /* margin-left: 250px; */
+    margin-left: 250px;
     margin-top: 20px;
+    /* letter-spacing: 0px; */
+    word-spacing: 20px;
+    margin-right: 160px;
 }
 
 /* .text-2 div{
@@ -147,7 +153,7 @@ hr{
 .all-text-box{
     display: grid;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
     /* margin-left: 60px; */
     /* grid-template-columns: repeat(4, 1fr); */
     /* grid-template-rows: repeat(2, 1fr); */
@@ -171,98 +177,238 @@ hr{
 } */
 
 .text-box1{
-    border: 2px solid #333;
+    border: 1px solid grey;
+    border-radius: 15px;
     /* height: 250px; */
     width: 1000px;
     /* width: 1300px; */
     text-align: left;
     background-color: white;
+    font-size: medium;
 }
 
 .text-box2{
-    border: 2px solid #333;
+    /* border: 2px solid #333; */
+    border: 1px solid grey;
+    border-radius: 15px;
     /* height: 250px; */
     width: 1000px;
     text-align: left;
     background-color: white;
+    font-size: medium;
+}
+
+/* 댓글 버튼 */
+.chat-btn{
+    display: flex;
+    /* justify-content: space-between; */
+    margin-left: 150px;
+    margin-top: 20px;
+    width: 1000px;
+}
+
+.chat-btn1{
+    display: flex;
+    width: 650px;
+    height: 40px;
+    /* margin-left: 240px; */
+    /* margin-top: 40px; */
+    /* background-color: aliceblue; */
+    /* justify-content: center; */
+}
+
+.chat-btn1-button1{
+    width: 50px;
+    height: 30px;
+    color: black;
+    /* font-weight: bolder;
+    font-size: 15px; */
+    font-size: small;
+    margin-right: 10px;
+    /* background-color: transparent; */
+    /* background-color: #acc9e6; */
+    background-color: rgb(150, 150, 150);
+}
+
+.chat-btn2{
+    display: flex;
+    width: 650px;
+    height: 40px;
+    justify-content: end;
+    /* margin-left: 300px; */
+    /* margin-top: 40px; */
+    /* background-color: aliceblue; */
+    /* justify-content: center; */
+}
+
+/* 댓글 게시판 */
+.chat-board{
+    border-collapse: collapse;
+    /* text-align: center; */
+    line-height: 1.5;
+    width: 1000px;
+    margin-left: 150px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.reviewer-info{
+    width: 118px;
+    height: 32px;
+    margin-left: 10px;
+}
+
+.reviewer-info-header{
+    width: 1000px;
+    height: 32px;
+    display: flex;
+    padding: 20px 0px;
+    justify-content: space-between;
+    /* background-color: #acc9e6; */
+    border-top: 1px solid  grey;
+    border-bottom: 1px solid rgb(218, 217, 217);
+}
+
+.reviewer-info span{
+    display: block;
+}
+
+.reviewer-name{
+    font-size:medium ;
+    font-weight: 600;
+}
+
+.reviewer-date{
+    font-size:small ;
+    font-weight: 300;
+}
+
+.review-body{
+    width: 1000px;
+    /* height: 100px; */
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    /* background-color: antiquewhite; */
+    border-bottom: 1px solid  grey;
+    padding: 20px 0px;
+}
+
+.review-contents{
+    width: 980px;
+    /* height: 100px; */
+    height: auto;
+    margin-left: 10px;
+    font-size: medium;
+}
+
+.reviewer-img{
+    width: 50px;
+    height: 30px;
+    color: black;
+    font-weight: bolder;
+    font-size: 15px;
+    /* margin-right: 10px; */
+    /* margin-left: 100px; */
+    margin-top: 10px;
+    /* background-color: transparent; */
+    /* background-color: #acc9e6; */
+    background-color: rgb(150, 150, 150);
+    font-size: small;
+}
+
+/* 댓글입력 */
+.chat{
+    display: inline-block;
+    /* width: 800px; */
+    width: 1000px;
+    margin-left: 150px;
+    /* margin-top: 30px; */
+    /* background-color: #acc9e6; */
+
+    /* border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    width: 1000px;
+    margin-left: 150px;
+    margin-top: 10px;
+    margin-bottom: 50px; */
+}
+
+.comment1{
+    width: 1000px;
+    height: 20px;
+    border-bottom: 1px solid  grey;
+    /* margin-top: 20px; */
+    padding: 10px 0px;
+    display: flex;
+    /* background-color: aquamarine; */
+}
+
+.comment2{
+    width: 1000px;
+    height: 40px;
+    /* border-top: 1px solid  grey; */
+    /* margin-top: 20px; */
+    padding: 10px 0px;
+    display: flex;
+    /* background-color: antiquewhite; */
+}
+
+.comment-input {
+    width: 1000x;
+    height: 30px;
+    /* padding-left: 60px; */
+    /* background-color: yellow; */
+}
+
+.comment-input input{
+    /* width: 460px; */
+    width: 950px;
+    height: 30px;
+    font-size: medium;
+}
+
+.comment-btn{
+    /* width: 40px;
+    height: 30px; */
+
+    width: 50px;
+    height: 30px;
+    color: black;
+    /* font-weight: bolder;
+    font-size: 15px; */
+    font-size: small;
+    /* margin-right: 10px; */
+    margin-top: 2px;
+    /* background-color: transparent; */
+    /* background-color: #acc9e6; */
+    background-color: rgb(150, 150, 150);
 }
 
 /* 버튼 */
 .btn{
     display: flex;
-    justify-content: space-between;
+    width: 1300px;
+    height: 60px;
     /* margin-left: 240px; */
-    margin-top: 50px;
+    margin-top: 20px;
+    /* background-color: aliceblue; */
+    justify-content: center;
+}
+
+.btn i{
+    margin-top: 17px;
 }
 
 .button{
     width: 100px;
-    height: 30px;
+    height: 50px;
     color: black;
-    font-weight: bolder;
-    font-size: 15px;
+    /* font-weight: bolder;
+    font-size: 15px; */
+    font-size: medium;
     background-color: transparent;
-}
-
-/* 게시판 댓글 */
-.chat-board{
-    border-collapse: collapse;
-    text-align: center;
-    line-height: 1.5;
-    width: 1000px;
-    margin-left: 150px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    /* background-color: aliceblue; */
-}
-
-.chat-board thead th{
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    color: black;
-    border-bottom: 3px solid #333;
-}
-
-.chat-board td{
-    /* width: 350px; */
-    padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid rgb(175, 175, 175);
-    text-align: center;
-}
-
-.td-1{
-    width: 180px;
-    /* padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid rgb(175, 175, 175); */
-}
-
-.td-2{
-    width: 1000px;
-    /* padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid rgb(175, 175, 175); */
-}
-
-.td-3{
-    width: 90px;
-    /* padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid rgb(175, 175, 175); */
-}
-
-.td-4{
-    width: 90px;
-    /* padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid rgb(175, 175, 175); */
-}
-
-.td-5{
-    width: 230px;
-    /* padding: 10px;
-    vertical-align: top;
-    border-bottom: 1px solid rgb(175, 175, 175); */
+    /* margin-left: 200px;
+    margin-right: 200px; */
 }
