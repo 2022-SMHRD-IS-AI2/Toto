@@ -47,10 +47,20 @@ pageEncoding="UTF-8"%>
                             <td>제목(댓글수)</td>
                         </tr>
                         <tr>
-                            <td>닉네임</td>
+                            <td>${memberVO.m_nick}</td>
                             <td>좋아요</td>
                             <td>댓글수</td>
                         </tr>
+                        <c:forEach var="vo" items="${list}">
+											<tr>
+												<td><fmt:formatDate value="${vo.b_date }"
+														pattern="yyyy-MM-dd" /></td>
+												<td><a href="${cpath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
+											<%-- 	<td>${vo.writer}</td>
+												
+												<td>${vo.count}</td> --%>
+											</tr>
+										</c:forEach>
                     </table>
                     <!-- <hr> -->
                 </div>
