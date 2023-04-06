@@ -18,4 +18,5 @@ public class Bulletin {
 	private String bFile3;
 	private Date bDate;
 	private int bSelect;
+	private int qNum;
 }

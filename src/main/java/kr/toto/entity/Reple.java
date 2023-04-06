@@ -12,4 +12,5 @@ public class Reple {
 	private int rParent;
 	private int bNum;
 	private Date bDate;
+	private Date bModifyDate;
 }
