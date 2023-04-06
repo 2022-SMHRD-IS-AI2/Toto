@@ -46,12 +46,31 @@ public class BulletinController {
 		// 문제 발생시 어떻게 하느냐?
 		// WEB-INF/views/list.jsp -> list.jsp ->? ${cnt}
 	}
-	@PostMapping("/fileRegister.do")
+	
+	@GetMapping("/writer.do")
+	public String register() {
+		
+		return "writer/writer";
+	}
+	
+	
+	@PostMapping("/writer.do")
 	public String register(Bulletin vo) { 	// title, content, writer이 넘어와야함  -> Board(파라미터 수집)
 		mapper.register(vo);	// 성공
 		// 다시 리스트보기 페이지로 이동(/list.do)
 		// redirect기입
-		return "redirect:/registerBoard.do";
+		return "redirect:/fileRegister.do";
+	}
+	
+	
+	@RequestMapping("/fileRegister.do")
+		public String fileRegister(Model model,@RequestParam("num") int num) {
+		
+		Bulletin vo = mapper.get(num);
+		model.addAttribute("vo", vo);
+		
+		return "bulletin/writer";
+		
 	}
 	
 	

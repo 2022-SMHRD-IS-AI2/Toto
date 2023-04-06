@@ -22,8 +22,8 @@ pageEncoding="UTF-8"%>
                     <img src="/image/image.jpg" alt="">
                 </div>
                 <div class="profile-info">
-                    <span>준연</span>
-                    <span>ziririsky8@naver.com</span>
+                    <span>${memberVO.m_nick}</</span>
+                    <span>${memberVO.m_email}</span>
                 </div>             
             </div>
         

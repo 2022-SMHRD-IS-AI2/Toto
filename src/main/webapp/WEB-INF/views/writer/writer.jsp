@@ -22,8 +22,8 @@
                     <img src="${cPath}/resources/images/image.jpg" alt="">
                 </div>
                 <div class="profile-info">
-                    <span>준연</span>
-                    <span>ziririsky8@naver.com</span>
+                    <span>${memberVO.b_name}<span>
+                    <span>${memberVO.m_email}</</span>
                 </div>             
             </div>
         
@@ -45,25 +45,27 @@
                 <div class="board_write">
                     <div class="title">
                         <dl>
+                        <form action="${cpath }/fileBullentin.do" method="post">
                             <dt>제목</dt>
-                            <dd><input type="text" placeholder="제목 입력"></dd>
+                            <dd><input type="text" placeholder="제목 입력" class="form-control" placeholder="Enter title" name ="b_title"></dd>
                         </dl>
                     </div>
                     <div class="info">
                         <dl>
                             <dt>닉네임</dt>
-                            <dd><input type="text" placeholder="닉네임 입력"></dd>
+                            <dd><input type="text" placeholder="닉네임 입력" name= "m_nick"></dd>
                         </dl>
                         <dl>
                             <dt>파일첨부</dt>
-                            <dd><input type = "file" ></dd>
+                            <dd><input type = "file"  name="b_file1"></dd>
+                            </form>
                         </dl>
                     </div>
                     <div class="cont">
-                        <textarea placeholder="내용 입력"></textarea>
+                        <textarea placeholder="내용 입력"  name="b_content"></textarea>
                     </div>
                     <div class="cont1">
-                        <textarea placeholder="문제/해설 입력"></textarea>
+                        <textarea placeholder="문제/해설 입력" name="q_comment"></textarea>
                     </div>
                 </div>
                 <div class="bt_wrap">

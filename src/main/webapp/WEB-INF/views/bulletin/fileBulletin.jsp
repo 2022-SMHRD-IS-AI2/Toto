@@ -23,7 +23,7 @@
 					<img src="${cPath}/resources/images/image.jpg" alt="">
 				</div>
 				<div class="profile-info">
-					<span>준연</span> <span>ziririsky8@naver.com</span>
+					<span>${memberVO.m_nick}</span> <span>${memberVO.m_email}</span>
 				</div>
 			</div>
 
@@ -37,6 +37,7 @@
 	</div>
 
 	<div class="text">문항게시판</div>
+	<form action="${Cpath}/registerBoard.do" method= "post"></form>
 
 	<div class="contents">
 		<hr>
@@ -45,8 +46,9 @@
 				<a href="#">
 					<table style="width: 290px; height: 170px;">
 						<tr style="height: 40px;">
-							<td>23-03-29</td>
-					
+							<td>날짜</td>
+							<td><fmt:formatDate value="${vo.indate }"
+										pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
 							<td style="word-break: break-all;">내용</td>
@@ -67,8 +69,7 @@
 								<td>${vo.b_title}</td>
 								<td>${memberVO.m_nick} }</td>
 								<td><a href="${cpath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
-								<td><fmt:formatDate value="${vo.indate }"
-										pattern="yyyy-MM-dd" /></td>
+								<td>${memberVO.m_nick }</td>
 							<%-- 	<td>${vo.writer}</td>
 								<td>${vo.count}</td> --%>
 							</tr>
@@ -108,6 +109,7 @@
 
 		<div class="button">
 			<button>검색</button>
+			<button  onclick="location.href='${cPath}/writer.do'">글쓰기</button>
 		</div>
 	</div>
 
