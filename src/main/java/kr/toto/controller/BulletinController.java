@@ -11,6 +11,6 @@ public class BulletinController {
 	@GetMapping("/registerBoard.do")
 	public String registerBoard() { //Bulletn vo 변수로
 		// mapper.insertBoard(vo);
-		return "bulletin/bulletin";
+		return "bulletin/bulletin"; 
 	}
-}
+}  
