@@ -53,9 +53,9 @@
 
 
 			<ul class="q-board">
-                <li class="m-4"><a href="/sentence.html">문장생성 </a></li>
-                <li class="m-4"><a href="#">문항게시판 </a></li>
-                <li class="m-4"><a href="#">자료게시판 </a></li>
+                <li class="m-4"><a href="">문장생성 </a></li>
+                <li class="m-4"><a href= "">문항게시판 </a></li>
+                <li class="m-4"><a href="">자료게시판 </a></li>
                 <li class="m-4"><a href="/mypage.html">마이페이지 </a></li>
             </ul>
         </div>

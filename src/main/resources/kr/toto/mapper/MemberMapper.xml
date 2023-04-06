@@ -8,4 +8,6 @@
 		insert into Member (m_num, m_email, m_pw, m_nick, m_like, m_career, m_phone, m_join_date, m_name)
 		values (#{m_num}, #{m_email}, #{m_pw}, #{m_nick},0, #{m_career}, #{m_phone},now(), #{m_name})
 	</insert>
+	
+	
 </mapper>
