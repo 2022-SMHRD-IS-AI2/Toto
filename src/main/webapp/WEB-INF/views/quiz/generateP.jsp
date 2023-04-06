@@ -83,10 +83,10 @@
        
     </div>
     <div class="gpt-footer">
-        <form class="gpt-form" >
+        <form class="gpt-form" action="generateP.do" method = "post">
             <div class="gpt-text">
-                <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
-                <button type="submit" >전송</button>
+                <textarea id="myTextarea"placeholder="문장을 입력해주세요." name="sentence"></textarea> 
+                <button type="submit">전송</button>
     
             </div>
         </form>

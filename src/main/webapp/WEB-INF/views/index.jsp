@@ -22,7 +22,7 @@ pageEncoding="UTF-8"%>
     <!-- header  -->
     <div class="head">
         <header class="header">
-            <a href="/index.html">
+            <a href="${cPath}/">
                 <img src="${cPath}/resources/images/logo.png" >
             </a>
             
