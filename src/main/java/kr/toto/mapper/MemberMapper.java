@@ -1,4 +1,4 @@
-package kr.board.mapper;
+package kr.toto.mapper;
 
 import kr.toto.entity.Member;
 

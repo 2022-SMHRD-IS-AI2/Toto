@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.board.mapper.MemberMapper;
 import kr.toto.entity.Member;
+import kr.toto.mapper.MemberMapper;
 
 @Controller
 public class MemberController {
