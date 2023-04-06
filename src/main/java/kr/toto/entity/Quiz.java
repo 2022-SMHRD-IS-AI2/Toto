@@ -6,21 +6,21 @@ import lombok.Data;
 
 @Data
 public class Quiz {
-	private int qNum;
-	private int pNum;
-	private String qQuest;
+	private int q_num;
+	private int p_num;
+	private String q_quest;
 
-	private String qWrong1;
-	private String qWrong2;
-	private String qWrong3;
-	private String qWrong4;
-	private String qAnswer;
-	private String qComment;
+	private String q_wrong1;
+	private String q_wrong2;
+	private String q_wrong3;
+	private String q_wrong4;
+	private String q_answer;
+	private String q_comment;
 
-	private Date qDate;
-	private String qType;
+	private Date q_date;
+	private String q_type;
 
-	private int mNum;
-	private int qStar;
+	private int m_num;
+	private int q_star;
 	
 }

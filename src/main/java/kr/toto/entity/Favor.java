@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class Favor {
-	private int fTo;
-	private int fFrom;
-	private Date fDate;
+	private int f_to;
+	private int f_from;
+	private Date f_date;
 }

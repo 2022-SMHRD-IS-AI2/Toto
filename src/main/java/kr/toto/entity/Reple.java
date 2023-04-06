@@ -6,11 +6,11 @@ import lombok.Data;
 
 @Data
 public class Reple {
-	private int rNum;
-	private int mNum;
-	private String rContent;
-	private int rParent;
-	private int bNum;
-	private Date bDate;
-	private Date bModifyDate;
+	private int r_num;
+	private int m_num;
+	private String r_content;
+	private int r_parent;
+	private int b_num;
+	private Date b_date;
+	private Date b_modify_date;
 }

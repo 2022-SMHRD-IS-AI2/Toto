@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class LikeB {
 	
-	private int bNum;
-	private int mNum;
+	private int b_num;
+	private int m_num;
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "reset.css";
 .myquestion-title{width: 200px;height: 60px; position: absolute;left: 360px;top: 100px;}
 .myquestion-content{width: 1300px;height: 600px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 200px;margin-bottom: 60px;}

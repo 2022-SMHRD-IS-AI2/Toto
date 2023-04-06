@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class Voca {
 	
-	private int vNum;
-	private String vWord;
-	private String vMean;
-	private int vIOrW;
+	private int v_num;
+	private String v_word;
+	private String v_mean;
+	private int v_i_or_w;
 }

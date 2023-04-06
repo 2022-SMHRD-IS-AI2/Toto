@@ -14,39 +14,40 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="${cPath}/resources/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/c3a31cbb00.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    
 </head>
 <body>
     
     <!-- header  -->
     <div class="head">
         <header class="header">
-            <a href="${cPath}/">
+            <a href="/index.html">
                 <img src="${cPath}/resources/images/logo.png" >
             </a>
-            <div class="menu">
-                <span>개요</span>
-                <i class="fa-solid fa-chevron-down fa-2xs" onmouseover= i_mouseover() ></i>     
-                <ul class="ul" onmouseover= i_mouseover() onmouseout= i_mouseout()>
-                    <li>
-                        <a href="#" >기능</a>       
-                    </li>
-                    <li>
-                        <a href="#">가격</a>
-                    </li>
-                    <li>
-                        <a href="#">팀원소개</a>
-                    </li>
+            
+            <div class="sign">
+            	<c:choose>
+                <c:when test="${!empty memberVO}">
+                <ul class="signUp">
+                    <li><a href="#"><p>${memberVO.m_nick}님</p> </a></li>
+                    <li><a href="#"><p>로그아웃</p></a></li>
+                </ul>
+                </c:when>
+                <c:otherwise>
+                <ul class="signUp">
+                    <li><a href="${cPath}/login.do"><p>로그인</p> </a></li>
+                    <li><a href="${cPath}/join.do"><p>회원가입</p></a></li>
                 </ul>
                 
-            </div>
-            <div>
-                <a href="${cPath}/login.do">로그인</a>
+                </c:otherwise>
+            	</c:choose>
+                
             </div>
  
         </header>
     </div>
-   <div class="nav">
+   <div class="nav0">
     <nav>
         <div class="nav1">
             <span>
@@ -107,11 +108,25 @@ pageEncoding="UTF-8"%>
             </div>
         </nav>
 
+        
     </div>
-    <footer>
-
-    </footer>
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+          <p class="text-center text-muted">© 2023 Company, Inc</p>
+        </footer>
+      </div>
+    
     <script src="${cPath}/resources/js/index.js">
+        
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

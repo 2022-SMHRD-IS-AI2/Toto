@@ -6,13 +6,15 @@ button{border:none; border-radius:0%;cursor: pointer; }
 input:focus{outline:none;}
 body{ background-image: url('/image/toto.png'); background-size: 2200px;}
 
+
 /* 첫 번째 사이드 메뉴 */
 
-.q-nav{display: flex;}
-.q-nav-profile{top: 20px; width: 200px;height: 800px; left: 77px; display: flex; flex-direction: column; position: fixed;}
+
+.q-nav-profile{top: 20px; width: 200px;height: 800px; left: 77px; display: flex; flex-direction: column; position: fixed; align-items: center;}
 .q-nav-profile img{ width: 150px;height: 150px;margin-top: -27px;}
-.profile{width: 200px;height: 260px;margin-top: 30px;}
-.profile-img>img{width: 200px; height: 200px;border-radius: 50%;}
+.profile{width: 200px;height: 300px;margin-top: 30px;}
+.profile-img{width: 200px;height: 160px;display: flex;justify-content: center;}
+.profile-img>img{width: 160px; height: 160px;border-radius: 50%;}
 .profile-info{ display: flex;flex-direction: column;text-align: center;margin: 10px 0;}
 .profile-info>span:nth-child(2){padding-top: 10px;font-size: 12px;}
 .profile-info-button{width: 200px;height: 40px;margin-top: 15px;}
@@ -24,7 +26,7 @@ body{ background-image: url('/image/toto.png'); background-size: 2200px;}
 
 /* 두 번째 사이드 메뉴 */
 
-.side-menu{ width: 200px;height: 300px; background: #f4f7fa; position: fixed; top: 140px; right: 20px;border-radius: 15px;}
+.side-menu{ width: 200px;height: 260px; background: #f4f7fa; position: fixed; top: 140px; right: 20px;border-radius: 15px;}
 .side-menu>h2{padding: 15px 15px;}
 .side-menu-content{ width: 160px;height: 160px;display: flex; flex-direction: column;margin-left: 20px; margin-top: 10px;font-size: 20px;}
 .side-menu-content>li{ width: 140px;height: 60px;display: flex;justify-content: flex-start;align-items: center;margin: 5px 0;}
@@ -33,18 +35,20 @@ body{ background-image: url('/image/toto.png'); background-size: 2200px;}
 
 /* 비밀번호 변경 */
 
-.change{background: #f4f7fa; width: 1300px; height: 960px;margin-left: 350px;display: flex; justify-content: center;align-items: center; margin-top: 120px;}
+.change{background: #f4f7fa; width: 1300px; height: auto;margin-left: 350px;display: flex; justify-content: center;align-items: flex-start; margin-top: 120px;}
+.change-title{position: absolute;top: 60px;left: 400px;}
 .changeContent{ width: 1000px; height: 600px;font-size: 20px; display: flex;flex-direction: column; align-items: center;}
 .changeContent>h1{padding-right: 600px;margin-top: 30px;}
-.changePassword{width: 800px;height: 400px;font-size: 26px; margin-top: 50px; border: 1px solid black;}
-.changePassword-id{padding-left: 15px; width: 800px;height: 80px;display: flex;justify-content: flex-start;align-items: center;}
+.changePassword{width: 800px;height: 400px;font-size: 26px; margin-top: 50px; border: 1px solid rgb(146, 139, 139);}
+.changePassword-id{padding-left: 20px; width: 800px;height: 100px;display: flex;justify-content: flex-start;align-items: center;}
+.text-muted {
+    font-size: 12px;
+  }
 .col-md-3{width: 200px; height: 60px; margin-left: 30px; display: flex; align-items: center;}
 .col-md-6{width: 300px; height: 80px; margin-left: 40px; display: flex; align-items: center;}
 .col-md-6>input{width: 300px;height: 28px;}
 .changePassword-row{margin: 20px 0; width: 800px;height: 40px;display: flex;justify-content: flex-start;align-items: center;}
-.btnChange{width: 1200px;height: 80px;display: flex;justify-content: center;align-items: center;}
-
-
+.btnChange{width: 760px;height: 80px;display: flex;justify-content: flex-end;align-items: center;}
 .btn-sm{
     width: 120px;
     height: 40px;
@@ -55,13 +59,15 @@ body{ background-image: url('/image/toto.png'); background-size: 2200px;}
 
 
 /* 회원탈퇴  */
-
-.deleteContent{margin-top: 200px; width: 1000px; height: 900px;font-size: 20px; display: flex;flex-direction: column; align-items: center;}
+.delete{background: #f4f7fa; width: 1300px; height:800px;;margin-left: 350px;display: flex; justify-content: center;align-items: flex-start; margin-top: 120px;}
+.col-form-label{font-size: 18px;}
+.delete-title{position: absolute;top: 60px;left: 400px;}
+.deleteContent{width: 1000px; height: 600px;font-size: 20px; display: flex;flex-direction: column; align-items: center;}
 .deleteContent>h1{width: 200px;height: 60px; margin-right: 740px;}
-.delete{width: 800px;height: 660px;font-size: 26px; margin-top: 38px; border: 1px solid black;}
+.deleteForm{width: 800px;height: 660px;font-size: 26px; margin-top: 38px; border: 1px solid black;}
 .panel-body{width: 800px;height: 400px;display: flex;justify-content: center;flex-direction: column;align-items: flex-start;padding-left: 20px;}
 .col-xs-12{width: 760px;height: 360px;margin-top: 20px;}
-.form-check{width: 800px; height: 40px;display: flex;font-size: 14px;align-items: center;}
+.form-check{width: 800px; height: 40px;display: flex;font-size: 14px;align-items: center; margin-top: 20px;}
 .form-check-label{margin-left: 10px;}
 .custom-control-input{width: 20px;height: 20px;}
 .control-label{font-size: 14px;}
