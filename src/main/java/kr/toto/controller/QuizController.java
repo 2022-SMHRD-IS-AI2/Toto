@@ -3,6 +3,7 @@ package kr.toto.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.toto.entity.Member;
 import kr.toto.entity.Paragraph;
 import kr.toto.entity.Quiz;
 import kr.toto.mapper.QuizMapper;
@@ -78,7 +80,8 @@ public class QuizController {
 	}
 	
 	@RequestMapping("/myQuestion.do")
-	public String myQuestion(Model model, Quiz vo) {
+	public String myQuestion(Model model, HttpSession session) {
+		Member vo = (Member)session.getAttribute("memberVO");
 		List<Quiz> quizs = mapper.selectMyQuiz(vo);
 		model.addAttribute("quizs", quizs);
 		return "mypage/myQuestion";
