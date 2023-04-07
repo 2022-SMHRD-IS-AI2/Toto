@@ -81,7 +81,8 @@ pageEncoding="UTF-8"%>
                     <tr>
                       <th scope="row"><%= cnt %></th>
                       <td class="hidden">
-                        <a href="#" data-toggle="collapse" data-target="#demo1">${quizVO.q_quest}</a>
+                      <div><a href="#" data-toggle="collapse" data-target="#demo1">${quizVO.q_quest}</a></div>
+                        
                         <div id="demo1" class="collapse">
                           <p>문제: ${quizVO.q_quest}</p>
                           <p>선지 (1) ${quizVO.q_wrong1}<br> (2) ${quizVO.q_wrong2}<br> (3) ${quizVO.q_wrong3}<br> (4) ${quizVO.q_answer}<br> (5) ${quizVO.q_wrong4} </p>
