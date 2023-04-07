@@ -42,7 +42,7 @@
 <input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
 		<hr>
-		<div class="all-box">
+		<div class="all-box" onclick="location.href='${cPath}/inboard.do'">
 			<div class="box">
 				<a href="#">
 					<table style="width: 290px; height: 170px;">

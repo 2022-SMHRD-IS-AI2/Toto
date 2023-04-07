@@ -53,10 +53,10 @@
 
 
 			<ul class="q-board">
-                <li class="m-4"><a href="">문장생성 </a></li>
+                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
                 <li class="m-4"><a href= "">문항게시판 </a></li>
-                <li class="m-4"><a href="">자료게시판 </a></li>
-                <li class="m-4"><a href="/mypage.html">마이페이지 </a></li>
+                <li class="m-4"><a href="${cPath}registerBoard.do">자료게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
             </ul>
         </div>
     </div>
@@ -83,10 +83,19 @@
        
     </div>
     <div class="gpt-footer">
-        <form class="gpt-form" >
+<<<<<<< HEAD
+        <form class="gpt-form" action="${cPath}/generateP.do">
+=======
+        <form class="gpt-form" action="generateP.do" method = "post">
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
             <div class="gpt-text">
-                <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
+<<<<<<< HEAD
+                <textarea id="myTextarea"placeholder="문장을 입력해주세요." name ="p_sentence"></textarea> 
                 <button type="submit" >전송</button>
+=======
+                <textarea id="myTextarea"placeholder="문장을 입력해주세요." name="sentence"></textarea> 
+                <button type="submit">전송</button>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
     
             </div>
         </form>

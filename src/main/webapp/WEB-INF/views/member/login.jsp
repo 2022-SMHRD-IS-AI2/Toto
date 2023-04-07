@@ -15,12 +15,12 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
     <div class="login">
-        <img src="${cPath}/resources/image/logo3.jpg" class="login-logo">
-        <form method="post" class="login-form">
+        <img src="${cPath}/resources/images/logo3.jpg" class="login-logo">
+        <form method="post" class="login-form" action="${cPath}/login.do">
             <h3>Email</h3>
-            <input type="text" name="userEmail" placeholder="Email">
+            <input type="text" name="m_email" placeholder="Email">
             <h3>Password</h3>
-            <input type="password" name="userPassword" placeholder="Password">
+            <input type="password" name="m_pw" placeholder="Password">
             <!-- <label for="remember-check">
                 <input type="checkbox" id="remember-check">아이디 저장하기
             </label> -->

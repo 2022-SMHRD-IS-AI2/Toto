@@ -35,10 +35,10 @@ pageEncoding="UTF-8"%>
         
 
         <ul class="q-board">
-            <li class="m-4"><a href="#"><span class="q-board-span">문장생성</span> </a></li>
+            <li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
             <li class="m-4"><a href="#"><span class="q-board-span">문항게시판</span> </a></li>
-            <li class="m-4"><a href="#"><span class="q-board-span">자료게시판</span> </a></li>
-            <li class="m-4"><a href="#"><span class="q-board-span">마이페이지</span> </a></li>
+            <li class="m-4"><a href="${cPath}registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
+            <li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
         </ul>
     </div>
 
@@ -48,7 +48,7 @@ pageEncoding="UTF-8"%>
     </div>
     
     <div class="page-content">
-        <form class="mypage-form" action="">
+        <form class="mypage-form" action="${cPath}/updateMy.do">
             <div class="mypage-form1">
                 <div class="mypage-img">
                     <img src="${cPath}/resources/images/hl.jpg">

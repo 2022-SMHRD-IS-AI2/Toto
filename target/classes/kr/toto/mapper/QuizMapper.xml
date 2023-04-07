@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.toto.mapper.QuizMapper">
+	<insert id="insertP" parameterType="kr.toto.entity.Paragraph">
+	insert into Paragraph (p_num, m_num, p_content, p_sentence) values (#{p_num},#{m_num},#{p_content},#{p_sentence}) 
+	</insert>
+	<insert id="insertQ" parameterType="kr.toto.entity.Quiz">
+	insert into Quiz (q_num, p_num, q_quest, q_wrong1, q_wrong2,q_wrong3, q_wrong4, q_answer, q_comment, q_date, q_type, m_num) values
+	(#{q_num},#{p_num},#{q_quest}, #{q_wrong1},#{q_wrong2}, #{q_wrong3}, #{q_wrong4}, #{q_answer}, #{q_comment}, now(),#{q_type}, #{m_num})
+	</insert>
+	<select id="selectMyQuiz" resultType="kr.toto.entity.Quiz">
+		select * from Quiz where m_num = #{m_num}
+	</select>
+</mapper>
