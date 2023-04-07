@@ -1,0 +1,16 @@
+package kr.toto.mapper;
+
+import java.util.List;
+
+import kr.toto.entity.Bulletin;
+import kr.toto.entity.Paragraph;
+
+public interface BoardMapper {
+
+	
+	public List<Bulletin> getAllFile(int num);
+	public List<Bulletin> getAllQuiz(int num);
+	public void writeParagraph(Paragraph vo);
+	public void writeBoard(Bulletin vo);
+	public Bulletin seeInBoard(Bulletin vo);
+}

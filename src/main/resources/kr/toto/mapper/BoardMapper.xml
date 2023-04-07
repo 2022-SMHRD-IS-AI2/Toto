@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.toto.mapper.BoardMapper">
+	<select id="getAllFile" resultType="kr.toto.entity.Bulletin">
+	 	select * from Bulletin where b_file_or_quiz = 0
+	</select>
+	<select id="getAllQuiz" resultType="kr.toto.entity.Bulletin">
+	 	select * from Bulletin where b_file_or_quiz = 1
+	</select>
+	<select id="seeInBoard" resultType="kr.toto.entity.Bulletin" parameterType="kr.toto.entity.Bulletin">
+		select * form Bulletin where b_num = #{b_num}
+	</select>
+
+
+</mapper>

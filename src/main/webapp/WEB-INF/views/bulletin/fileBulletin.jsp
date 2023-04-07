@@ -28,8 +28,8 @@
 
 			<ul class="q-board">
 				<li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">문항게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/quizSelect.do"><span class="q-board-span">문항게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/fileSelect.do"><span class="q-board-span">자료게시판</span> </a></li>
             	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
 			</ul>
 		</div>
@@ -38,32 +38,31 @@
 	<div class="text">문항게시판</div>
 	<form action="${cPath}/registerBoard.do" method= "post"></form>
 
-<input  type="hidden" name="b_f_or_q" value="0">
+	<input  type="hidden" name="b_file_or_quiz" value="0">
 	<div class="contents">
 		<hr>
 		<div class="all-box"   type="button" onclick="location.href='${cPath}/inboard.do'">
-		
+		<c:forEach var="files" items="${fileVO}">
 			<div class="box">
-				<a href="#">
+				<a href="${cPath}/">
 					<table style="width: 290px; height: 170px;">
 						<tr style="height: 40px;">
-							<td>날짜</td>
-							<td><fmt:formatDate value="${vo.indate }"
+							<td><fmt:formatDate value="${files.b_date}"
 										pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
-							<td style="word-break: break-all;">내용</td>
+							<td style="word-break: break-all;">${files.b_content}</td>
 						</tr>
 					</table>
 					<hr class="line">
 					<table sylte="width: 290px; height: 75px;">
 						<tr>
-							<td>제목(댓글수)</td>
+							<td>${files.b_title}(댓글수)</td>
 						</tr>
 						<tr style="height: 50px;">
-							<td>닉네임</td>
-							<td>좋아요 6</td>
-							<td>조회수 10</td>
+							<td>${memberVO.m_nick}</td>
+							<td>좋아요 <개수></td>
+							<td>조회수 ${files.b_select}</td>
 						</tr>
 						<c:forEach var="vo" items="${list}">
 							<tr>
@@ -77,6 +76,7 @@
 					</table>
 				</a>
 			</div>
+		</c:forEach>
 			<div class="box">B</div>
 			<div class="box">C</div>
 			<div class="box">D</div>
@@ -109,7 +109,10 @@
 
 		<div class="button">
 			<button>검색</button>
-			<button  onclick="location.href='${cPath}/writer.do'">글쓰기</button>
+			<c:if test="${!empty memberVO}">
+			<button  onclick="location.href='${cPath}/registerBoard.do'">글쓰기</button>
+			</c:if>
+
 		</div>
 	</div>
 

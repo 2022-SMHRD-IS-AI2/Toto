@@ -11,4 +11,7 @@
 	<select id="selectMyQuiz" resultType="kr.toto.entity.Quiz" parameterType="kr.toto.entity.Member">
 		select * from Quiz where m_num = #{m_num}
 	</select>
+	<insert id="writeBoard">
+		insert into Quiz ()
+	</insert>
 </mapper>

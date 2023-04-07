@@ -53,8 +53,8 @@ public class QuizController {
 	
 // 여기 꼭 수정  + 일단 파이썬 서버하고 연결함
 	@RequestMapping("/heehee.do")
-	public String heehee() { //Paragraph vo, RedirectAttributes rttr
-			
+	public String heehee(String data) { //Paragraph vo, RedirectAttributes rttr
+		System.out.println(data);
 		//rttr.addAttribute("question",vo.getP_sentence());
 		return "redirect:http://127.0.0.1:8000/hello";
 	}
@@ -90,8 +90,9 @@ public class QuizController {
 
 	
 	@PostMapping("generateP.do")
-	public String generateP(String sentence) { //, RedirectAttributes rttr
+	public String generateP(String data) { //, RedirectAttributes rttr
 //		rttr.addAttribute("sen", sentence);
+		System.out.println(data);
 		return "redirect:http://127.0.0.1:8000/hello";
 		
 	}
