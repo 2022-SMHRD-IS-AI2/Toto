@@ -71,15 +71,13 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
-<<<<<<< HEAD
-	
+
 	@RequestMapping("/myPage")
 	public String myPage() {
 		return "mypage/myPage";
 	}
 	
 	
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
+
 
 }
