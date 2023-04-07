@@ -9,5 +9,12 @@
 		values (#{m_num}, #{m_email}, #{m_pw}, #{m_nick},0, #{m_career}, #{m_phone},now(), #{m_name})
 	</insert>
 	
+	<!-- <update>
+		update Member set []
+	</update> -->
 	
+	
+	<delete id = "remove">
+		delete from Member where m_num= #{m_num}
+	</delete>
 </mapper>

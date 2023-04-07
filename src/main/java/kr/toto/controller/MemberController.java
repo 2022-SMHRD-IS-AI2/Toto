@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -77,6 +78,12 @@ public class MemberController {
 		return "mypage/myPage";
 	}
 	
+	@GetMapping("/modify.do")	// ? num=10
+	public String modify(Model model, int num) {
+		Member vo = mapper.get(num);
+		model.addAttribute("vo", vo);
+		return "mypage/modify";		//modify.jsp
+	}
 	
 
 

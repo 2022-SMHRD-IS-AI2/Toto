@@ -5,6 +5,27 @@ pageEncoding="UTF-8"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="cPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
+<script type="text/javascript">
+  	$(document).ready(function(){
+  		
+  		// 버튼일 클릭되었을때 처리
+	$("button").on("click", function(e){
+			var btn=$(this).data("btn");	// data-btn
+				if(btn == "list"){
+					location.href="${cpath}/list.do"
+				}else if(btn == "remove"){
+					location.href="${cpath}/remove.do?num="+${vo.m_num};
+				}else if(btn == "modify"){
+					location.href="${cpath}/modify.do?num="+${vo.m_num};	// get
+				}
+	
+			});
+  		
+  	});
+  
+  
+  
+  </script>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -24,10 +45,10 @@ pageEncoding="UTF-8"%>
                 <img src="${cPath}/resources/images/hl.jpg" alt="">
             </div>
             <div class="profile-info">
-                <span>준연</span>
-                <span>ziririsky8@naver.com</span>
+                <span>${MemberVO.m_nick}</span>
+                <span>${MemberVO.m_nick}</span>
                 <div class="profile-info-button">
-                    <button type="button">로그아웃</button>
+                    <button type="button" ><a href="#">로그아웃</a></button>
                 </div>
             </div>             
             
@@ -58,27 +79,27 @@ pageEncoding="UTF-8"%>
                 <div class="mypage-form1-content">
                     <div class="form-row">
                         <div class="form-group col">
-                          <label for="inputEmail4">이름</label>
+                          <label for="inputEmail4">${vo.m_name}</label>
                           <input type="email" class="form-control" id="inputEmail4">
                         </div>
                         <div class="form-group col">
-                          <label for="inputPassword4">닉네임</label>
+                          <label for="inputPassword4">${vo.m_nick }</label>
                           <input type="password" class="form-control" id="inputPassword4">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col">
-                          <label for="inputEmail4">Email</label>
+                          <label for="inputEmail4">${vo.m_email}</label>
                           <input type="email" class="form-control" id="inputEmail4">
                         </div>
                         <div class="form-group col">
-                          <label for="inputPassword4">전화번호</label>
+                          <label for="inputPassword4">${vo.m_phone }</label>
                           <input type="password" class="form-control" id="inputPassword4">
                         </div>
                     </div>
                     <div style="width: 420px;">
                         <div class="form-group ">
-                            <label for="inputAddress">소속</label>
+                            <label for="inputAddress">${vo.m_carrer }</label>
                             <input type="text" class="form-control" id="inputAddress" >
                         </div>
 
@@ -94,6 +115,9 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="btnChange">
                 <button type="submit" class="btn btn-outline-primary btn-sm">수정하기</button>
+            	<form action="${cPath}/modify.do" method ="post">
+            		<
+            	</form>
                
             </div>
             
@@ -109,11 +133,11 @@ pageEncoding="UTF-8"%>
     <div class="side-menu">
         <h2>Side Menu</h2>
         <ul class="side-menu-content">
-            <li><a href="/mypage.html">내정보</a></li>
-            <li><a href="/myquestion.html">내 문제</a></li>
-            <li><a href="/delete.html">회원 탈퇴</a></li>
-            <li><a href="/change.html">비밀번호 변경</a></li>
-            <li><a href="/delete.html">회원 탈퇴</a></li>
+            <li><a type = "button"  data- btn="list" href="/mypage.html">내정보</a></li>
+            <li><a type = "button"  data- btn="myqustion" href="/myquestion.html">내 문제</a></li>
+            <li><a type = "button"  data- btn="modify"href="/change.html">비밀번호 변경</a></li>
+            <li><a type = "button"  data- btn="remove"href="/delete.html">회원 탈퇴</a></li>
+            
         </ul>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
