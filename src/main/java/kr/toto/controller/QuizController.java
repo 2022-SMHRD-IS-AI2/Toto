@@ -54,7 +54,7 @@ public class QuizController {
 	
 //	@GetMapping("/generateQ.do")  이거는 fast에서 데이터 가지고 오면 하기
 	
-	@PostMapping("/generateQ.do")
+	@PostMapping("/generateQ.do") 
 	public String generateQ(Quiz vo) { // 문제 저장을 눌렀을 때 로직
 		
 //		mapper.insertP(Paragraph vo);  이거는 그냥 위에 pragraph에서 하기 긔록 flash로 paragraph num 꼭 보내기
