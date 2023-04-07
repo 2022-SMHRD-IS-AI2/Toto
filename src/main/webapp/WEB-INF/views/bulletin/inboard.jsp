@@ -11,12 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/write.css">
+    <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/in_board.css">
 </head>
 <body>
     <div class="q-nav">
-        <div class="q-nav-profile">
-            <img src="${cPath}/resources/images/logo.png" >
+        <div class="q-nav-profile" >
+          <a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
+            <div></div>
             <div class="profile">
                 <div class="profile-img">
                     <img src="${cPath}/resources/images/image.jpg" alt="">
@@ -28,10 +29,10 @@
             </div>
         
             <ul class="q-board">
-                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href="${cPath}registerBoard.do">문항게시판 </a></li>
-                <li class="m-4"><a href="${cPath}registerBoard.do">자료게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
+                <li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">문항게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
             </ul>
         </div>
     </div>
@@ -42,7 +43,7 @@
         <hr>
         <form action="${cPath}/registerBoard.do" method="post">
         <div class="board_wrap">
-            <div class="board_write_wrap" href="${cPath}">
+            <div class="board_write_wrap" onclick="location.href='${cPath}/fileBulletin.do'">
                 <div class="board_write">
                     <div class="title">
                         <dl>

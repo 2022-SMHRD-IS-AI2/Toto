@@ -12,4 +12,6 @@ public interface bulletinMapper {
 	public Bulletin get(int num); 	// select SQL~~
 	public int remove(int num);	// delete SQL~~
 	
+
+	
 }

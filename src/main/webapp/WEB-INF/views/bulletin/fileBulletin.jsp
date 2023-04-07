@@ -11,13 +11,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" type="text/css"
-	href="${cPath}/resources/css/m_board.css">
+<link rel="stylesheet" type="text/css"	href="${cPath}/resources/css/m_board.css">
 </head>
 <body>
 	<div class="q-nav">
 		<div class="q-nav-profile">
-			<img src="${cPath}/resources/images/logo.png">
+			<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
 			<div class="profile">
 				<div class="profile-img">
 					<img src="${cPath}/resources/images/image.jpg" alt="">
@@ -28,20 +27,22 @@
 			</div>
 
 			<ul class="q-board">
-				<li>문장생성</li>
-				<li>문항게시판</li>
-				<li>자료게시판</li>
-				<li>마이페이지</li>
+				<li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">문항게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="text">문항게시판</div>
-	<form action="${Cpath}/registerBoard.do" method= "post"></form>
+	<form action="${cPath}/registerBoard.do" method= "post"></form>
 
+<input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
 		<hr>
-		<div class="all-box">
+		<div class="all-box"   type="button" onclick="location.href='${cPath}/inboard.do'">
+		
 			<div class="box">
 				<a href="#">
 					<table style="width: 290px; height: 170px;">
@@ -68,8 +69,7 @@
 							<tr>
 								<td>${vo.b_title}</td>
 								<td>${memberVO.m_nick} }</td>
-								<td><a href="${cpath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
-								<td>${memberVO.m_nick }</td>
+								<td><a href="${cPath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
 							<%-- 	<td>${vo.writer}</td>
 								<td>${vo.count}</td> --%>
 							</tr>

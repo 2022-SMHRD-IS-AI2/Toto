@@ -21,20 +21,20 @@ import kr.toto.mapper.bulletinMapper;
 
 @Controller
 public class BulletinController {
-	
-	@Autowired //☆☆☆☆
+
+	@Autowired // ☆☆☆☆
 	private bulletinMapper mapper;
-	
-	
+
 	@GetMapping("/registerBoard.do")
-	public String registerBoard() { //Bulletn vo 변수로
+	public String registerBoard() { // Bulletn vo 변수로
 		// mapper.insertBoard(vo);
 		return "bulletin/fileBulletin";
- }  
+	}
+
 	@RequestMapping("/registerBoard.do") // list.do가 왔을때 처리할 메소드
 	public String list(Model request) {
 		// 게시판데이터를 Model과 연동하는 작업
-		
+
 		// 게시물 3개를 ArrayList 저장
 		List<Bulletin> list = mapper.getAllList();
 		// 객체바인딩 : 데이터(list)를 특정객체(HttpServletRequest)에 연결시키는 기술
@@ -46,32 +46,22 @@ public class BulletinController {
 		// 문제 발생시 어떻게 하느냐?
 		// WEB-INF/views/list.jsp -> list.jsp ->? ${cnt}
 	}
-	
+
 	@GetMapping("/writer.do")
 	public String register() {
-		
+
 		return "writer/writer";
 	}
-	
-	
-	@PostMapping("/writer.do")
-	public String register(Bulletin vo) { 	// title, content, writer이 넘어와야함  -> Board(파라미터 수집)
-		mapper.register(vo);	// 성공
+
+	@RequestMapping("/inboard.do")
+	public String register(Bulletin vo) { // title, content, writer이 넘어와야함 -> Board(파라미터 수집)
+		mapper.register(vo); // 성공
 		// 다시 리스트보기 페이지로 이동(/list.do)
 		// redirect기입
-		return "redirect:/fileRegister.do";
+		return "redirect:/registerBoard.do";
 	}
+
 	
-	
-	@RequestMapping("/fileRegister.do")
-		public String fileRegister(Model model,@RequestParam("num") int num) {
-		
-		Bulletin vo = mapper.get(num);
-		model.addAttribute("vo", vo);
-		
-		return "bulletin/writer";
-		
-	}
-	
-	
+	 
+
 }
