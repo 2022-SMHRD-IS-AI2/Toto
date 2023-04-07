@@ -5,7 +5,7 @@
 		select * from Bulletin order by num desc
 	</select>
 	
-	<select id="bulletin" parameterType="kr.toto.entity.Bulletin">
+<!-- 	<select id="bulletin" parameterType="kr.toto.entity.Bulletin">
 		insert into Bulletin(b_num, m_num, b_file_or_quiz,b_title, b_content, b_word, b_file1, b_file2, b_file3, b_date, b_select, q_num)
 		values(#{b_num}, #{m_num}, #{b_file_or_quiz}, #{b_title}, #{b_content}, #{b_word}, #{b_file1}, #{b_file2}, #{b_file3}, now(), #{b_select}, #{q_num},)
 	</select>
@@ -14,8 +14,8 @@
 		select * from Bulletin where b_select = #{b_select}	
 	</select>
 	
-	<insert id = "post"  parameterType ="int">
-			insert into Bulletin 
-	</insert>
-	
+	<insert id="register"  parameterType="kr.toto.entity.Bulletin" >
+		insert into Bulletin(b_num, b_title, b_content, b_word )
+		values(#{b_num}, #{b_title}, #{b_content}, #{b_word}) 
+	</insert> -->
 </mapper>

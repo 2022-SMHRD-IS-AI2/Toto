@@ -17,7 +17,7 @@
 <body>
 	<div class="q-nav">
 		<div class="q-nav-profile">
-			<img src="${cPath}/resources/images/logo.png">
+			<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
 			<div class="profile">
 				<div class="profile-img">
 					<img src="${cPath}/resources/images/image.jpg" alt="">

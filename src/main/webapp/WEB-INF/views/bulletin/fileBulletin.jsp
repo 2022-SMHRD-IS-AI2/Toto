@@ -11,13 +11,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" type="text/css"
-	href="${cPath}/resources/css/m_board.css">
+<link rel="stylesheet" type="text/css"	href="${cPath}/resources/css/m_board.css">
 </head>
 <body>
 	<div class="q-nav">
 		<div class="q-nav-profile">
-			<img src="${cPath}/resources/images/logo.png">
+			<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
 			<div class="profile">
 				<div class="profile-img">
 					<img src="${cPath}/resources/images/image.jpg" alt="">
@@ -42,7 +41,8 @@
 <input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
 		<hr>
-		<div class="all-box" onclick="location.href='${cPath}/inboard.do'">
+		<div class="all-box"   type="button" onclick="location.href='${cPath}/inboard.do'">
+		
 			<div class="box">
 				<a href="#">
 					<table style="width: 290px; height: 170px;">

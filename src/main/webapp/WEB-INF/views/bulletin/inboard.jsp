@@ -15,8 +15,9 @@
 </head>
 <body>
     <div class="q-nav">
-        <div class="q-nav-profile">
-            <img src="${cPath}/resources/images/logo.png" >
+        <div class="q-nav-profile" >
+          <a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
+            <div></div>
             <div class="profile">
                 <div class="profile-img">
                     <img src="${cPath}/resources/images/image.jpg" alt="">
@@ -42,7 +43,7 @@
         <hr>
         <form action="${cPath}/registerBoard.do" method="post">
         <div class="board_wrap">
-            <div class="board_write_wrap">
+            <div class="board_write_wrap" onclick="location.href='${cPath}/fileBulletin.do'">
                 <div class="board_write">
                     <div class="title">
                         <dl>

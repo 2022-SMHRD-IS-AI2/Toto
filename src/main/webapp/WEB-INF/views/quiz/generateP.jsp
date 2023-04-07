@@ -14,7 +14,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <title>Document</title>
- <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/sentence.css">
+<link rel="stylesheet" type="text/css" href="${cPath}/resources/css/sentence.css">
 </head>
 <body>
 	<div class="q-nav">
@@ -54,7 +54,7 @@
 
 			<ul class="q-board">
                 <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href= "">문항게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/registerBoard.do">문항게시판 </a></li>
                 <li class="m-4"><a href="${cPath}/registerBoard.do">자료게시판 </a></li>
                 <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
             </ul>
