@@ -59,19 +59,13 @@ public class BulletinController {
 		mapper.register(vo);	// 성공
 		// 다시 리스트보기 페이지로 이동(/list.do)
 		// redirect기입
-		return "redirect:/fileRegister.do";
+		return "redirect:/registerBoard.do";
 	}
 	
 	
-	@RequestMapping("/fileRegister.do")
-		public String fileRegister(Model model,@RequestParam("num") int num) {
+
 		
-		Bulletin vo = mapper.get(num);
-		model.addAttribute("vo", vo);
-		
-		return "bulletin/writer";
-		
-	}
+	
 	
 	
 }

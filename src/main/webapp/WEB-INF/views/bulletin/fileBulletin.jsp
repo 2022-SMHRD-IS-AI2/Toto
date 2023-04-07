@@ -37,8 +37,9 @@
 	</div>
 
 	<div class="text">문항게시판</div>
-	<form action="${Cpath}/registerBoard.do" method= "post"></form>
+	<form action="${cPath}/registerBoard.do" method= "post"></form>
 
+<input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
 		<hr>
 		<div class="all-box">
@@ -68,8 +69,7 @@
 							<tr>
 								<td>${vo.b_title}</td>
 								<td>${memberVO.m_nick} }</td>
-								<td><a href="${cpath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
-								<td>${memberVO.m_nick }</td>
+								<td><a href="${cPath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
 							<%-- 	<td>${vo.writer}</td>
 								<td>${vo.count}</td> --%>
 							</tr>

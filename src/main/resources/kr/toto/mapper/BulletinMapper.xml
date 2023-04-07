@@ -14,4 +14,8 @@
 		select * from Bulletin where b_select = #{b_select}	
 	</select>
 	
+	<insert id = "post"  parameterType ="int">
+			insert into Bulletin 
+	</insert>
+	
 </mapper>
