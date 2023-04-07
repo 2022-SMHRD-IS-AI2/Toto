@@ -21,25 +21,44 @@ pageEncoding="UTF-8"%>
         <a href="${cPath}/">
             <img src="${cPath}/resources/images/logo.png">
         </a>
+        <c:choose>
+        <c:when test="${!empty MemberVO}">
         <div class="profile">
             <div class="profile-img">
                 <img src="${cPath}/resources/images/hl.jpg" alt="">
             </div>
             <div class="profile-info">
-                <span>준연</span>
-                <span>ziririsky8@naver.com</span>
+                <span>${MemberVO.m_nick}</span>
+                <span>${MemberVO.m_email}</span>
                 <div class="profile-info-button">
                     <button type="button">로그아웃</button>
                 </div>
             </div>             
-            
         </div>
+        </c:when>
+        <c:otherwise>
+        <div class="profile">
+            <div class="profile-img">
+                <img src="${cPath}/resources/images/hl.jpg" alt="">
+            </div>
+            <div class="profile-info">
+                <span>로그인을</span>
+                <span>해주세요!</span>
+                <div class="profile-info-button">
+                    <button type="button">로그인</button>
+                </div>
+            </div>             
+        </div>
+        </c:otherwise>
+        </c:choose>
+            
         <ul class="q-board">
-            <li class="m-4"><a href="#"><span class="q-board-span">문장생성</span> </a></li>
+            <li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
             <li class="m-4"><a href="#"><span class="q-board-span">문항게시판</span> </a></li>
-            <li class="m-4"><a href="#"><span class="q-board-span">자료게시판</span> </a></li>
-            <li class="m-4"><a href="#"><span class="q-board-span">마이페이지</span> </a></li>
+            <li class="m-4"><a href="${cPath}registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
+            <li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
         </ul>
+        
     </div>
     <div class="myquestion-title">
         <h2>my questions</h2>
@@ -54,23 +73,25 @@ pageEncoding="UTF-8"%>
                     <th scope="col">생성일</th>         
                   </tr>
                 </thead>
-                
+                <% int cnt = 0; %>
+        <c:forEach var="quizVO" items="${quizs}">
+        <% cnt++; %>
                 <tbody>
                   
                     <tr>
-                      <th scope="row">1</th>
+                      <th scope="row"><%= cnt %></th>
                       <td class="hidden">
                         <a href="#" data-toggle="collapse" data-target="#demo1">Mark</a>
                         <div id="demo1" class="collapse">
-                          <p>문제: A new coffee shop is _____ on the corner of Fifth and Main.</p>
-                          <p>답: opening</p>
-                          <p>해설: 이 문장에서는 현재진행형을 나타내는 동사가 필요합니다. 'is'와 같은 현재형 동사가 사용되어 있으므로, 동사 'open'의 현재진행형 'opening'이 정답입니다.
-                            
-                           </p>
+                          <p>문제: ${quizVO.q_quest}</p>
+                          <p>선지 (1) ${quizVO.q_wrong1}<br> (2) ${quizVO.q_wrong2}<br> (3) ${quizVO.q_wrong3}<br> (4) ${quizVO.q_answer}<br> (5) ${quizVO.q_wrong4} </p>
+                          <p>답: ${quizVO.q_answer}</p>
+                          <p>해설: ${quizVO.q_comment}</p>
                         </div>
                       </td>                   
-                      <td>2023-04-04</td>
+                      <td>${quizVO.q_date}</td>
                     </tr>
+        </c:forEach>
             
                   <tr>
                     <th scope="row">2</th>

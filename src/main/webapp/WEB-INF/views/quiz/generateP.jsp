@@ -53,10 +53,10 @@
 
 
 			<ul class="q-board">
-                <li class="m-4"><a href="">문장생성 </a></li>
+                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
                 <li class="m-4"><a href= "">문항게시판 </a></li>
-                <li class="m-4"><a href="">자료게시판 </a></li>
-                <li class="m-4"><a href="/mypage.html">마이페이지 </a></li>
+                <li class="m-4"><a href="${cPath}registerBoard.do">자료게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
             </ul>
         </div>
     </div>
@@ -83,9 +83,9 @@
        
     </div>
     <div class="gpt-footer">
-        <form class="gpt-form" >
+        <form class="gpt-form" action="${cPath}/generateP.do">
             <div class="gpt-text">
-                <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
+                <textarea id="myTextarea"placeholder="문장을 입력해주세요." name ="p_sentence"></textarea> 
                 <button type="submit" >전송</button>
     
             </div>

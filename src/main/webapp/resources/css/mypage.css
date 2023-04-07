@@ -2,12 +2,13 @@
 @import "reset.css";
 .mypage-title{position: absolute;top: 60px;left: 400px;}
 .page-content{width: 1300px;height: 650px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 120px;}
-.mypage-form{width: 1200px; height: 1000px; }
-.mypage-form1{width: 1000px;height: 320px;margin-top: 100px;display: flex;padding-left: 60px;}
+.mypage-form{width: 1200px; height: 650px; }
+.mypage-form1{width: 1000px;height: 320px;margin-top: 60px;display: flex;padding-left: 100px;}
 
 .mypage-img{background: #f4f7fa; width: 460px;height: 250px;display: flex;flex-direction: column;align-items: center;}
 .mypage-img label{display: inline-block;
-    padding: .5em .75em;
+    margin-left: 150px;
+    padding: .5em 0.75em;
     color: #999;
     font-size: inherit;
     line-height: normal;
@@ -28,18 +29,26 @@
         border: 0;
       }
 
-.mypage-img>img{width: 150px;height: 150px;border-radius: 50%;margin-bottom: 20px;}
+.mypage-img>img{width: 200px;height: 200px;border-radius: 50%;margin-bottom: 20px;}
 .mypage-form1-content{margin-left: 160px; width: 660px;height: 300px;display: flex;flex-direction: column;justify-content: center;align-items:flex-start;}
+
+
+.formTop{margin-left: 160px; width: 100px;height: 200px;display: flex;flex-direction: column;align-items: flex-start;justify-content: center;}
+.form-control.textarea{
+    width: 830px;
+    height: 100px;
+}
+
 .btnModify{width: 1200px;height: 80px;display: flex;justify-content: center;align-items: center;}
 
-
-.btn {
-    width: 160px;
+.btnMypage {
+    width: 990px;
     height: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
+
 
 
 

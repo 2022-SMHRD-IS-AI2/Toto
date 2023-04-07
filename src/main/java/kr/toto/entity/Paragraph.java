@@ -1,5 +1,8 @@
 package kr.toto.entity;
 
+import lombok.Data;
+
+@Data
 public class Paragraph {
 	private int p_num;
 	private int m_num;

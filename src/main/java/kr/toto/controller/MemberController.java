@@ -62,4 +62,12 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/myPage")
+	public String myPage() {
+		return "mypage/myPage";
+	}
+	
+	
+
 }

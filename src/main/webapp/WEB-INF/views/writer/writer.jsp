@@ -28,10 +28,10 @@
             </div>
         
             <ul class="q-board">
-                <li>문장생성</li>
-                <li>문항게시판</li>
-                <li>자료게시판</li>
-                <li>마이페이지</li>
+                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
+                <li class="m-4"><a href= "">문항게시판 </a></li>
+                <li class="m-4"><a href="${cPath}registerBoard.do">자료게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
             </ul>
         </div>
     </div>

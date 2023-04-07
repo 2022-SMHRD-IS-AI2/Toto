@@ -22,7 +22,7 @@ pageEncoding="UTF-8"%>
     <!-- header  -->
     <div class="head">
         <header class="header">
-            <a href="/index.html">
+            <a href="${cPath}/">
                 <img src="${cPath}/resources/images/logo.png" >
             </a>
             
@@ -30,8 +30,8 @@ pageEncoding="UTF-8"%>
             	<c:choose>
                 <c:when test="${!empty memberVO}">
                 <ul class="signUp">
-                    <li><a href="#"><p>${memberVO.m_nick}님</p> </a></li>
-                    <li><a href="#"><p>로그아웃</p></a></li>
+                    <li><a href="${cPath}/myPage"><p>${memberVO.m_nick}님</p> </a></li>
+                    <li><a href="${cPath}/logout.do"><p>로그아웃</p></a></li>
                 </ul>
                 </c:when>
                 <c:otherwise>
