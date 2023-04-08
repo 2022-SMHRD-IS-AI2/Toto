@@ -1,0 +1,256 @@
+@charset "UTF-8";
+@import url(reset1.css);
+
+.q-nav{
+    display: flex;
+}
+/* 사이드바 */
+.q-nav-profile{
+    top: 20px; 
+    width: 200px;
+    height: 800px; 
+    left: 77px; 
+    display: flex; 
+    flex-direction: column; 
+    position: fixed; 
+    /* background-color: #acc9e6; */
+}
+
+.q-nav-profile img{ 
+    width: 150px;
+    height: 150px;
+    margin-top: -27px;
+}
+
+.profile{
+    width: 200px;
+    height: 260px;
+    margin-top: 30px;
+}
+
+.profile-img>img{
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profile-info{ 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.profile-info>span:last-child{
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.q-board{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.q-board>li{
+    padding: 30px 30px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.q-board-span{
+    position: relative;
+}
+
+.q-board-span::after {
+    position: absolute; 
+    content:""; 
+    display: block;
+    margin-top: 3px; 
+    border-bottom: 3px solid #acc9e6; 
+    transition: width 250ms ease-out; 
+    left: auto; 
+    right: 0;  
+    width: 0;
+}
+
+.q-board-span:hover::after {
+    width: 100%; 
+    left: 0;
+    right: auto;
+}
+
+/* 문항게시판 */
+.write{
+    font-size: 25px;
+    font-weight: 700;
+    /* margin-top: 50px; */
+    margin-top: 70px;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin-left: 354px;
+}
+
+.w-contents{
+    width: 1300px;
+    /* width: 1000px; */
+    height: auto;
+    margin-left: 354px;
+    /* margin-left: 450px; */
+    /* margin-left: 580px; */
+    margin-top: 20px;
+    /* background-color: #acc9e6; */
+    background-color: #f4f7fa;
+}
+
+hr{
+    /* width: 50%; */
+    height: 4px;
+    /* background-color: #333; */
+    background-color: grey;
+    /* background-color: rgb(150, 150, 150); */
+    border: 0;
+}
+
+/* 게시판 글쓰기 */
+.board_wrap {
+    width: 1000px;
+    /* margin: 100px auto; */
+    margin: 10px auto;
+}
+
+.bt_wrap {
+    margin-top: 30px;
+    text-align: center;
+    /* font-size: 0; */
+    font-size: small;
+}
+
+.bt_wrap a {
+    display: inline-block;
+    min-width: 80px;
+    margin-top: 60px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    /* font-size: 1.4rem; */
+    /* font-weight: bolder;
+    font-size: 15px; */
+    font-size: small;
+}
+
+
+.bt_wrap input {
+    display: inline-block;
+    min-width: 100px;
+    margin-top: 60px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    /* font-size: 1.4rem; */
+    background: rgb(150, 150, 150);
+    /* font-weight: bolder;
+    font-size: 15px; */
+    font-size: small;
+}
+
+
+.bt_wrap a:first-child {
+    margin-left: 0;
+}
+
+.bt_wrap a.on {
+    background: rgb(150, 150, 150);
+    color: black;
+}
+
+/*  */
+
+/* .board_write {
+    border-top: 2px solid #000;
+} */
+
+.board_write .title,
+.board_write .info {
+    padding: 15px;
+}
+
+.board_write .info {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+}
+
+.board_write .title dl {
+    font-size: 0;
+}
+
+.board_write .info dl {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    /* font-size: 1.4rem; */
+    font-size: medium;
+}
+
+.board_write .title dt,
+.board_write .info dt {
+    width: 100px;
+}
+
+.board_write .title dd {
+    width: calc(100% - 100px);
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="password"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.board_write .title input[type="text"] {
+    width: 80%;
+}
+
+.board_write .cont {
+    border-bottom: 1px solid #000;
+}
+
+.board_write .cont1 {
+    border-bottom: 1px solid #000;
+}
+
+.board_write .cont textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+    font-size: 15px;
+}
+
+.board_write .cont1 textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+    font-size: 15px;
+}

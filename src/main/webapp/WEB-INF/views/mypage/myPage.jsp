@@ -67,7 +67,7 @@ pageEncoding="UTF-8"%>
     <div class="mypage-title">
         <h2>Mypage</h2>
     </div>
-    
+   	 <form action="${cPath}/modify.do" method ="post">
     <div class="page-content">
         <form class="mypage-form" action="${cPath}/updateMy.do">
             <div class="mypage-form1">
@@ -99,7 +99,7 @@ pageEncoding="UTF-8"%>
                     </div>
                     <div style="width: 420px;">
                         <div class="form-group ">
-                            <label for="inputAddress">${vo.m_carrer }</label>
+                            <label for="inputAddress">${vo.m_career }</label>
                             <input type="text" class="form-control" id="inputAddress" >
                         </div>
 
@@ -115,8 +115,8 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="btnChange">
                 <button type="submit" class="btn btn-outline-primary btn-sm">수정하기</button>
-            	<form action="${cPath}/modify.do" method ="post">
-            		<
+            
+            		
             	</form>
                
             </div>

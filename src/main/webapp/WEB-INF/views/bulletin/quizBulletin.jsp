@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" type="text/css"
-	href="${cPath}/resources/css/m_board.css">
+	href="${cPath}/resources/css/in_board.css">
 </head>
 <body>
 	<div class="q-nav">
@@ -29,15 +29,14 @@
 
 			<ul class="q-board">
 				<li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">문항게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/quizSelect.do"><span class="q-board-span">문항게시판</span> </a></li>
+            	<li class="m-4"><a href="${cPath}/fileSelect.do"><span class="q-board-span">자료게시판</span> </a></li>
             	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="text">문항게시판</div>
-	<form action="${cPath}/registerBoard.do" method= "post"></form>
 
 <input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
@@ -109,7 +108,9 @@
 
 		<div class="button">
 			<button>검색</button>
-			<button  onclick="location.href='${cPath}/writer.do'">글쓰기</button>
+			<c:if test="${!empty memberVO}">
+			<button  onclick="location.href='${cPath}/registerBoard.do'">글쓰기</button>
+			</c:if>
 		</div>
 	</div>
 

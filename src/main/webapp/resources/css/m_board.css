@@ -1,4 +1,5 @@
-@import url(reset.css);
+@charset "UTF-8";
+@import url(reset1.css);
 
 .q-nav{
     display: flex;
