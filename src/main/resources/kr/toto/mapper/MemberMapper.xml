@@ -9,9 +9,20 @@
 		values (#{m_num}, #{m_email}, #{m_pw}, #{m_nick},0, #{m_career}, #{m_phone},now(), #{m_name})
 	</insert>
 	
-	<!-- <update>
-		update Member set []
-	</update> -->
+	<select id="get" parameterType="int"  resultType="kr.toto.entity.Member">
+		select * from Member where m_num = #{m_num}	
+	</select>
+	
+<update id="updateMember" parameterType="kr.toto.entity.Member">
+  update Member
+  set m_email = #{m_email},
+      m_pw = #{m_pw},
+      m_nick = #{m_nick},
+      m_career = #{m_career},
+      m_phone = #{m_phone},
+      m_name = #{m_name}
+  where m_num = #{m_num}
+</update>
 	
 	
 	<delete id = "remove">

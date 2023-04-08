@@ -63,6 +63,7 @@ public class MemberController {
 		}else {
 			path="member/login";
 			System.out.println("로그인 실패");
+			
 		}
 		return path;
 	}
@@ -78,13 +79,20 @@ public class MemberController {
 		return "mypage/myPage";
 	}
 	
+	
 	@GetMapping("/modify.do")	// ? num=10
 	public String modify(Model model, int num) {
 		Member vo = mapper.get(num);
 		model.addAttribute("vo", vo);
-		return "mypage/modify";		//modify.jsp
+		return "mypage/mypage";		//mypage.jsp
 	}
-	
+	@RequestMapping("/remove.do")	// ?num=10
+	public String remove(int num, RedirectAttributes rttr) {
+		int cnt = mapper.remove(num);
+		System.out.println(cnt);
+		rttr.addFlashAttribute("cnt",cnt); 	// 1회성 세션으로 데이터를 전달
+		return "redirect:/list.do"; 		// ?num =+num
+	}
 
 
 }

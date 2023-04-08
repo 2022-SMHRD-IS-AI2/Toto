@@ -1,7 +1,7 @@
-@charset "UTF-8";
 @import "reset.css";
-.myquestion-title{width: 200px;height: 60px; position: absolute;left: 360px;top: 100px;}
-.myquestion-content{width: 1300px;height: 600px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 200px;margin-bottom: 60px;}
+
+.myquestion-title{position: absolute;top: 60px;left: 400px;}
+.myquestion-content{width: 1300px;height: 650px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 120px;margin-bottom: 50px;}
 .content-size{width: 1300px;}
 .myq-date{padding-left: 130px;}
  .collapse.show{display: inline-table;background: white;margin-top: 20px;}

@@ -1,0 +1,49 @@
+@import "reset.css";
+
+
+
+
+.sentence-modal{position: fixed;top: 150px;right: 350px;}
+
+
+
+
+/* ------------------------------sentence---------------------------------- */
+.q-nav{display: flex;}
+.sentence-title{position: absolute;top: 60px;left: 400px;}
+.q-nav2{margin-left: 360px; width: 1300px;height: 810px; background:#f4f7fa;display: flex;justify-content: center;margin-top: 120px;}
+.q-nav2-question{width: 1275px;height: 720px; display: flex; flex-direction: column;margin-top: 30px;}
+.q-nav2-content{width: 1275px;height: 700px;display: flex; flex-direction: column; margin-bottom: 30px;align-items: center;}
+.q-nav2-content-h2{width: 1000px;height: 50px;margin-right: 60px;}
+
+.q-nav2-content-1{ margin-top: 54px; width: 1100px;height: 680px;background: white;display: flex;flex-direction: column; align-items: flex-start;justify-content:flex-start;position: relative;}
+textarea {
+    width: 860px;
+    height: 500px;
+    padding-top: 30px;
+    margin-left: 140px;
+    border: none;
+    resize: none;
+    border-color: wheat;
+    color: black;
+    font-size: 18px;
+    outline: none;
+  }
+  .q-nav2-content-1>input{position: absolute; right: 0px; bottom: -60px;width: 80px;height: 40px; border-radius: 10px;border-color: #f4f7fa;}
+/* -------------------------------------------------------------------------------- */
+
+
+
+/* -----------------------question-------------------- */
+.question-title{position: absolute;top: 60px;left: 400px;}
+.creation-content{width: 1275px;height: 760px;display: flex; flex-direction: column; margin-bottom: 30px;align-items: center;}
+.creation-download{width: 1180px;height: 30px;display: flex;justify-content: flex-end;margin-bottom: 10px;}
+.creation-download button{margin-left: 10px; background: wheat; width: 80px;height: 28px;}
+
+
+.creation{margin-left: 360px; width: 1300px;height: 860px; background:#f4f7fa;display: flex;justify-content: center;margin-top: 120px;flex-direction: column;padding-top: 60px;}
+.creationQuestion{margin-left: 22px; width: 1100px;height: 700px;background: white;display: flex;flex-direction: column; align-items: flex-start;justify-content:center;position: relative;}
+.creation>p{margin: 30px 80px; }
+.creationButton{width: 1100px;height: 30px;display: flex; justify-content: flex-end;}
+.creationButton>button{margin: 20px 5px; background:white;width: 120px; height: 30px;}
+
