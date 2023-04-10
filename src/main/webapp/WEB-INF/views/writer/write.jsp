@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/write.css">
+    <link rel="stylesheet" type="text/css" href="${cpath}/resources/css/write.css">>
 </head>
 <body>
     <div class="q-nav">
@@ -29,8 +29,8 @@
         
             <ul class="q-board">
                 <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href="${cPath}registerBoard.do">문항게시판 </a></li>
-                <li class="m-4"><a href="${cPath}registerBoard.do">자료게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/registerBoard.do">문항게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/registerBoard.do">자료게시판 </a></li>
                 <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
             </ul>
         </div>

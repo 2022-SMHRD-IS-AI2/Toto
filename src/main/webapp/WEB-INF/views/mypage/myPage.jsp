@@ -30,8 +30,8 @@ pageEncoding="UTF-8"%>
 
   <!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/mypage.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="${cPath }/resources/css/mypage.css">
+  <link rel="stylesheet" href="${cPath }/resources/style.css">
   <title>Frontend Mentor | Profile card component</title>
 
 </head>
@@ -42,11 +42,11 @@ pageEncoding="UTF-8"%>
         </a>
         <div class="profile">
             <div class="profile-img">
-                <img src="/image/hl.jpg" alt="">
+                <img src="${cPath }/resources/images/hl.jpg" alt="">
             </div>
             <div class="profile-info">
-                <span>준연</span>
-                <span>ziririsky8@naver.com</span>
+                <span>${vo.m_name }</span>
+                <span>${vo.m_email }</span>
                 <div class="profile-info-button">
                     <button type="button">로그아웃</button>
                 </div>

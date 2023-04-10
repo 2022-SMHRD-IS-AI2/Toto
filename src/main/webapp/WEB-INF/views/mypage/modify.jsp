@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="./css/mypage.css">
+    <link rel="stylesheet" href="${cpath}/resources/css/mypage.css">
     <title>Document</title>
 </head>
 <body>
@@ -25,10 +25,10 @@ pageEncoding="UTF-8"%>
                 <img src="/image/hl.jpg" alt="">
             </div>
             <div class="profile-info">
-                <span>준연</span>
-                <span>ziririsky8@naver.com</span>
+                <span>${vo.m_name}</span>
+                <span>${vo.m_email }</span>
                 <div class="profile-info-button">
-                    <button type="button">로그아웃</button>
+                    <button type="button" onclick ="location.href=${cPath}/">로그아웃</button>
                 </div>
             </div>             
             
@@ -36,10 +36,10 @@ pageEncoding="UTF-8"%>
         
 
         <ul class="q-board">
-            <li class="m-4"><a href="/연습용.html">문장생성 </a></li>
+            <li class="m-4"><a href="/">문장생성 </a></li>
             <li class="m-4"><a href="#">문항게시판 </a></li>
             <li class="m-4"><a href="#">자료게시판 </a></li>
-            <li class="m-4"><a href="/myprofile.html">마이페이지 </a></li>
+            <li class="m-4"><a href="${cPath }/mypage/myPage">마이페이지 </a></li>
         </ul>
     </div>
 
@@ -56,7 +56,7 @@ pageEncoding="UTF-8"%>
 
             </div>
             
-            <span>김준연</span>
+            <span>${vo.m_name }</span>
             <div class="page-upload-button">
                 <label for="inputImage" class="custom-file-upload">이미지</label>
                 <button id="sendButton">업로드</button>

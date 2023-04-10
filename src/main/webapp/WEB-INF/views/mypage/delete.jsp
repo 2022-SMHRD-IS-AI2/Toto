@@ -18,16 +18,16 @@ pageEncoding="UTF-8"%>
 <body>
     <div class="q-nav-profile">
         <a href="index.html">
-            <img src="/image/logo.png">
+            <img src="${cPath }/resources/images/logo.png">
         </a>
         
         <div class="profile">
             <div class="profile-img">
-                <img src="/image/hl.jpg" alt="">
+                <img src="${cPath }/resources/images/hl.jpg" alt="">
             </div>
             <div class="profile-info">
-                <span>준연</span>
-                <span>ziririsky8@naver.com</span>
+                <span>${vo.m_name}</span>
+                <span>${vo.m.email }</span>
                 <div class="profile-info-button">
                     <button type="button">로그아웃</button>
                 </div>
