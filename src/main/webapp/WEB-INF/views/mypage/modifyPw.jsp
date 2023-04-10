@@ -15,51 +15,7 @@ pageEncoding="UTF-8"%>
     <title>Document</title>
 </head>
 <body>
-    <div class="q-nav-profile">
-        <a href="index.html">
-            <img src="${cPath}/resources/images/logo.png">
-        </a>
-        <c:choose>
-        <c:when test="${!empty memberVO}">
-        <div class="profile">
-            <div class="profile-img">
-                <img src="${memberVO.m_profile}" alt="">
-            </div>
-            <div class="profile-info">
-                <span>${memberVO.m_nick}</span>
-                <span>${memberVO.m_email}</span>
-                <div class="profile-info-button">
-                    <button type="button" onclick="location.href='${cPath}/logout.do'">로그아웃</button>
-                </div>
-            </div>             
-            
-        </div>
-        </c:when>
-        <c:otherwise>
-         <div class="profile">
-            <div class="profile-img">
-                <img src="${cPath}/resources/images/simpleImg.png" alt="">
-            </div>
-            <div class="profile-info">
-                <span>로그인을</span>
-                <span>해주세요</span>
-                <div class="profile-info-button">
-                    <button type="button" onclick="location.href='${cPath}/login.do'">로그인</button>
-                </div>
-            </div>             
-            
-        </div>
-        </c:otherwise>
-        </c:choose>
-        
-
-        <ul class="q-board">
-            <li class="m-4"><a href="/연습용.html"><span class="q-board-span">문장생성</span> </a></li>
-                <li class="m-4"><a href="/m_board.html"><span class="q-board-span">문항게시판</span> </a></li>
-                <li class="m-4"><a href="/m_board.html"><span class="q-board-span">자료게시판</span> </a></li>
-                <li class="m-4"><a href="/myprofile.html"><span class="q-board-span">마이페이지</span> </a></li>
-        </ul>
-    </div>
+    <jsp:include page="../left.jsp"></jsp:include>
     <div class="change-title">
         <h2>Change Password</h2>
     </div>
@@ -129,15 +85,7 @@ pageEncoding="UTF-8"%>
 
 
 
-    <div class="side-menu">
-        <h2>Side Menu</h2>
-        <ul class="side-menu-content">
-            <li><a href="/myquestion.html">내 문제</a></li>
-            <li><a href="/mypage.html">내정보 수정</a></li>
-            <li><a href="/change.html">비밀번호 변경</a></li>
-            <li><a href="/delete.html">회원 탈퇴</a></li>
-        </ul>
-    </div>
+     <jsp:include page="sidemenu.jsp"></jsp:include>
     <script type="text/javascript">
     function checkPw(){
 	    let pw = document.getElementById("inputPassword4").value;

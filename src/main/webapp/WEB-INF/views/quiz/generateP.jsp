@@ -17,49 +17,7 @@
 <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/sentence.css">
 </head>
 <body>
-	<div class="q-nav">
-		<div class="q-nav-profile">
-					<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
-			<!-- 로그인 했을 때 세션이름을 memberVO이라고 하겠음 -->
-			<c:choose>
-				<c:when test="${!empty memberVO}">
-					<div class="profile">
-						<div class="profile-img">
-							<img src="${cPath}/resources/images/hi.png" >
-						</div>
-						<div class="profile-info">
-							<span>${memberVO.m_nick}</span> <span>${memberVO.m_email}</span>
-							<div class="profile-info-button">
-								<button type="button" onclick="location.href='${cPath}/logout.do'">로그아웃</button>
-							</div>
-						</div>
-					</div>
-				</c:when>
-				<c:otherwise>
-
-					<div class="profile">
-						<div class="profile-img">
-							<img src="${cPath}/resources/images/hl.jpg" alt="">		<!-- 기본 이미지 만들기! -->
-						</div>
-						<div class="profile-info">
-							<span>로그인을</span> <span>해주세요!</span>
-							<div class="profile-info-button">
-								<button type="button" onclick="location.href='${cPath}/login.do'">로그인</button>
-							</div>
-						</div>
-					</div>
-				</c:otherwise>
-			</c:choose>
-
-
-			<ul class="q-board">
-                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href="${cPath}/quizSelect.do?num=1">문항게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/fileSelect.do?num=0">자료게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
-            </ul>
-        </div>
-    </div>
+	<jsp:include page="../left.jsp"></jsp:include>
     
     <div class="gpt">
         <div class="gpt-content">

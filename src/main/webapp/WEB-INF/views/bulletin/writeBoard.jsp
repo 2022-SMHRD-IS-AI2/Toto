@@ -14,27 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/writeBoard.css">
 </head>
 <body>
-    <div class="q-nav">
-        <div class="q-nav-profile">
-            <img src="/image/logo.png" >
-            <div class="profile">
-                <div class="profile-img">
-                    <img src="/image/image.jpg" alt="">
-                </div>
-                <div class="profile-info">
-                    <span>준연</span>
-                    <span>ziririsky8@naver.com</span>
-                </div>             
-            </div>
-        
-            <ul class="q-board">
-                <li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/quizSelect.do"><span class="q-board-span">문항게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/fileSelect.do"><span class="q-board-span">자료게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
-            </ul>
-        </div>
-    </div>
+    <jsp:include page="../left.jsp"></jsp:include>
 
     <div class="write">게시판</div>
 

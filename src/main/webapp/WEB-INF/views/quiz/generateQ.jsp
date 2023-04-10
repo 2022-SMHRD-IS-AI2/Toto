@@ -15,32 +15,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="q-nav">
-        <div class="q-nav-profile">
-            <img src="${cPath}/resources/images/logo.png" >
-            <div class="profile">
-                <div class="profile-img">
-                    <img src="${cPath}/resources/images/hl.jpg" alt="">
-                </div>
-                <div class="profile-info">
-                    <span>준연</span>
-                    <span>ziririsky8@naver.com</span>
-                    <div class="profile-info-button">
-                        <button type="button">로그아웃</button>
-                    </div>
-                   
-                </div>             
-                
-            </div>
-            
-
-            <ul class="q-board">
-                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href= "">문항게시판 </a></li>
-                <li class="m-4"><a href="${cPath}registerBoard.do">자료게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
-            </ul>
-        </div>
+    <jsp:include page="../left.jsp"></jsp:include>
         <div class="question-title">
             <h2>문제 생성</h2>
         </div>

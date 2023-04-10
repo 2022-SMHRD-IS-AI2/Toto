@@ -17,49 +17,7 @@ pageEncoding="UTF-8"%>
     
   </head>
   <body>
-    <div class="q-nav-profile">
-        <a href="${cPath}/">
-            <img src="${cPath}/resources/images/logo.png">
-        </a>
-        <c:choose>
-        <c:when test="${!empty MemberVO}">
-        <div class="profile">
-            <div class="profile-img">
-                <img src="${cPath}/resources/images/hl.jpg" alt="">
-            </div>
-            <div class="profile-info">
-                <span>${MemberVO.m_nick}</span>
-                <span>${MemberVO.m_nick}</span>
-                <div class="profile-info-button">
-                    <button type="button">로그아웃</button>
-                </div>
-            </div>             
-        </div>
-        </c:when>
-        <c:otherwise>
-        <div class="profile">
-            <div class="profile-img">
-                <img src="${cPath}/resources/images/hl.jpg" alt="">
-            </div>
-            <div class="profile-info">
-                <span>로그인을</span>
-                <span>해주세요!</span>
-                <div class="profile-info-button">
-                    <button type="button">로그인</button>
-                </div>
-            </div>             
-        </div>
-        </c:otherwise>
-        </c:choose>
-            
-        <ul class="q-board">
-            <li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            <li class="m-4"><a href="#"><span class="q-board-span">문항게시판</span> </a></li>
-            <li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
-            <li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
-        </ul>
-        
-    </div>
+    <jsp:include page="../left.jsp"></jsp:include>
     <div class="myquestion-title">
         <h2>my questions</h2>
     </div>
@@ -136,15 +94,7 @@ pageEncoding="UTF-8"%>
       </ul>
     </nav>
 
-    <div class="side-menu">
-        <h2>Side Menu</h2>
-        <ul class="side-menu-content">
-              <li><a href="${cPath}/myPage">내정보</a></li>
-            <li><a href="${cPath}/myQuestion.do">내 문제</a></li>
-            <li><a href="${cPath}/changePw.do">비밀번호 변경</a></li>
-            <li><a href="${cPath}/delete.do">회원 탈퇴</a></li>
-        </ul>
-    </div>
+    <jsp:include page="sidemenu.jsp"></jsp:include>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

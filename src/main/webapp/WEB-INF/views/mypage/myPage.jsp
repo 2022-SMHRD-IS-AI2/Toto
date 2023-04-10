@@ -1,3 +1,4 @@
+<%@page import="org.stringtemplate.v4.compiler.CodeGenerator.includeExpr_return"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,51 +37,7 @@ pageEncoding="UTF-8"%>
 
 </head>
 <body>
-    <div class="q-nav-profile">
-        <a href="${cPath}/">
-            <img src="{cPath}/resources/images/logo.png">
-        </a>
-        <c:choose>
-		<c:when test="${!empty memberVO}">
-        <div class="profile">
-            <div class="profile-img">
-                <img src="{cPath}/resources/images/hl.jpg" alt="">
-            </div>
-            <div class="profile-info">
-                <span>${memberVO.m_nick}</span>
-                <span>${memberVO.m_email}</span>
-                <div class="profile-info-button">
-                    <button type="button" onclick="location.href ='${cPath}/logout.do'">로그아웃</button>
-                </div>
-            </div>             
-            
-        </div>
-		</c:when>
-		<c:otherwise>
-		<div class="profile">
-            <div class="profile-img">
-                <img src="{cPath}/resources/images/simpleImg.png" alt="">
-            </div>
-            <div class="profile-info">
-                <span>로그인을</span>
-                <span>해주세요</span>
-                <div class="profile-info-button">
-                    <button type="button" onclick="location.href = '${cPath}/login.do'">로그인</button>
-                </div>
-            </div>             
-            
-        </div>
-		</c:otherwise>
-        </c:choose>
-        
-
-        <ul class="q-board">
-            <li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            <li class="m-4"><a href="#"><span class="q-board-span">문항게시판</span> </a></li>
-            <li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
-            <li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
-        </ul>
-    </div>
+    <jsp:include page="../left.jsp"></jsp:include>
 
 
     <div class="mypage-title">
@@ -166,16 +123,7 @@ pageEncoding="UTF-8"%>
         <!-- myprofile 끝! -->
     </div>
 
-    <div class="side-menu">
-        <h2>Side Menu</h2>
-        <ul class="side-menu-content">
-            <li><a href="${cPath}/myQuestion.do">내 문제</a></li>
-            <li><a href="${cPath}/modify.do">내정보 수정</a></li>
-           
-            <li><a href="${cPath}/modifyPW.do">비밀번호 변경</a></li>
-            <li><a href="${cPath}/remove.do">회원 탈퇴</a></li>
-        </ul>
-    </div>
+     <jsp:include page="sidemenu.jsp"></jsp:include>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

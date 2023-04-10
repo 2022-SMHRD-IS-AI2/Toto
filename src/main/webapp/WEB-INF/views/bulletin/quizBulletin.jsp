@@ -15,26 +15,7 @@
 	href="${cPath}/resources/css/in_board.css">
 </head>
 <body>
-	<div class="q-nav">
-		<div class="q-nav-profile">
-			<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
-			<div class="profile">
-				<div class="profile-img">
-					<img src="${cPath}/resources/images/image.jpg" alt="">
-				</div>
-				<div class="profile-info">
-					<span>${memberVO.m_nick}</span> <span>${memberVO.m_email}</span>
-				</div>
-			</div>
-
-			<ul class="q-board">
-				<li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/quizSelect.do"><span class="q-board-span">문항게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/fileSelect.do"><span class="q-board-span">자료게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
-			</ul>
-		</div>
-	</div>
+	<jsp:include page="../left.jsp"></jsp:include>
 
 	<div class="text">문항게시판</div>
 

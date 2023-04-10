@@ -14,27 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${cpath}/resources/css/write.css">>
 </head>
 <body>
-    <div class="q-nav">
-        <div class="q-nav-profile">
-            <img src="${cPath}/resources/images/logo.png" >
-            <div class="profile">
-                <div class="profile-img">
-                    <img src="${cPath}/resources/images/image.jpg" alt="">
-                </div>
-                <div class="profile-info">
-                    <span>${memberVO.b_name}<span>
-                    <span>${memberVO.m_email}</</span>
-                </div>             
-            </div>
-        
-            <ul class="q-board">
-                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href="${cPath}/registerBoard.do">문항게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/registerBoard.do">자료게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
-            </ul>
-        </div>
-    </div>
+    <jsp:include page="../left.jsp"></jsp:include>
 
     <div class="write">게시판</div>
 

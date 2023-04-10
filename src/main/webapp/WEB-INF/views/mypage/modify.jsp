@@ -16,51 +16,7 @@ pageEncoding="UTF-8"%>
     <title>Document</title>
 </head>
 <body>
-    <div class="q-nav-profile">
-        <a href="index.html">
-            <img src="/image/logo.png">
-        </a>
-        <c:choose>
-			<c:when test="${!empty memberVO}">
-        <div class="profile">
-            <div class="profile-img">
-                <img src="${memberVO.m_profile}" alt="">
-            </div>
-            <div class="profile-info">
-                <span>${memberVO.m_nick}</span>
-                <span>${memberVO.m_email}</span>
-                <div class="profile-info-button">
-                    <button type="button" onclick ="location.href=${cPath}/logout.do">로그아웃</button>
-                </div>
-            </div>             
-            
-        </div>
-			</c:when>
-			<c:otherwise>
-			<div class="profile">
-            <div class="profile-img">
-                <img src="/image/hl.jpg" alt="">
-            </div>
-            <div class="profile-info">
-                <span>로그인을</span>
-                <span>해주세요</span>
-                <div class="profile-info-button">
-                    <button type="button" onclick ="location.href=${cPath}/login.do">로그인</button>
-                </div>
-            </div>             
-            
-        </div>
-			</c:otherwise>        
-        </c:choose>
-        
-
-        <ul class="q-board">
-            <li class="m-4"><a href="/">문장생성 </a></li>
-            <li class="m-4"><a href="#">문항게시판 </a></li>
-            <li class="m-4"><a href="#">자료게시판 </a></li>
-            <li class="m-4"><a href="${cPath}/mypage/myPage">마이페이지 </a></li>
-        </ul>
-    </div>
+    <jsp:include page="../left.jsp"></jsp:include>
 
 
     <div class="mypage-title">
@@ -143,16 +99,7 @@ pageEncoding="UTF-8"%>
    
     
 
-    <div class="side-menu">
-        <h2>Side Menu</h2>
-        <ul class="side-menu-content">
-            <li><a href="${cPath}/myQuestion.do">내 문제</a></li>
-            <li><a href="${cPath}/modify.do">내정보 수정</a></li>
-           
-            <li><a href="/change.html">비밀번호 변경</a></li>
-            <li><a href="/delete.html">회원 탈퇴</a></li>
-        </ul>
-    </div>
+     <jsp:include page="sidemenu.jsp"></jsp:include>
     <script src="mypage.js">
         
       </script>
