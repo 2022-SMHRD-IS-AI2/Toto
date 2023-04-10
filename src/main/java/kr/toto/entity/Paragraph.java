@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Paragraph {
 	private int p_num;
-	private int m_num;
+	private String m_nick;
 
 	
 	private String p_content;

@@ -62,7 +62,7 @@ public class QuizController {
 	public String haha(Paragraph vo) {
 		System.out.println(vo.getP_sentence());
 		System.out.println(vo.getP_content());
-		System.out.println(vo.getM_num());
+		System.out.println(vo.getM_nick());
 		
 		return null;
 	}

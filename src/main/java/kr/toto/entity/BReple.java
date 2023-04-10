@@ -5,9 +5,9 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class Reple {
+public class BReple {
 	private int r_num;
-	private int m_num;
+	private String m_nick;
 	private String r_content;
 	private int r_parent;
 	private int b_num;

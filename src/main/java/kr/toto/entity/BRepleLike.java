@@ -6,5 +6,5 @@ import lombok.Data;
 public class BRepleLike {
 	
 	private int r_num;
-	private int m_num;
+	private String m_nick;
 }

@@ -81,17 +81,27 @@ public class MemberController {
 	
 	
 	@GetMapping("/modify.do")	// ? num=10
-	public String modify(Model model, int num) {
-		Member vo = mapper.get(num);
+	public String modify(Model model, String m_nick) {
+		Member vo = mapper.get(m_nick);
 		model.addAttribute("vo", vo);
-		return "mypage/mypage";		//mypage.jsp
+		return "mypage/modify";		//mypage.jsp
 	}
 	@RequestMapping("/remove.do")	// ?num=10
-	public String remove(int num, RedirectAttributes rttr) {
-		int cnt = mapper.remove(num);
+	public String remove(String m_nick, RedirectAttributes rttr) {
+		int cnt = mapper.remove(m_nick);
 		System.out.println(cnt);
 		rttr.addFlashAttribute("cnt",cnt); 	// 1회성 세션으로 데이터를 전달
 		return "redirect:/list.do"; 		// ?num =+num
+	}
+	@GetMapping("/modifyPW.do")
+	public String modfiyPW() {
+		return "mypage/modifyPw";
+	}
+	@PostMapping("/modifyPW.do")
+	public String modifyPW(Member vo) {
+		mapper.modifyPw(vo);
+		
+		return "redirect:/myPage";
 	}
 
 
