@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.toto.entity.BReple;
 import kr.toto.entity.Bulletin;
 import kr.toto.mapper.BoardMapper;
 
@@ -45,7 +46,9 @@ public class BoardController {
 	@RequestMapping("seeInBoard.do")
 	public String seeInBoard(Model model, Bulletin vo) {
 		Bulletin info = mapper.seeInBoard(vo);
+		List<BReple> reple = mapper.seeInReple(vo);
 		model.addAttribute("info",info);
+		model.addAttribute("reple",reple);
 		return "bulletin/inboard";
 	}
 	

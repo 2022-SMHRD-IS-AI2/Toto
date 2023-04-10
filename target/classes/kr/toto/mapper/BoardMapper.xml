@@ -10,6 +10,14 @@
 	<select id="seeInBoard" resultType="kr.toto.entity.Bulletin" parameterType="kr.toto.entity.Bulletin">
 		select * form Bulletin where b_num = #{b_num}
 	</select>
-
-
+	<insert id="writeBoard" parameterType="kr.toto.entity.Bulletin">
+		insert into Bulletin (m_nick, b_file_or_quiz, b_title, b_content,b_word, b_file1,b_file2, b_file3, b_date, b_select, q_num) values 
+		(#{m_nick),#{b_file_or_quiz},#{b_title},#{b_content},#{b_word},#{b_file1},#{b_file2},#{b_file3},now(),0,#{q_num})
+	</insert>
+	<insert id="writeParagraph" parameterType="kr.toto.entity.Paragraph">
+		insert into Paragraph (m_nick, p_content, p_content2, p_sentence) values (#{m_nick},#{p_content},#{p_content2},#{p_sentence})
+	</insert>
+	<select id="seeInReple" parameterType="kr.toto.entity.Bulletin" resultType="kr.toto.entity.BReple">
+		select * from BReple where b_num = #{b_num}
+	</select>
 </mapper>

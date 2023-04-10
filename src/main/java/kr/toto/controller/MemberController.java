@@ -86,7 +86,11 @@ public class MemberController {
 		model.addAttribute("vo", vo);
 		return "mypage/modify";		//mypage.jsp
 	}
-	@RequestMapping("/remove.do")	// ?num=10
+	@GetMapping("/remove.do")
+	public String remove() {
+		return "mypage/delete";
+	}
+	@PostMapping("/remove.do")	// ?num=10
 	public String remove(String m_nick, RedirectAttributes rttr) {
 		int cnt = mapper.remove(m_nick);
 		System.out.println(cnt);
