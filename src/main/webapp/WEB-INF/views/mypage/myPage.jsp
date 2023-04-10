@@ -75,7 +75,7 @@ pageEncoding="UTF-8"%>
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                <img src="./image/hl.jpg" alt="photo" class="rounded-circle positioned">
+                                <img src="${cPath }./resources/images/hl.jpg" alt="photo" class="rounded-circle positioned">
                             </div>
                             <div class="name">
                                 <p class="w700">Victor Crest</p>

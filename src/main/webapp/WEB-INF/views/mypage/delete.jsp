@@ -29,7 +29,7 @@ pageEncoding="UTF-8"%>
                 <span>${vo.m_name}</span>
                 <span>${vo.m.email }</span>
                 <div class="profile-info-button">
-                    <button type="button">로그아웃</button>
+                    <button type="button" herf="${cPath }/ ">로그아웃</button>
                 </div>
             </div>             
             
