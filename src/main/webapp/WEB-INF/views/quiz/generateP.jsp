@@ -5,85 +5,101 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="cPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<title>Document</title>
-<link rel="stylesheet" type="text/css" href="${cPath}/resources/css/sentence.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="${cPath}/resources/css/generateP.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <title>연습용</title>
 </head>
 <body>
-	<jsp:include page="../left.jsp"></jsp:include>
-    
-    <div class="gpt">
+    <jsp:include page="../left.jsp"></jsp:include>
+        <div class="gpt">
         <div class="gpt-content">
             <div class="gpt-model">   
                 Model-GPT3
             </div>
-    
-            <div class="gpt-problem">
-                <div class="gpt-problem-text">
-                   <span id="output"></span>
-                </div>   
-                
-            </div>
-            <div class="gpt-answer" >
-                <div class="gpt-answer-text">
-                    <span id="answerOutput"></span>
+            <form action="">
+                <div class="gpt-problem">
+                    <div class="gpt-problem-text">
+                       <span id="output">여기에다가 예시 적기</span>
+                    </div>                   
+                </div>
+                <div class="gpt-answer" >
+                    <div class="gpt-answer-text">
+                        <span id="answerOutput">예시를 통해서 나온 문장을 적기</span>
+                    </div>
+                    
                 </div>
                 
-            </div>
+            </form>
+            
         </div>
        
     </div>
     <div class="gpt-footer">
-
-        <form class="gpt-form" action="${cPath}/generateP.do">
-
-        <form class="gpt-form" action="generateP.do" method = "post">
-
+        <div class="gpt-form" >
             <div class="gpt-text">
-
-                <textarea id="myTextarea"placeholder="문장을 입력해주세요." name ="p_sentence"></textarea> 
-                <button type="submit" >전송</button>
+                <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
+                <button class="btn btn-outline-primary btn-sm send" >전송</button>
             </div>
-        </form>
+        </div>
     </div>
 
-    <script>
-        function submitForm(event) {
-            event.preventDefault(); // 기본 동작인 폼 제출 방지
-        
-            const form = document.querySelector('.gpt-form');
-            const textarea = document.getElementById('myTextarea');
-            const output = document.getElementById('output');
-            const answerOutput = document.getElementById('answerOutput');
-        
-            output.innerHTML = textarea.value;
-        
-            fetch('dd', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                inputText: textarea.value
-              })
-            })
-            .then(response => response.json())
-            .then(data => {
-              answerOutput.innerHTML = data.answer;
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-          }
-    </script>
 
+    <script type="module">
+        import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
+      
+        const configuration = new Configuration({
+          apiKey: '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',
+        });
+        const openai = new OpenAIApi(configuration);
+    
+        // 전송 버튼 클릭 이벤트 처리
+        document.querySelector(".send").addEventListener('click',function(){
+          var inputText = document.querySelector('#myTextarea').value;
+    
+          // 요청 보내기
+          openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: inputText,
+            temperature: 0.8,
+            suffix: "토익문장만들어줘\n",
+            max_tokens: 2000,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          }).then((result)=>{
+            console.log(result.choices[0].text);
+    
+            // 로컬 스토리지에 저장
+            localStorage.setItem('output', inputText);
+            localStorage.setItem('answer', result.choices[0].text);
+    
+            // 결과 출력
+            var template =`<div class="gpt-answer" >
+              <div class="gpt-answer-text">
+                <span id="answerOutput">${result.choices[0].text}</span>
+              </div>
+            </div>`
+            document.querySelector('.gpt-content').insertAdjacentHTML('beforeend', template);
+          });
+        });
+    
+        // 불러오기 버튼 클릭 이벤트 처리
+        document.querySelector(".load").addEventListener('click',function(){
+          // 로컬 스토리지에서 값 불러오기
+          var outputText = localStorage.getItem('output');
+          var answerText = localStorage.getItem('answer');
+    
+          // 결과 출력
+          document.querySelector('#output').innerHTML = outputText;
+          document.querySelector('#answerOutput').innerHTML = answerText;
+        });
+      </script>
+    
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

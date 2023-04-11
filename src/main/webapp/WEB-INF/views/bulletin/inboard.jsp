@@ -23,30 +23,31 @@
         <div class="text-2">
             <!-- <span style="background-color: aliceblue;">제목</span>
             <span style="background-color: antiquewhite;">닉네임</span> -->
-            <div>제목</div>
-            <div>닉네임</div>
+            <div>${info.b_title}</div>
+            <div>${info.m_nick}</div>
         </div>
         <hr>
         <div class="text-3">
             <!-- <div>자료 0개</div>
             <div>등록날짜</div> -->
-            <p>자료0개 23-04-05</p>
+            <p>자료0개 <fmt:formatDate value="${info.b_date}" pattern="yyyy-MM-dd" /></p>
         </div>
         <div class="all-text-box">
             <div class="text-box1">
                 <table style="width: 1000px;">
                     <tr>
                         <td>
-                            안녕하세요. 환경에 관해 문제를 준비해봤습니다.
+                           ${fn:replace(info.b_content, newLineChar, "<br/>")}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            "Due to the recent increase in demand for environmentally friendly products, our company has decided to invest in developing a new line of eco-friendly cleaning supplies."
+                            <!-- "Due to the recent increase in demand for environmentally friendly products, our company has decided to invest in developing a new line of eco-friendly cleaning supplies." -->
                         </td>
                     </tr>
                 </table>
             </div>
+            <c:if test="${!empty info.q_num}">
             <div class="text-box2">
                 <table style="width: 1000px;">
                     <tr><th>[문제]</th></tr>
@@ -64,6 +65,7 @@
                 </table>
             </div>
         </div>
+            </c:if>
 
         <div class="chat-btn">
             <div class="chat-btn1">
@@ -76,23 +78,38 @@
                 <button type="button" class="chat-btn1-button1">삭제</button>
             </div>
         </div>
-
+<!-- 댓글 시작 -->
+	<c:choose>
+	<c:when test="${!empty reple}">
+ 	<c:forEach var="repleVO" items="reple">
         <div class="chat-board">
             <div class="reviewer-info-header">
                 <div class="reviewer-info">
-                    <span class="reviewer-name">닉네임</span>
-                    <span class="reviewer-date">2023년 04월 05일</span>
+                    <span class="reviewer-name">${repleVO.m_nick}</span>
+                    <span class="reviewer-date"><fmt:formatDate value="${repleVO.r_date}" pattern="yyyy년 MM월 dd일" /></span>
                 </div>
             </div>
 
             <div class="review-body">
                 <div class="review-contents">
-                    잘 알려주셔서 감사합니다
+                    ${repleVO.r_content}
                 </div>
                 <button type="button" class="reviewer-img"><i class="fa-solid fa-heart"> 0</i></button>
             </div>
         </div>
-        
+ 	</c:forEach>
+	</c:when>
+	<c:otherwise>
+	<div class="chat-board">
+            <div class="review-body">
+                <div class="review-contents">
+                    <span>댓글이 없습니다! 첫 댓글을 달아주세요! <i class="fa-solid fa-pen-nib"></i></span>
+                </div>
+            </div>
+        </div>
+	</c:otherwise>
+	</c:choose>
+<!-- 댓글 끝! -->
         <div class="chat">
             <!-- <div class="comment1">
                 <h3>댓글</h3>

@@ -96,5 +96,10 @@ public class QuizController {
 		return "redirect:http://127.0.0.1:8000/hello";
 		
 	}
+	
+	@RequestMapping("practice.do")
+	public String practice() {
+		return "quiz/practice";
+	}
 
 	}

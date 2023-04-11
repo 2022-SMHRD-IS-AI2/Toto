@@ -22,11 +22,11 @@
 <input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
 		<hr>
-		<div class="all-box"   type="button" onclick="location.href='${cPath}/inboard.do'">
+		<div class="all-box"   type="button">
 		
 		<c:forEach var="vo" items="${fileVO}">
 			<div class="box">
-				<a href="#">
+				<a href="${cPath}/seeInBoard.do?b_num=${vo.b_num}">
 					<table style="width: 290px; height: 170px;">
 						<tr style="height: 40px;">
 							<td>날짜</td>
