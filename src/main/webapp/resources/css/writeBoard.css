@@ -60,27 +60,7 @@
     font-weight: bold;
 }
 
-.q-board-span{
-    position: relative;
-}
 
-.q-board-span::after {
-    position: absolute; 
-    content:""; 
-    display: block;
-    margin-top: 3px; 
-    border-bottom: 3px solid #acc9e6; 
-    transition: width 250ms ease-out; 
-    left: auto; 
-    right: 0;  
-    width: 0;
-}
-
-.q-board-span:hover::after {
-    width: 100%; 
-    left: 0;
-    right: auto;
-}
 
 /* 문항게시판 */
 .write{

@@ -19,8 +19,7 @@
 </head>
 <body>
 	<div class="q-nav-profile">
-		<a href="${cPath}/"> <img
-			src="${cPath}/resources/images/logo.png">
+		<a href="${cPath}/"> <img src="${cPath}/resources/images/logo.png">
 		</a>
 		<c:choose>
 			<c:when test="${!empty memberVO}">
@@ -44,7 +43,7 @@
 						<img src="${cPath}/resources/images/simpleImg.png" alt="">
 					</div>
 					<div class="profile-info">
-						<span>로그인을</span> <span>해주세요</span>
+						<span>로그인을</span> <span>해주세요!</span>
 						<div class="profile-info-button">
 							<button type="button" onclick="location.href='${cPath}/login.do'">로그인</button>
 						</div>
@@ -57,14 +56,15 @@
 
 		<ul class="q-board">
 			<li class="m-4"><a href="${cPath}/generateP.do"><span
-					class="q-board-span">문장생성</span> </a></li>
-			<li class="m-4"><a href="${cPath}/quizSelect.do"><span
-					class="q-board-span">문항게시판</span> </a></li>
-			<li class="m-4"><a href="${cPath}/fileSelect.do"><span
-					class="q-board-span">자료게시판</span> </a></li>
+					>문장생성</span> </a></li>
+			<li class="m-4"><a href="${cPath}/quizSelect.do?num=1"><span
+					>문항게시판</span> </a></li>
+			<li class="m-4"><a href="${cPath}/fileSelect.do?num=0"><span
+					>자료게시판</span> </a></li>
 			<li class="m-4"><a href="${cPath}/myPage"><span
-					class="q-board-span">마이페이지</span> </a></li>
+					>마이페이지</span> </a></li>
 		</ul>
 	</div>
+	
 </body>
 </html>

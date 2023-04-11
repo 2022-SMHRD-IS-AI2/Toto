@@ -24,12 +24,13 @@
 		<hr>
 		<div class="all-box"   type="button" onclick="location.href='${cPath}/inboard.do'">
 		
+		<c:forEach var="vo" items="${fileVO}">
 			<div class="box">
 				<a href="#">
 					<table style="width: 290px; height: 170px;">
 						<tr style="height: 40px;">
 							<td>날짜</td>
-							<td><fmt:formatDate value="${vo.indate }"
+							<td><fmt:formatDate value="${vo.b_date}"
 										pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
@@ -39,25 +40,17 @@
 					<hr class="line">
 					<table sylte="width: 290px; height: 75px;">
 						<tr>
-							<td>제목(댓글수)</td>
+							<td>${vo.b_title}(댓글수)</td>
 						</tr>
 						<tr style="height: 50px;">
-							<td>닉네임</td>
+							<td>${memberVO.m_nick}</td>
 							<td>좋아요 6</td>
-							<td>조회수 10</td>
+							<td>조회수 ${vo.b_select}</td>
 						</tr>
-						<c:forEach var="vo" items="${list}">
-							<tr>
-								<td>${vo.b_title}</td>
-								<td>${memberVO.m_nick} }</td>
-								<td><a href="${cPath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
-							<%-- 	<td>${vo.writer}</td>
-								<td>${vo.count}</td> --%>
-							</tr>
-						</c:forEach>
 					</table>
 				</a>
 			</div>
+		</c:forEach>
 			<div class="box">B</div>
 			<div class="box">C</div>
 			<div class="box">D</div>
@@ -78,14 +71,13 @@
 		</ul>
 
 		<select class="select">
-			<option value="">제목</option>
-			<option value="">닉네임</option>
-			<option value="">아이디</option>
-			<option value="">작성자</option>
+			<option value="b_title">제목</option>
+			<option value="b_nick">작성자</option>
+			<option value="b_content">내용</option>
 		</select>
 
 		<div class="search">
-			<input type="text" placeholder="검색어를 입력해주세요.">
+			<input type="text" placeholder="검색어를 입력해주세요." name="search">
 		</div>
 
 		<div class="button">
