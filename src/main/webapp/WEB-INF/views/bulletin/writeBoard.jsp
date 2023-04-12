@@ -30,8 +30,6 @@
 							<dt>제목</dt>
 							<dd>
 								<input type="text" placeholder="제목 입력" name="b_title">
-							</dd>
-							<dd>
 								<select name="b_file_or_quiz">
 									<option value="0">자료게시판</option>
 									<option value="1">문항게시판</option>
@@ -52,9 +50,11 @@
 							<dd>
 								<input type="file" name="b_word">단어파일
 							</dd>
+							<dt></dt>
 							<dd>
 								<input type="file" name="b_file1">자료파일
 							</dd>
+							<dt></dt>
 							<dd>
 								<input type="file" name="b_file2">자료파일
 							</dd>

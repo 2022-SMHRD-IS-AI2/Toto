@@ -43,7 +43,15 @@
         <div class="gpt-form" >
             <div class="gpt-text">
                 <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
-                <button class="btn btn-outline-primary btn-sm send" >전송</button>
+                <c:choose>
+                <c:when test="${!empty memberVO}">
+                <button class="btn btn-outline-primary btn-sm send" >전송</button>  <!-- 버튼 이벤트는 여기에 걸어주세요 -->
+                </c:when>
+                <c:otherwise>
+                <button class="btn btn-outline-primary btn-sm send" onclick="location.href = '${cPath}/login.do'">전송</button>
+                <!-- 로그인 안했을 때 로그인으로 가는 로직 -->
+                </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>

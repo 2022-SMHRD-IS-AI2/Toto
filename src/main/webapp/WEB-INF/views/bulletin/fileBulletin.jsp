@@ -82,7 +82,7 @@
 
 		<div class="button">
 			<button>검색</button>
-			<button  onclick="location.href='${cPath}/wrtier/writer.do'">글쓰기</button>
+			<button  onclick="location.href='${cPath}/registerBoard.do'">글쓰기</button>
 		</div>
 	</div>
 
