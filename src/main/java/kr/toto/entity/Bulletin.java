@@ -20,4 +20,5 @@ public class Bulletin {
 	private Date b_date;
 	private int b_select;
 	private int q_num;
+	
 }

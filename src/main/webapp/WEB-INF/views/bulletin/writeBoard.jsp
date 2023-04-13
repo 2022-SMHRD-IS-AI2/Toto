@@ -21,7 +21,7 @@
 
 	<div class="w-contents">
 		<hr>
-		<form class="board_wrap" method="post"
+		<form class="board_wrap" method="post" 
 			action="${cPath}/registerBoard.do">
 			<div class="board_write_wrap">
 				<div class="board_write">
@@ -48,7 +48,8 @@
 						<dl>
 							<dt>파일첨부</dt>
 							<dd>
-								<input type="file" name="b_word">단어파일
+								<input type="file"  class = "form-control-file border"
+								   name="b_word" multiple="multiple">단어파일
 							</dd>
 							<dt></dt>
 							<dd>
@@ -74,7 +75,7 @@
 					</div>
 				</div>
 				<div class="bt_wrap">
-					<input type="submit"><a href="${cPath}/fileSelect.do">취소</a>
+					<input type="submit"  value="등록" ><a href="${cPath}/fileSelect.do">취소</a>
 				</div>
 			</div>
 		</form>

@@ -34,12 +34,14 @@ public class BoardController {
 	}
 	@GetMapping("registerBoard.do")
 	public String registerBoard() {
+				
 		
 		return "bulletin/writeBoard";
 	}
 	@PostMapping("registerBoard.do")
 	public String registerBoard(Bulletin vo) {
 		mapper.writeBoard(vo);
+		
 		
 		return null;
 	}
@@ -51,7 +53,6 @@ public class BoardController {
 		model.addAttribute("reple",reple);
 		return "bulletin/inboard";
 	}
-	
 	
 	
 }

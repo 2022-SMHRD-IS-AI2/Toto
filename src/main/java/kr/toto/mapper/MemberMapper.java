@@ -11,5 +11,6 @@ public interface MemberMapper {
 	public int remove(String nick);		// delete SQL
 	public void modifyPw(Member vo);
 	
+	
 }
  

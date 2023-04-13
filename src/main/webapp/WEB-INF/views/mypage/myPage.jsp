@@ -37,7 +37,6 @@ pageEncoding="UTF-8"%>
 
 </head>
 <body>
-<<<<<<< HEAD
     <div class="q-nav-profile">
         <a href="index.html">
             <img src="/image/logo.png">
@@ -65,9 +64,7 @@ pageEncoding="UTF-8"%>
 
         </ul>
     </div>
-=======
     <jsp:include page="../left.jsp"></jsp:include>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
 
 
     <div class="mypage-title">
@@ -82,11 +79,7 @@ pageEncoding="UTF-8"%>
                     <div class="card">
                         <div class="card-body1">
                             <div>
-<<<<<<< HEAD
-                                <img src="${cPath }./resources/images/hl.jpg" alt="photo" class="rounded-circle positioned">
-=======
                                 <img src="${cPath}/resources/images/hl.jpg" alt="photo" class="rounded-circle positioned">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
                             </div>
                             <div class="name">
                                 <p class="w700">${memberVO.m_nick}</p>
