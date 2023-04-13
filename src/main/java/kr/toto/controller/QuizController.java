@@ -43,12 +43,12 @@ public class QuizController {
 	
 		return "quiz/generateP";
 	}
-
-	@PostMapping("/generatP.do")
-	public String generateP(Paragraph vo, RedirectAttributes rttr) {
-		rttr.addAttribute("question", vo.getP_sentence());
-		return "redirect:http://127.0.0.1:8000/hello";	
+	@GetMapping("/generateQ.do")
+	public String generateQ() {
+		
+	return "quiz/generateQ";
 	}
+	
 	
 	
 // 여기 꼭 수정  + 일단 파이썬 서버하고 연결함
