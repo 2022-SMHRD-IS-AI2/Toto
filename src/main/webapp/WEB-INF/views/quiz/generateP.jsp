@@ -83,19 +83,13 @@
        
     </div>
     <div class="gpt-footer">
-<<<<<<< HEAD
         <form class="gpt-form" action="${cPath}/generateP.do">
-=======
         <form class="gpt-form" action="generateP.do" method = "post">
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
             <div class="gpt-text">
-<<<<<<< HEAD
                 <textarea id="myTextarea"placeholder="문장을 입력해주세요." name ="p_sentence"></textarea> 
                 <button type="submit" >전송</button>
-=======
                 <textarea id="myTextarea"placeholder="문장을 입력해주세요." name="sentence"></textarea> 
                 <button type="submit">전송</button>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
     
             </div>
         </form>

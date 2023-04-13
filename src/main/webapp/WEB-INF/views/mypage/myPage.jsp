@@ -56,10 +56,10 @@ pageEncoding="UTF-8"%>
         
 
         <ul class="q-board">
-            <li class="m-4"><a href="/연습용.html">문장생성 </a></li>
-            <li class="m-4"><a href="#">문항게시판 </a></li>
-            <li class="m-4"><a href="#">자료게시판 </a></li>
-            <li class="m-4"><a href="/myprofile.html">마이페이지 </a></li>
+               <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
+                <li class="m-4"><a href="${cPath}/registerBoard.do">문항게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/registerBoard.do">자료게시판 </a></li>
+                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
         </ul>
     </div>
 
