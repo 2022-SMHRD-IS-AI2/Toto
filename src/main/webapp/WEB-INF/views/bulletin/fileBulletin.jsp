@@ -14,26 +14,7 @@
 <link rel="stylesheet" type="text/css"	href="${cPath}/resources/css/m_board.css">
 </head>
 <body>
-	<div class="q-nav">
-		<div class="q-nav-profile">
-			<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
-			<div class="profile">
-				<div class="profile-img">
-					<img src="${cPath}/resources/images/image.jpg" alt="">
-				</div>
-				<div class="profile-info">
-					<span>${memberVO.m_nick}</span> <span>${memberVO.m_email}</span>
-				</div>
-			</div>
-
-			<ul class="q-board">
-				<li class="m-4"><a href="${cPath}/generateP.do"><span class="q-board-span">문장생성</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">문항게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/registerBoard.do"><span class="q-board-span">자료게시판</span> </a></li>
-            	<li class="m-4"><a href="${cPath}/myPage"><span class="q-board-span">마이페이지</span> </a></li>
-			</ul>
-		</div>
-	</div>
+	<jsp:include page="../left.jsp"></jsp:include>
 
 	<div class="text">문항게시판</div>
 	<form action="${cPath}/registerBoard.do" method= "post"></form>
@@ -41,14 +22,15 @@
 <input  type="hidden" name="b_f_or_q" value="0">
 	<div class="contents">
 		<hr>
-		<div class="all-box"   type="button" onclick="location.href='${cPath}/inboard.do'">
+		<div class="all-box"   type="button">
 		
+		<c:forEach var="vo" items="${fileVO}">
 			<div class="box">
-				<a href="#">
+				<a href="${cPath}/seeInBoard.do?b_num=${vo.b_num}">
 					<table style="width: 290px; height: 170px;">
 						<tr style="height: 40px;">
 							<td>날짜</td>
-							<td><fmt:formatDate value="${vo.indate }"
+							<td><fmt:formatDate value="${vo.b_date}"
 										pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
@@ -58,25 +40,17 @@
 					<hr class="line">
 					<table sylte="width: 290px; height: 75px;">
 						<tr>
-							<td>제목(댓글수)</td>
+							<td>${vo.b_title}(댓글수)</td>
 						</tr>
 						<tr style="height: 50px;">
-							<td>닉네임</td>
+							<td>${memberVO.m_nick}</td>
 							<td>좋아요 6</td>
-							<td>조회수 10</td>
+							<td>조회수 ${vo.b_select}</td>
 						</tr>
-						<c:forEach var="vo" items="${list}">
-							<tr>
-								<td>${vo.b_title}</td>
-								<td>${memberVO.m_nick} }</td>
-								<td><a href="${cPath}/get.do?num=${vo.b_num}">${vo.b_content}</a></td>
-							<%-- 	<td>${vo.writer}</td>
-								<td>${vo.count}</td> --%>
-							</tr>
-						</c:forEach>
 					</table>
 				</a>
 			</div>
+		</c:forEach>
 			<div class="box">B</div>
 			<div class="box">C</div>
 			<div class="box">D</div>
@@ -85,31 +59,40 @@
 			<div class="box">G</div>
 			<div class="box">H</div>
 		</div>
+		<div class='navigation-center'>
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+		</div>
 
-		<ul class="w3-pagination">
-			<li><a href="#">&laquo;</a></li>
-			<li><a class="w3-blue" href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">&raquo;</a></li>
-		</ul>
-
+				
 		<select class="select">
-			<option value="">제목</option>
-			<option value="">닉네임</option>
-			<option value="">아이디</option>
-			<option value="">작성자</option>
+			<option value="b_title">제목</option>
+			<option value="b_nick">작성자</option>
+			<option value="b_content">내용</option>
 		</select>
 
 		<div class="search">
-			<input type="text" placeholder="검색어를 입력해주세요.">
+			<input type="text" placeholder="검색어를 입력해주세요." name="search">
 		</div>
 
 		<div class="button">
 			<button>검색</button>
-			<button  onclick="location.href='${cPath}/wrtier/writer.do'">글쓰기</button>
+			<button  onclick="location.href='${cPath}/registerBoard.do'">글쓰기</button>
 		</div>
 	</div>
 

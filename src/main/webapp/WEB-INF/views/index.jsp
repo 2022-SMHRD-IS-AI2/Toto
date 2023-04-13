@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>toto</title>
-    <link rel="stylesheet" href="${cPath }/resources/css/index.css">
+    <link rel="stylesheet" href="${cPath}/resources/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
@@ -22,17 +22,26 @@ pageEncoding="UTF-8"%>
     <!-- header  -->
     <div class="head">
         <header class="header">
-            <a href="${cPath }/index.html">
-                <img src="${cPath }/resources/images/logo.png" >
+            <a href="${cPath}/">
+                <img src="${cPath}/resources/images/logo.png" >
             </a>
             
             <div class="sign">
             
-                
+                <c:choose>
+                <c:when test="${!empty memberVO}">
                 <ul class="signUp">
-                    <li><a href="${cPath }/login.do"><p>로그인</p> </a></li>
-                    <li><a href="${cPath }/join.do"><p>회원가입</p></a></li>
+                    <li><a href="${cPath}/myPage"><p>${memberVO.m_nick}님</p></a></li>
+                    <li><a href="${cPath}/logout.do"><p>로그아웃</p></a></li>
                 </ul>
+                </c:when>
+                <c:otherwise>
+                <ul class="signUp">
+                    <li><a href="${cPath}/login.do"><p>로그인</p> </a></li>
+                    <li><a href="${cPath}/join.do"><p>회원가입</p></a></li>
+                </ul>
+                </c:otherwise>
+                </c:choose>
                 
             </div>
  

@@ -12,10 +12,11 @@ pageEncoding="UTF-8"%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="${cpath}/resources/css/mypage.css">
+    <link rel="stylesheet" href="${cPath}/resources/css/mypage.css">
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="q-nav-profile">
         <a href="index.html">
             <img src="/image/logo.png">
@@ -43,6 +44,9 @@ pageEncoding="UTF-8"%>
 
         </ul>
     </div>
+=======
+    <jsp:include page="../left.jsp"></jsp:include>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
 
 
     <div class="mypage-title">
@@ -57,7 +61,7 @@ pageEncoding="UTF-8"%>
 
             </div>
             
-            <span>${vo.m_name }</span>
+            <span>${vo.m_nick}</span>
             <div class="page-upload-button">
                 <label for="inputImage" class="custom-file-upload">이미지</label>
                 <button id="sendButton">업로드</button>
@@ -68,7 +72,7 @@ pageEncoding="UTF-8"%>
             
         </div>
        
-        <form class="mypage-form" action="">
+        <form class="mypage-form" action="${cPath}/modify.do">
             <div class="mypage-form1">
               
             
@@ -77,27 +81,29 @@ pageEncoding="UTF-8"%>
                     <div class="form-row">
                         <div class="form-group col">
                           <label for="inputEmail4">이름</label>
-                          <input type="email" class="form-control" id="inputEmail4">
+                          <input type="email" class="form-control" id="inputEmail4" value="${memberVO.m_name}">
                         </div>
+                        <!-- 
                         <div class="form-group col">
                           <label for="inputPassword4">닉네임</label>
-                          <input type="text" class="form-control" id="inputPassword4">
+                          <input type="text" class="form-control" id="inputPassword4" value="${memberVO.m_name}">
                         </div>
+                         -->
                     </div>
                     <div class="form-row">
                         <div class="form-group col">
                           <label for="inputEmail4">Email</label>
-                          <input type="email" class="form-control" id="inputEmail4">
+                          <input type="email" class="form-control" id="inputEmail4" value="${memberVO.m_email}">
                         </div>
                         <div class="form-group col">
                           <label for="inputPassword4">전화번호</label>
-                          <input type="text" class="form-control" id="inputPassword4">
+                          <input type="text" class="form-control" id="inputPassword4" value="${memberVO.m_phone}">
                         </div>
                     </div>
                     <div style="width: 420px;">
                         <div class="form-group ">
                             <label for="inputAddress">소속</label>
-                            <input type="text" class="form-control" id="inputAddress" >
+                            <input type="text" class="form-control" id="inputAddress" value="${memberVO.m_career}">
                         </div>
 
                     </div>
@@ -111,9 +117,11 @@ pageEncoding="UTF-8"%>
                 <label for="exampleFormControlTextarea1">대표문제</label>
                 <textarea class="form-control textarea" id="exampleFormControlTextarea1" rows="5" cols="30"></textarea>
             </div>
+            <c:if test="${!empty memberVO}">
             <div class="btnMypage">
-                <button type="submit" class="btn btn-outline-primary btn-sm">수정하기</button>  
+                <button type="submit" class="btn btn-outline-primary btn-sm" onclick="location.href = '${cPath}/modify.do'">수정하기</button>  
             </div>
+            </c:if>
         
         </form>
     </div>
@@ -121,16 +129,7 @@ pageEncoding="UTF-8"%>
    
     
 
-    <div class="side-menu">
-        <h2>Side Menu</h2>
-        <ul class="side-menu-content">
-            <li><a href="/myquestion.html">내 문제</a></li>
-            <li><a href="/mypage.html">내정보 수정</a></li>
-           
-            <li><a href="/change.html">비밀번호 변경</a></li>
-            <li><a href="/delete.html">회원 탈퇴</a></li>
-        </ul>
-    </div>
+     <jsp:include page="sidemenu.jsp"></jsp:include>
     <script src="mypage.js">
         
       </script>

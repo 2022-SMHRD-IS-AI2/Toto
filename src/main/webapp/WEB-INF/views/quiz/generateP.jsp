@@ -5,126 +5,122 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="cPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<title>Document</title>
-<link rel="stylesheet" type="text/css" href="${cPath}/resources/css/sentence.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="${cPath}/resources/css/generateP.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <title>연습용</title>
 </head>
 <body>
-	<div class="q-nav">
-		<div class="q-nav-profile">
-					<a href="${cPath}/"><img src="${cPath}/resources/images/logo.png"></a>
-			<!-- 로그인 했을 때 세션이름을 memberVO이라고 하겠음 -->
-			<c:choose>
-				<c:when test="${!empty memberVO}">
-					<div class="profile">
-						<div class="profile-img">
-							<img src="${cPath}/resources/images/hi.png" >
-						</div>
-						<div class="profile-info">
-							<span>${memberVO.m_nick}</span> <span>${memberVO.m_email}</span>
-							<div class="profile-info-button">
-								<button type="button" onclick="location.href='${cPath}/logout.do'">로그아웃</button>
-							</div>
-						</div>
-					</div>
-				</c:when>
-				<c:otherwise>
-
-					<div class="profile">
-						<div class="profile-img">
-							<img src="${cPath}/resources/images/hl.jpg" alt="">		<!-- 기본 이미지 만들기! -->
-						</div>
-						<div class="profile-info">
-							<span>로그인을</span> <span>해주세요!</span>
-							<div class="profile-info-button">
-								<button type="button" onclick="location.href='${cPath}/login.do'">로그인</button>
-							</div>
-						</div>
-					</div>
-				</c:otherwise>
-			</c:choose>
-
-
-			<ul class="q-board">
-                <li class="m-4"><a href="${cPath}/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a href="${cPath}/quizSelect.do?num=1">문항게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/fileSelect.do?num=0">자료게시판 </a></li>
-                <li class="m-4"><a href="${cPath}/myPage">마이페이지 </a></li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="gpt">
+    <jsp:include page="../left.jsp"></jsp:include>
+        <div class="gpt">
         <div class="gpt-content">
             <div class="gpt-model">   
                 Model-GPT3
             </div>
-    
-            <div class="gpt-problem">
-                <div class="gpt-problem-text">
-                   <span id="output"></span>
-                </div>   
-                
-            </div>
-            <div class="gpt-answer" >
-                <div class="gpt-answer-text">
-                    <span id="answerOutput"></span>
+            <form action="">
+                <div class="gpt-problem">
+                    <div class="gpt-problem-text">
+                       <span id="output">여기에다가 예시 적기</span>
+                    </div>                   
+                </div>
+                <div class="gpt-answer" >
+                    <div class="gpt-answer-text">
+                        <span id="answerOutput">예시를 통해서 나온 문장을 적기</span>
+                    </div>
+                    
                 </div>
                 
-            </div>
+            </form>
+            
         </div>
        
     </div>
     <div class="gpt-footer">
+<<<<<<< HEAD
         <form class="gpt-form" action="${cPath}/generateP.do">
         <form class="gpt-form" action="generateP.do" method = "post">
+=======
+        <div class="gpt-form" >
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
             <div class="gpt-text">
+<<<<<<< HEAD
                 <textarea id="myTextarea"placeholder="문장을 입력해주세요." name ="p_sentence"></textarea> 
                 <button type="submit" >전송</button>
                 <textarea id="myTextarea"placeholder="문장을 입력해주세요." name="sentence"></textarea> 
                 <button type="submit">전송</button>
     
+=======
+                <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
+                <c:choose>
+                <c:when test="${!empty memberVO}">
+                <button class="btn btn-outline-primary btn-sm send" >전송</button>  <!-- 버튼 이벤트는 여기에 걸어주세요 -->
+                </c:when>
+                <c:otherwise>
+                <button class="btn btn-outline-primary btn-sm send" onclick="location.href = '${cPath}/login.do'">전송</button>
+                <!-- 로그인 안했을 때 로그인으로 가는 로직 -->
+                </c:otherwise>
+                </c:choose>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
             </div>
-        </form>
+        </div>
     </div>
 
-    <script>
-        function submitForm(event) {
-            event.preventDefault(); // 기본 동작인 폼 제출 방지
-        
-            const form = document.querySelector('.gpt-form');
-            const textarea = document.getElementById('myTextarea');
-            const output = document.getElementById('output');
-            const answerOutput = document.getElementById('answerOutput');
-        
-            output.innerHTML = textarea.value;
-        
-            fetch('dd', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                inputText: textarea.value
-              })
-            })
-            .then(response => response.json())
-            .then(data => {
-              answerOutput.innerHTML = data.answer;
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-          }
-    </script>
 
+    <script type="module">
+        import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
+      
+        const configuration = new Configuration({
+          apiKey: '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',
+        });
+        const openai = new OpenAIApi(configuration);
+    
+        // 전송 버튼 클릭 이벤트 처리
+        document.querySelector(".send").addEventListener('click',function(){
+          var inputText = document.querySelector('#myTextarea').value;
+    
+          // 요청 보내기
+          openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: inputText,
+            temperature: 0.8,
+            suffix: "토익문장만들어줘\n",
+            max_tokens: 2000,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          }).then((result)=>{
+            console.log(result.choices[0].text);
+    
+            // 로컬 스토리지에 저장
+            localStorage.setItem('output', inputText);
+            localStorage.setItem('answer', result.choices[0].text);
+    
+            // 결과 출력
+            var template =`<div class="gpt-answer" >
+              <div class="gpt-answer-text">
+                <span id="answerOutput">${result.choices[0].text}</span>
+              </div>
+            </div>`
+            document.querySelector('.gpt-content').insertAdjacentHTML('beforeend', template);
+          });
+        });
+    
+        // 불러오기 버튼 클릭 이벤트 처리
+        document.querySelector(".load").addEventListener('click',function(){
+          // 로컬 스토리지에서 값 불러오기
+          var outputText = localStorage.getItem('output');
+          var answerText = localStorage.getItem('answer');
+    
+          // 결과 출력
+          document.querySelector('#output').innerHTML = outputText;
+          document.querySelector('#answerOutput').innerHTML = answerText;
+        });
+      </script>
+    
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

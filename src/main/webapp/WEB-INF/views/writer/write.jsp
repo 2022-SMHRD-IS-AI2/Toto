@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${cpath}/resources/css/write.css">>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="q-nav">
         <div class="q-nav-profile">
             <img src="${cPath}/resources/images/logo.png" >
@@ -35,6 +36,9 @@
             </ul>
         </div>
     </div>
+=======
+    <jsp:include page="../left.jsp"></jsp:include>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
 
     <div class="write">게시판</div>
 

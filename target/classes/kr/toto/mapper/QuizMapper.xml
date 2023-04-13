@@ -12,6 +12,6 @@
 		select * from Quiz where m_num = #{m_num}
 	</select>
 	<insert id="writeBoard">
-		insert into Quiz ()
+		insert into Bulletin
 	</insert>
 </mapper>

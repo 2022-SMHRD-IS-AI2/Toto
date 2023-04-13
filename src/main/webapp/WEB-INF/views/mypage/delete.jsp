@@ -16,6 +16,7 @@ pageEncoding="UTF-8"%>
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="q-nav-profile">
         <a href="index.html">
             <img src="${cPath }/resources/images/logo.png">
@@ -44,6 +45,9 @@ pageEncoding="UTF-8"%>
 
         </ul>
     </div>
+=======
+    <jsp:include page="../left.jsp"></jsp:include>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
     <div class="delete-title">
         <h2>Membership Withdrawal</h2>
     </div>
@@ -115,16 +119,7 @@ pageEncoding="UTF-8"%>
 
     </div>
 
-    <div class="side-menu">
-        <h2>Side Menu</h2>
-        <ul class="side-menu-content">
-            <li><a href="/myquestion.html">내 문제</a></li>
-            <li><a href="/mypage.html">내정보 수정</a></li>
-           
-            <li><a href="/change.html">비밀번호 변경</a></li>
-            <li><a href="/delete.html">회원 탈퇴</a></li>
-        </ul>
-    </div>
+     <jsp:include page="sidemenu.jsp"></jsp:include>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
