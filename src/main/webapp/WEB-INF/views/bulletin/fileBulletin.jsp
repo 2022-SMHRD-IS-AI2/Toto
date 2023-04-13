@@ -59,17 +59,27 @@
 			<div class="box">G</div>
 			<div class="box">H</div>
 		</div>
+		<div class='navigation-center'>
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+		</div>
 
-		<ul class="w3-pagination">
-			<li><a href="#">&laquo;</a></li>
-			<li><a class="w3-blue" href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">&raquo;</a></li>
-		</ul>
-
+				
 		<select class="select">
 			<option value="b_title">제목</option>
 			<option value="b_nick">작성자</option>

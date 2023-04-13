@@ -50,7 +50,7 @@ pageEncoding="UTF-8"%>
             <div class="myprofile-form1">
                 <div class="myprofile-img">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body1">
                             <div>
                                 <img src="${cPath}/resources/images/hl.jpg" alt="photo" class="rounded-circle positioned">
                             </div>
