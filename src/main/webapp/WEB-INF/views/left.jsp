@@ -38,7 +38,8 @@
 				</div>
 		<ul class="q-board">
 			<li class="m-4"><a href="${cPath}/generateP.do"><span
-					>문장생성</span> </a></li>
+					>문단 및 문제 생성</span> </a></li>
+			<li class="m-4"><a href="/question2.html"><span class="q-board-span">문제 생성</span> </a></li>	
 			<li class="m-4"><a href="${cPath}/quizSelect.do?num=1"><span
 					>문항게시판</span> </a></li>
 			<li class="m-4"><a href="${cPath}/fileSelect.do?num=0"><span
@@ -63,7 +64,8 @@
 				</div>
 				<ul class="q-board">
 			<li class="m-4"><a href="${cPath}/generateP.do"><span
-					>문장생성</span> </a></li>
+					>문단 및 문제 생성</span> </a></li>
+			<li class="m-4"><a href="/question2.html"><span class="q-board-span">문제 생성</span> </a></li>
 			<li class="m-4"><a href="${cPath}/login.do"><span
 					>문항게시판</span> </a></li>
 			<li class="m-4"><a href="${cPath}/login.do"><span

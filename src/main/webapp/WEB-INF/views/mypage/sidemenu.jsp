@@ -22,8 +22,8 @@ pageEncoding="UTF-8"%>
         <h2>Side Menu</h2>
         <ul class="side-menu-content">
             <li><a href="${cPath}/myQuestion.do">내 문제</a></li>
+            <li><a href="${cPath}">찜한 게시물</a></li>
             <li><a href="${cPath}/modify.do">내정보 수정</a></li>
-           
             <li><a href="${cPath}/modifyPW.do">비밀번호 변경</a></li>
             <li><a href="${cPath}/remove.do">회원 탈퇴</a></li>
         </ul>
