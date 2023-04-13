@@ -43,6 +43,9 @@
     	<property name="dataSource" ref="hikariDataSource"/>
     </bean>
     
+    
+    
+    
     <!-- Mapper가 있는 위치를 연결 -->
     <mybatis-spring:scan base-package="kr.toto.mapper"/>
     
