@@ -33,7 +33,7 @@ public class BoardController {
 		return "bulletin/quizBulletin";
 	}
 	@GetMapping("registerBoard.do")
-	public String registerBoard() {
+	public String registerBoard() {   
 				
 		
 		return "bulletin/writeBoard";
