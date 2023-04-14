@@ -14,7 +14,7 @@ body{overflow-y: hidden;}
 .gpt-answer{width: 1540px;height: auto; background: #f7f7f8;display: flex; justify-content: center;}
 .gpt-answer-text{padding: 15px 20px; width: 60%;height: auto;display: flex;align-items: center;}
 
-
+.bgTransparent{background-color: transparent;}
 /*-------------------------------------------------------------------------------------*/
 .gpt-footer{width: 1560px;height: 100px;position: fixed; background: white;bottom: 0;right: 0;display: flex;justify-content: center;}
 .gpt-form{width: 60%;height: 80px;}
@@ -24,3 +24,4 @@ body{overflow-y: hidden;}
 
 .gpt-save{position: absolute;bottom: 10px;right: 100px;}
 .gpt-save button{outline: none;margin: 10px;width: 80px; height:  30px;background: midnightblue; color: white;} 
+

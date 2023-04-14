@@ -16,14 +16,14 @@
     <title>문단 및 문제생성</title>
 </head>
 <body>
-  
     <jsp:include page="../left.jsp"></jsp:include>
-    <div class="gpt">
+       <div class="gpt">
         <div class="gpt-content" style="overflow-y:auto">
             <div class="gpt-model">   
                 Model-GPT3
             </div>
-            <form action="">
+            <form action="" class="gpt-inside">
+            <button class="bgTransparent" type="button">
                 <div class="gpt-problem">
                     <div class="gpt-problem-text">
                        <span id="output">안녕?</span>
@@ -33,9 +33,8 @@
                     <div class="gpt-answer-text">
                         <span id="answerOutput">안녕!</span>
                     </div>
-                    
                 </div>
-                
+            </button>
             </form>
             
         </div>
@@ -45,36 +44,42 @@
         <div class="gpt-form" >
             <div class="gpt-text">
                 <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
-                <button class="btn btn-outline-primary btn-sm send" >전송</button>
+                <button class="btn btn-outline-primary btn-sm send" id="send">전송</button>
             </div>
         </div>
     </div>
-
  
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         <script type="module">
             import { Configuration, OpenAIApi }  from 'https://cdn.skypack.dev/openai';
-                
+                	let cnt = 1;
                     document.querySelector(".send").addEventListener('click',function(){
-                   
+
+                        document.getElementById("send").disabled = true; 
+                   		
                         const value =document.querySelector('#myTextarea').value;
-                   
+							document.querySelector('#myTextarea').value = '';
+						var firstTemplate = `<form class="gpt-inside"><button class="bgTransparent" type="button" id="clickP`+cnt+`"></button></form>`;
+						document.querySelector('.gpt-content').insertAdjacentHTML('beforeend',firstTemplate);
+                        
                         var template =`<div class="gpt-problem">
                         <div class="gpt-problem-text">
-                           <span id="output"> ${document.querySelector('#myTextarea').value}</span>
-                        </div>                   
+                           <span id="output`+cnt+`">`+value+`</span>
+                        </div>                 
                     </div>`
-                    document.querySelector('.gpt-content').insertAdjacentHTML('beforeend',
-                    template);
-
+					let valueID = "#clickP"+cnt;
+					console.log(valueID);
+                    document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
+					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
                       openai.createCompletion({
                         model: "text-davinci-003",
-                        prompt:`${value}영어문단만들어줘`,
+                        prompt:`${value}이라는 문장과 관련된 영어 문단 만들어줘.`,
                         temperature: 0.8,
                         max_tokens: 2000,
                         top_p: 1,
@@ -82,24 +87,70 @@
                         presence_penalty: 0,
                         
                       }).then((result)=>{
+						cnt++;
                         console.log(result.data.choices[0].text)
                         var template =`<div class="gpt-answer" >
                             <div class="gpt-answer-text">
-                                <span id="answerOutput">${result.data.choices[0].text}</span>
+                                <span id="answerOutput`+cnt+`">`+result.data.choices[0].text+`</span>
                             </div>
-                        </div>`
-                        document.querySelector('.gpt-content').insertAdjacentHTML('beforeend',
-                        template);
+                        </div>
+                        `
+                        document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
+						cnt++;
+
+                        
+						var quiz = '';
+       					 $.ajax({
+           				 url:'http://211.227.224.143:5000/',
+           				 type:'GET',
+           				 success:function(data, status, xhr){
+           						     quiz = data;
+             					   console.log(quiz);
+           					 },
+           					 error:function(xhr, status, error){
+        						console.debug(error);
+        					},
+        						complete:function(xhr, status){
+        							console.log('됐냐?');
+        						console.log(quiz);
+        						}
+        					})
+						var SendBtnId = "btnSend"+cnt;
+						var BoardBtnId = "btnBoard"+cnt;
+						setTimeout(() => { 
+                        var template =`<div class="gpt-problem">
+                            <div class="gpt-problem-text">
+                                <span id="answerOutput`+cnt+`">`+quiz+`</span>
+                            </div>
+                        </div>
+                        <button type="submit" style="margin-right: 50px;" id="btnSend">내 문제 저장</button>
+                        <button type="button"  style="margin-left: 50px;" id = "btnBoard">문항 게시판에 올리기</button>`
+                        document.querySelector(valueID).insertAdjacentHTML('beforeend',template);}
+
+						
+
+						,3000);
+
+						
+                        
+
                         document.querySelector('.gpt-content').scrollTop = document.querySelector('.gpt-content').scrollHeight;
+                        document.getElementById("send").disabled = false;
                       })
+
+						++cnt;
                 });
+				
+				
                 
       </script>
+     
+     
     
       
     
     
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
