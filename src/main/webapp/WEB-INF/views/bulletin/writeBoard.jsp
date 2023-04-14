@@ -21,7 +21,7 @@
 
 	<div class="w-contents">
 		<hr>
-		<form class="board_wrap" method="post"  enctype="mulitpart/form-data"
+		<form class="board_wrap" method="post"  enctype="mulitpart/form-data" name= "uploadFolder"
 			action="${cPath}/registerBoard.do">
 			<div class="board_write_wrap">
 				<div class="board_write">
@@ -41,15 +41,14 @@
 						<dl>
 							<dt>닉네임</dt>
 							<dd>
-								<input type="text" placeholder="${memberVO.m_nick}"
+								<input type="text" value="${memberVO.m_nick}"  name="m_nick"
 									readonly="readonly">
 							</dd>
 						</dl>
 						<dl>
 							<dt>파일첨부</dt>
 							<dd>
-								<input type="file"  class = "form-control-file border"
-								   name="b_word" multiple="multiple">단어파일
+								<input type="file"  class = "form-control-file border" name="wordFile" multiple="multiple">단어파일
 							</dd>
 							<dt></dt>
 							<dd>
