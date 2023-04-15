@@ -105,7 +105,7 @@ public class BoardController {
 			/*
 			 * for(MultipartFile file : files) { // 업로드한 파일의 이름 String fileName =
 			 * files.getOriginalFilename();
-			 * 
+			 *  
 			 * // 파일 저장 File saveFile = new File(uploadPath + fileName);
 			 * files.transferTo(saveFile); } // 파일 업로드 성공 후 처리할 로직 작성
 			 */
