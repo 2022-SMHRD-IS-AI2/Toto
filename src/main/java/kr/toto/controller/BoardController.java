@@ -46,19 +46,19 @@ public class BoardController {
 	BoardMapper mapper;
 	
 	
-	@RequestMapping("fileSelect.do")
+	@RequestMapping("/fileSelect.do")
 	public String fileSelect(Model model, int num) {
 		List<Bulletin> vo = mapper.getAllFile(num);
 		model.addAttribute("fileVO", vo);
 		return "bulletin/fileBulletin";
 	}
-	@RequestMapping("quizSelect.do")
+	@RequestMapping("/quizSelect.do")
 	public String quizSelect(Model model, int num) {
 		List<Bulletin> vo = mapper.getAllQuiz(num);
 		model.addAttribute("quizVO", vo);
 		return "bulletin/quizBulletin";
 	}
-	@GetMapping("registerBoard.do")
+	@GetMapping("/registerBoard.do")
 	public String registerBoard() {   
 				
 		
@@ -69,7 +69,7 @@ public class BoardController {
 	 * mapper.writeBoard(vo); return "redirect:/fileSelect.do"; }
 	 */
 	
-	@RequestMapping("seeInBoard.do")
+	@RequestMapping("/seeInBoard.do")
 	public String seeInBoard(Model model, Bulletin vo) {
 		Bulletin info = mapper.seeInBoard(vo);
 		List<BReple> reple = mapper.seeInReple(vo);
@@ -78,17 +78,17 @@ public class BoardController {
 		return "bulletin/inboard";
 	}
 	
-	@GetMapping("filePractice.do")
+	@GetMapping("/filePractice.do")
 	public String filePractice(){
 		return "bulletin/filePractice";
 	}
-	@PostMapping("filePractice.do")
+	@PostMapping("/filePractice.do")
 	public String filePractice(MultipartFile[] files) {
 		// files란
 		
 		return null;
 	}
-	@PostMapping( value = "search.do")
+	@PostMapping("/search.do")
 	public ResponseEntity<List<Bulletin>> search(String searchVal){
 		System.out.println(searchVal);
 		List<Bulletin> searchList =  mapper.searchContent(searchVal);
@@ -97,7 +97,7 @@ public class BoardController {
 		return new ResponseEntity(searchList, HttpStatus.OK);
 	}
 		
-	 @PostMapping(value = "registerBoard.do")
+	 @PostMapping(value = "/registerBoard.do")
 	    public String registerBoard(MultipartFile[] files ,Bulletin vo) throws IOException {
 		 	System.out.println(vo.getB_content());
 		 	System.out.println(vo.getB_file_or_quiz());

@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/m_board.css">
+    <link rel="stylesheet" type="text/css" href="${cPath}/resources/css/m_board.css">
     
     
 </head>
@@ -36,33 +36,32 @@
                 
                 <tbody>
                   
+                <%int cnt = 1; %>
+                <c:if test="${!empty quizVO}">
+                <c:forEach var="vo" items="${quizVO}">
                     <tr>
-                      <th scope="row">1</th>
+                      <th scope="row"><%=cnt %></th>
+                      <%cnt++; %>
                       <td class="hidden">
                         <div>
-                          <a href="#" data-toggle="collapse" data-target="#demo1">Mark</a>
+                          <a href="${cPath}/seeInBoard.do?num=${quizVO.b_num}" data-toggle="collapse" data-target="#demo1">${vo.b_title}</a>
                         </div>
          
                       </td>                   
-                      <td>30</td>
-                      <td>600</td>
-                      <td>2023-04-04</td>
+                      <td>0</td>
+                      <td>${vo.b_select}</td>
+                      <td><fmt:formatDate value="${vo.b_date}" pattern="yyyy-MM-dd" /></td>
                     </tr>
+                </c:forEach>
+                </c:if>
+                <c:if test="${empty quizVO}">
+                <tr>
+                <td></td>
+                      <td>글이 없습니다! 첫 글을 작성해보세요!</td>
+                <td></td>
+                </tr>
+                </c:if>
             
-                  <tr>
-                    <th scope="row">2</th>
-                    <td><a href="#">Mark</a></td>
-                    <td></td>
-                      <td></td>
-                      <td>2023-04-04</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td><a href="#">Mark</a></td>
-                        <td></td>
-                      <td></td>
-                      <td>2023-04-04</td>
-                  </tr>
                 </tbody>
               
                 
@@ -88,7 +87,7 @@
           </li>
         </ul>
         <div class="write">
-          <a class="btn btn-primary" href="write.html" role="button">글쓰기</a>
+         <a class="btn btn-primary" href="${cPath}/generateP.do" role="button">문제 생성하기</a>
         </div>
         
       </nav>

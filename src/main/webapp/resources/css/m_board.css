@@ -37,178 +37,97 @@ hr{
     border: 0;
 }
 
+.myquestion-title{position: absolute;top: 60px;left: 400px;}
+.myquestion-content{width: 1300px;height: 650px;background: #f4f7fa;margin-left: 350px;display: flex;justify-content:center;margin-top: 120px;margin-bottom: 50px;}
+.content-size{width: 1300px;}
+.myq-date{padding-left: 130px;}
+ .collapse.show{display: inline-table;background: white;margin-top: 20px;}
+ thead th:nth-child(1) {
+  width: 50px;
+}
+thead th:nth-child(2) {
+  width: 480px;
+}
+thead th:nth-child(3) {
+  width: 50px;
+}
+thead th:nth-child(4) {
+  width: 30px;
+}
+thead th:nth-child(5) {
+  width: 80px;
+}
+thead th{margin-bottom: 15px;}
+
+
+tbody th:nth-child(1) {
+  width: 50px;
+}
+tbody td:nth-child(2) {
+  width: 480px;
+}
+tbody td:nth-child(3) {
+  width: 50px;
+}
+tbody td:nth-child(4) {
+  width: 30px;
+}
+tbody td:nth-child(5) {
+  width: 80px;
+}
+
+
+
 /* 게시판 */
-.all-box{
-    display: grid;
-    margin-top: 50px;
-    /* margin-left: 60px; */
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    /* column-gap: 10px;
-    row-gap: 10px; */
-    gap: 40px;
-    /* background-color: yellow; */
 
-    height: 550px;
-    width: 1300px;
-}
-
-.box{
-    /* border: 2px solid #333; */
-    border: 1px solid grey;
-    border-radius: 10px;
-    height: auto;
-    width: 290px;
-    font-size: medium;
-    /* margin-left: 20px; */
-}
-
-.line{
-    height: 3px;
-    background-color: grey;
-    border: 0;
+.contents-size{
+  width: 100%;
+  height: 225px;
+  background: #f4f7fa;
 }
 
 /* 페이지번호 */
-.navigation-center{
-	display: flex;
-justify-content: center; 
-width: 1300px;
-height: 46px;
-margin-top:30px;} 
+
 /* 검색바 */
 
-
-.foot{
-    display: flex;
-    height: auto;
-    width: 100%;
-    justify-content: center;
-    padding-left: 20px;
-    
+.navigation-center {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 46px;
+  padding-left: 120px;
+  margin-top: 10px;
+}
+.serch{
+  margin-left: 220px;
+  margin-top: -8px;
 }
 
-.select{
-    
-    width: 80px;
-    height: 30px;
-    
-    /* margin-top: 120px; */
-    
-}
-
-
-
-.search > input{
-    width: 280px;
-    height: 30px;
-    font-size: medium;
-}
-
-
-
-.button > button{
-    height: 30px;
-    width: 50px;
-    background-color: rgb(150, 150, 150);
-    font-size: small;
-    margin: 0 10px;
-    border-radius: 5px;
-}
-.button  button{
-    height: 30px;
-    width: 50px;
-    background-color: rgb(150, 150, 150);
-    font-size: small;
-   
-    border-radius: 5px;
-}
-
-.myquestion-title{position: absolute;top: 60px;left: 400px;}
-.myquestion-content{width: 1300px;height: auto;background: #f4f7fa;margin-left: 350px;margin-top: 120px;}
-.content-size{width: 1300px; height: auto;}
-.myq-date{padding-left: 130px;}
- .collapse.show{display: inline-table;background: white;margin-top: 20px;}
-
- thead th:nth-child(1) {
-    width: 100px;
-  }
-  thead th:nth-child(2) {
-    width: 480px;
-  }
-  thead th:nth-child(3) {
-    width: 50px;
-  }
-  thead th:nth-child(4) {
-    width: 50px;
-  }
-  thead th:nth-child(5) {
-    width: 50px;
-  }
-  thead th{margin-bottom: 15px;}
+.write{
+  width: 85%;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
   
+  
+}
+.col{
+  margin-top: 20px;;
+}
 
-  tbody th:nth-child(1) {
-    width: 100px;
-  }
-  tbody td:nth-child(2) {
-    width: 480px;
-  }
-  tbody td:nth-child(3) {
-    width: 50px;
-    font-size: 14px;
-  }
-  tbody td:nth-child(4) {
-    width: 50px;
-    font-size: 14px;
-  }
-  tbody td:nth-child(5) {
-    width: 50px;
-    font-size: 12px;
-  }
+
 
 
 /* 봤던글 */
-.position-right-top-side{ 
+.position-right-top-side{
     top: 150px; 
-    width: 200px;
-    height: auto; 
-    
-    right: 35px;
-    display: flex; 
-    flex-direction: column; 
+    width: 220px;
+    height: auto;   
+    right: 0;
     position: fixed; 
-    text-align: center;
-    border-radius: 15px;
     
+
 }
 
 
 
-.banner-contents{ 
-    text-align: center;
-    width: 200px;
-    height: auto;
-    
-    border-radius: 10px;
-}
-
-.banner-contents thead th{
-
-    padding: 10px;
-    font-size: medium;
-    vertical-align: top;
-    color: black;
-    background-color: #d5dce2;
-    border-radius: 10px;
-}
-
-.banner-contents td{
-  
-    padding: 10px;
-    vertical-align: top;
-    
-    text-align: center;
-    background-color: #f4f7fa; 
-    border-radius: 10px;
-}
