@@ -13,20 +13,25 @@
 <body>
 	<p id="p">Nice</p>
 	<p id="paragraph">Hello</p>
-	<button onclick="btnClicked()">clicked</button>
+	<button id="btn">clicked</button>
 	
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script>
 
+	document.getElementById('btn').addEventListener('click',btnClicked);
     
      function btnClicked(){
         var a = document.getElementById('p');
-        let para = {'p':a};
+        let para = {"q":"tlqkf"};
         let jsonPara = JSON.stringify(para);
 
         $.ajax({
-        	url:'http://211.227.224.143:5000/',
-        	type:'GET',
+        	url:'http://211.227.224.143:5000/quiz',
+        	data:jsonPara,
+        	type:'POST',
+        	timeout:5000,
+        	
+        	contentType:"application/json; charset=utf-8",
         	success:function(data, status, xhr){
         		a.innerText = data
         	},

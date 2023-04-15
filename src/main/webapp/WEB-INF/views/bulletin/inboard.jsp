@@ -18,35 +18,42 @@
 </head>
 <body>
 <jsp:include page="../left.jsp"></jsp:include>
-
+<c:choose>
+<c:when test="${info.b_num == 1}">
 <div class="text-1">문항게시판</div>
+</c:when>
+<c:otherwise>
+<div class="text-1">자료게시판</div>
+</c:otherwise>
+</c:choose>
+
 
     <div class="q-contents">
-        <div class="text-2">
-            <!-- <span style="background-color: aliceblue;">제목</span>
-            <span style="background-color: antiquewhite;">닉네임</span> -->
-            <div>제목</div>
-            <div>닉네임</div>
+        <div class="q-contents-text-2">
+            <div class="text-2">
+                <!-- <span style="background-color: aliceblue;">제목</span>
+                <span style="background-color: antiquewhite;">닉네임</span> -->
+                <div>${info.b_title}</div>
+                <div>${info.m_nick}</div>
+            </div>
+
         </div>
+        
         <hr>
         <div class="text-3">
             <!-- <div>자료 0개</div>
             <div>등록날짜</div> -->
-            <p>자료0개 23-04-05</p>
+            <p>자료0개 <fmt:formatDate value="${vo.indate}" pattern="yyyy-MM-dd" /></p>
         </div>
         <div class="all-text-box">
             <div class="text-box1">
                 <table style="width: 1000px;">
                     <tr>
                         <td>
-                            안녕하세요. 환경에 관해 문제를 준비해봤습니다.
+                            ${fn:replace(info.b_content, newLineChar, "<br/>")}
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            "Due to the recent increase in demand for environmentally friendly products, our company has decided to invest in developing a new line of eco-friendly cleaning supplies."
-                        </td>
-                    </tr>
+                    
                 </table>
             </div>
             <div class="text-box2">
@@ -69,30 +76,95 @@
 
         <div class="chat-btn">
             <div class="chat-btn1">
-                <button type="button" class="chat-btn1-button1"><i class="fa-solid fa-heart"> 0</i></button>
-                <button type="button" class="chat-btn1-button1">댓글<i class="fa-solid fa-check"></i></button>
+                <button type="button" class="btn btn-primary chat-btn1-button1" onclick="toggleHeart()">
+                    <i class="fa-solid fa-heart">
+                        
+                    </i>
+                    <span id="heartCount">0</span>
+                
+                </button>
+
+                
             </div>
 
             <div class="chat-btn2">
-                <button type="button" class="chat-btn1-button1">수정</button>
-                <button type="button" class="chat-btn1-button1">삭제</button>
+                <button type="button" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-primary">삭제</button>
+                
             </div>
         </div>
 
        
         <div id="comments" class="container">
-            <h2>댓글</h2>
-            <ul id="comment-list" class="list-group mt-3"></ul>
             <form id="comment-form">
-              <div class="form-group">
-                <label for="comment-body">댓글:</label>
-                <textarea id="comment-body" name="comment-body" class="form-control" required></textarea>
-              </div>
-              <div class="form-group-btn">
-                <button type="submit" class="btn btn-primary">댓글 등록</button>
-              </div>
-              <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
+                <div class="form-group">
+                  <label for="comment-body">댓글:</label>
+                  <input id="comment-body" name="comment-body" class="form-control" required></input>
+                </div>
+                <div class="form-group-btn">
+                  <button type="submit" class="btn btn-primary">등록</button>
+                </div>
+                
+      
+              </form> 
+              <c:choose>
+			<c:when test="${!empty reple}">
+            <c:forEach var="repleVO" items="${reple}">
+            <div class="comment">
+                <div class="comment-img">
+                    <!-- <img class="profile-pic" src="/image/hl.jpg" alt="프로필 사진"> -->
+                </div>
+                
+                <div class="comment-details">
+                    <div>
+                        <h6 class="comment-author">${repleVO.m_nick}</h4>
+                    </div>
+                    
+                    
+                    
+                    <div class="comment-actions">
+                        <p class="comment-text">${repleVO.r_content}</p>
+                        <span class="comment-date"><fmt:formatDate value="${repleVO.r_date}" pattern="yyyy-MM-dd" /></span>
+                    
+                    </div>
+                </div>
+            </div> 
+            </c:forEach>
+			</c:when>
+			<c:otherwise>
+			<div class="comment">
+                <div class="comment-img">
+                    <!-- <img class="profile-pic" src="/image/hl.jpg" alt="프로필 사진"> -->
+                </div>
+                
+                <div class="comment-details">
+                    <%-- <div>
+                        <h6 class="comment-author">${repleVO.m_nick}</h4>
+                    </div>
+                    <div class="comment-actions">
+                        <p class="comment-text">${repleVO.r_content}</p>
+                        <span class="comment-date"><fmt:formatDate value="${repleVO.r_date}" pattern="yyyy-MM-dd" /></span>
+                    </div> --%>
+                    <p>댓글이 없습니다! 첫 댓글 작성해보세요!</p>
+                </div>
+            </div> 
+			</c:otherwise>
+              </c:choose>
+              
+            <div class="comment-footer">
+                <button class="chat-btn1-button2" onclick="toggleUp()">
+                    <img class="empty" src="image/handUp.svg">
+                    <img class="filled" src="image/handUpfill.svg" style="display: none;">
+                </button>
+                  <span id="svgCount">0</span>
+                <button class="chat-btn1-button3" onclick="toggleDown()" >
+                    <img class="empty" src="image/handDown.svg">
+                    <img class="filled" src="image/handDownfill.svg" style="display: none;">
+                </button>
+                  
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-between">
                   <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">이전글</a>
                   </li>
@@ -101,41 +173,107 @@
                   </li>
                 </ul>
               </nav>
-              
-            </form> 
+           
+            
+            
           </div>
           
           
     </div>
+
     <script>
-        const commentForm = document.getElementById('comment-form');
-const commentList = document.getElementById('comment-list');
 
-commentForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  const nameInput = document.getElementById('comment-name');
-  const bodyInput = document.getElementById('comment-body');
-  const name = nameInput.value;
-  const body = bodyInput.value;
-  const comment = { name, body };
-  const commentItem = createCommentItem(comment);
-  commentList.appendChild(commentItem);
-  nameInput.value = '';
-  bodyInput.value = '';
-});
+        var heartButton = document.querySelector('.chat-btn1-button1');
+        var heartCount = document.getElementById('heartCount');
+       
+        var isHearted = false;
+        var count = 0;
 
-function createCommentItem(comment) {
-  const li = document.createElement('li');
-  const namePara = document.createElement('p');
-  namePara.textContent = comment.name;
-  const bodyPara = document.createElement('p');
-  bodyPara.textContent = comment.body;
-  li.appendChild(namePara);
-  li.appendChild(bodyPara);
-  return li;
+        function toggleHeart() {
+        if (isHearted) {
+            // 색깔 원상태로 돌리기
+            heartButton.style.color = 'white';
+            count -= 1;
+        } else {
+            // 색깔 변경하고 개수 증가시키기
+            heartButton.style.color = 'red';
+            count += 1;
+        }
 
-}
+        isHearted = !isHearted;
+        heartCount.textContent = count.toString();
+        
+        }
     </script>
+    
+    <script>
+        var isUpVoted = false;
+        var isDownVoted = false;
+        var svgCount = 0;
+      
+        function toggleUp() {
+          var upButton = document.querySelector('.chat-btn1-button2');
+          var downButton = document.querySelector('.chat-btn1-button3');
+          var svgCountElem = document.getElementById('svgCount');
+          var emptyImg = upButton.querySelector('.empty');
+          var filledImg = upButton.querySelector('.filled');
+      
+          if (isUpVoted) {
+            // 이미 upvote한 경우, upvote 취소
+            emptyImg.style.display = '';
+            filledImg.style.display = 'none';
+            svgCount -= 1;
+          } else {
+            // upvote한 경우, upvote 추가
+            emptyImg.style.display = 'none';
+            filledImg.style.display = '';
+            svgCount += 1;
+      
+            if (isDownVoted) {
+              // 이미 downvote한 경우, downvote 취소
+              toggleDown();
+            }
+          }
+      
+          isUpVoted = !isUpVoted;
+          svgCountElem.textContent = svgCount.toString();
+      
+         
+        }
+      
+        function toggleDown() {
+          var upButton = document.querySelector('.chat-btn1-button2');
+          var downButton = document.querySelector('.chat-btn1-button3');
+          var svgCountElem = document.getElementById('svgCount');
+          var emptyImg = downButton.querySelector('.empty');
+          var filledImg = downButton.querySelector('.filled');
+      
+          if (isDownVoted) {
+            // 이미 downvote한 경우, downvote 취소
+            emptyImg.style.display = '';
+            filledImg.style.display = 'none';
+            
+          } else {
+            // downvote한 경우, downvote 추가
+            emptyImg.style.display = 'none';
+            filledImg.style.display = '';
+            
+      
+            if (isUpVoted) {
+              // 이미 upvote한 경우, upvote 취소
+              toggleUp();
+            }
+          }
+      
+          isDownVoted = !isDownVoted;
+          svgCountElem.textContent = svgCount.toString();
+      
+         
+          
+        }
+    </script>
+    
+   
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>

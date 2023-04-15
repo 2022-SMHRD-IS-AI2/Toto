@@ -25,14 +25,14 @@
             <form action="" class="gpt-inside">
             <button class="bgTransparent" type="button">
                 <div class="gpt-problem">
-                    <div class="gpt-problem-text">
+                    <p class="gpt-problem-text">
                        <span id="output">안녕?</span>
-                    </div>                   
+                    </p>                   
                 </div>
                 <div class="gpt-answer" >
-                    <div class="gpt-answer-text">
+                    <p class="gpt-answer-text">
                         <span id="answerOutput">안녕!</span>
-                    </div>
+                    </p>
                 </div>
             </button>
             </form>
@@ -59,12 +59,12 @@
                    		
                         const value =document.querySelector('#myTextarea').value;
 							document.querySelector('#myTextarea').value = '';
-						var firstTemplate = `<form class="gpt-inside"><button class="bgTransparent" type="button" id="clickP`+cnt+`"></button></form>`;
+						var firstTemplate = `<form class="gpt-inside"><div class="bgTransparent" type="button" id="clickP`+cnt+`"></div></form>`;
 						document.querySelector('.gpt-content').insertAdjacentHTML('beforeend',firstTemplate);
                         
                         var template =`<div class="gpt-problem">
                         <div class="gpt-problem-text">
-                           <span id="output`+cnt+`">`+value+`</span>
+                           <span id="output`+cnt+`" class="answer">`+value+`</span>
                         </div>                 
                     </div>`
 					let valueID = "#clickP"+cnt;
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <button type="submit" style="margin-right: 50px;" id="btnSend">내 문제 저장</button>
-                        <button type="button"  style="margin-left: 50px;" id = "btnBoard">문항 게시판에 올리기</button>`
+                        <button type="button"  style="margin-left: 50p===x;" id = "btnBoard">문항 게시판에 올리기</button>`
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);}
 
 						
@@ -150,7 +150,9 @@
       
     
     
-    
+    <script>
+    	document.querySelector('.answer')
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
