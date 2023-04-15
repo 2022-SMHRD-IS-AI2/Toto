@@ -18,4 +18,7 @@ public interface BoardMapper {
 	public void writeReple(BReple vo);
 	public void wirteReReple(BReple vo);
 	public List<Bulletin> searchContent(String search);
+	public void uploadFile(Bulletin vo);
 }
+
+

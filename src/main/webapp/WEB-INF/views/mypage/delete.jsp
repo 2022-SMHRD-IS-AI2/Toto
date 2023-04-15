@@ -16,7 +16,6 @@ pageEncoding="UTF-8"%>
     <title>Document</title>
 </head>
 <body>
-<<<<<<< HEAD
     <div class="q-nav-profile">
         <a href="index.html">
             <img src="${cPath }/resources/images/logo.png">
@@ -45,7 +44,6 @@ pageEncoding="UTF-8"%>
 
         </ul>
     </div>
-=======
     <jsp:include page="../left.jsp"></jsp:include>
 >>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
     <div class="delete-title">

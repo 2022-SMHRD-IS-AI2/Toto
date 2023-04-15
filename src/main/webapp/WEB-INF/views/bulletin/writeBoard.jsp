@@ -46,17 +46,18 @@
 							</dd>
 						</dl>
 						<dl>
-							<dt>파일첨부</dt>
+						<!-- 	<dt>파일첨부</dt>
 							<dd>
 								<input type="file"  class = "form-control-file border" name="wordFile" multiple="multiple">단어파일
 							</dd>
-							<dt></dt>
+							<dt></dt> -->
+							<dt>자료파일</dt>
 							<dd>
-								<input type="file" name="b_file1">자료파일
+								<input type="file" name="files"   multiple="multiple">
 							</dd>
-							<dt></dt>
+							<dt>자료파일</dt>
 							<dd>
-								<input type="file" name="b_file2">자료파일
+								<input type="file" name="files" multiple="multiple">
 							</dd>
 						</dl>
 					</div>

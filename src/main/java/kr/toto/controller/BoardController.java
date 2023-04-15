@@ -1,14 +1,21 @@
 package kr.toto.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.ProcessBuilder.Redirect;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.toto.entity.BReple;
 import kr.toto.entity.Bulletin;
@@ -55,11 +63,10 @@ public class BoardController {
 		
 		return "bulletin/writeBoard";
 	}
-	@PostMapping("registerBoard.do")
-	public String registerBoard(Bulletin vo) {
-		mapper.writeBoard(vo);
-		return "redirect:/fileSelect.do";
-	}
+	/*
+	 * @PostMapping("registerBoard.do") public String registerBoard(Bulletin vo) {
+	 * mapper.writeBoard(vo); return "redirect:/fileSelect.do"; }
+	 */
 	
 	@RequestMapping("seeInBoard.do")
 	public String seeInBoard(Model model, Bulletin vo) {
@@ -69,26 +76,6 @@ public class BoardController {
 		model.addAttribute("reple",reple);
 		return "bulletin/inboard";
 	}
-	
-	
-	/*
-	 * @RequestMapping(value ="writeBoard", method=RequestMethod.POST) public String
-	 * uploadFormPost(MultipartFile[] b_word) {
-	 * 
-	 * String uploadFolder = "C:\\test\\upload";
-	 * 
-	 * for(MultipartFile mulitpartFile : b_word) {
-	 * System.out.println(mulitpartFile.getOriginalFilename());
-	 * System.out.println(mulitpartFile.getSize());
-	 * 
-	 * File saveFile = new File(uploadFolder, mulitpartFile.getOriginalFilename());
-	 * 
-	 * try { mulitpartFile.transferTo(saveFile); } catch (Exception e) {
-	 * e.printStackTrace(); }
-	 * 
-	 * 
-	 * } return "redirect:fileSelect.do"; }
-	 */
 	
 	@GetMapping("filePractice.do")
 	public String filePractice(){
@@ -108,8 +95,25 @@ public class BoardController {
 		System.out.println(searchList);
 		return new ResponseEntity(searchList, HttpStatus.OK);
 	}
-	
+		
+	 @PostMapping(value = "registerBoard.do")
+	    public String registerBoard(@RequestParam("file") MultipartFile[] files ,Bulletin vo) throws IOException {
+	        // 파일 저장 경로 설정
+		    mapper.uploadFile(vo);
+	        String uploadPath = "C:\\test\\upload";
+	        
+			/*
+			 * for(MultipartFile file : files) { // 업로드한 파일의 이름 String fileName =
+			 * files.getOriginalFilename();
+			 * 
+			 * // 파일 저장 File saveFile = new File(uploadPath + fileName);
+			 * files.transferTo(saveFile); } // 파일 업로드 성공 후 처리할 로직 작성
+			 */
+	        return "redirect:/fileSelect.do";
+	    }
+	}
+
 	
 
 	
-}
+
