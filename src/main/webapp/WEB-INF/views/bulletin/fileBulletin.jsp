@@ -115,7 +115,7 @@
 						<td style="word-break: break-all;"><a href="#">제목</a></td>
 					</tr>
 				</tbody>
-			</table>
+			</table> 
 		</div>
 	</div>
 	
@@ -127,7 +127,7 @@
 		var searchVal = document.getElementById('searchArea').value;
 		console.log(searchVal);
 		$.ajax({
-			type:"POST",
+			type:"POST",\
 			url:"/toto/search.do",
 			data: {"searchVal":searchVal},
 			dataType:"Json",
