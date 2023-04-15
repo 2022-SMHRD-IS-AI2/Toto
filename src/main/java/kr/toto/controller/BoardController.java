@@ -17,6 +17,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -97,18 +98,30 @@ public class BoardController {
 	}
 		
 	 @PostMapping(value = "registerBoard.do")
-	    public String registerBoard(@RequestParam("file") MultipartFile[] files ,Bulletin vo) throws IOException {
+	    public String registerBoard(MultipartFile[] files ,Bulletin vo) throws IOException {
+		 	System.out.println(vo.getB_content());
+		 	System.out.println(vo.getB_file_or_quiz());
+		 	System.out.println(vo.getB_num());
+		 	System.out.println(vo.getB_select());
+		 	System.out.println(vo.getB_title());
+		 	System.out.println(vo.getM_nick());
+		 
+		 	
 	        // 파일 저장 경로 설정
+		 	if(files[0]!=null) {vo.setB_file1(files[0].getOriginalFilename());}
+		 	if(files[1]!=null) {vo.setB_file2(files[1].getOriginalFilename());}
+		 	if(files[2]!=null) {vo.setB_file3(files[2].getOriginalFilename());}
 		    mapper.uploadFile(vo);
 	        String uploadPath = "C:\\test\\upload";
-//	        왜안되는거야
-			/*
-			 * for(MultipartFile file : files) { // 업로드한 파일의 이름 String fileName =
-			 * files.getOriginalFilename();
-			 *  
-			 * // 파일 저장 File saveFile = new File(uploadPath + fileName);
-			 * files.transferTo(saveFile); } // 파일 업로드 성공 후 처리할 로직 작성
-			 */
+			
+			  for(MultipartFile file : files) { // 업로드한 파일의 이름 String fileName =
+			  String originalFileName = file.getOriginalFilename();
+			 
+			  
+			  // 파일 저장 File saveFile = new File(uploadPath + fileName);
+			  File saveFile = new File(uploadPath + originalFileName);
+			  file.transferTo(saveFile); } // 파일 업로드 성공 후 처리할 로직 작성
+			 
 	        return "redirect:/fileSelect.do";
 	    }
 	}

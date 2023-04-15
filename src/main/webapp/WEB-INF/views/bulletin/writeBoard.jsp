@@ -21,8 +21,7 @@
 
 	<div class="w-contents">
 		<hr>
-		<form class="board_wrap" method="post"  enctype="mulitpart/form-data" name= "uploadFolder"
-			action="${cPath}/registerBoard.do">
+		<form class="board_wrap" method="post"  enctype="mulitpart/form-data"  action="${cPath}/registerBoard.do">
 			<div class="board_write_wrap">
 				<div class="board_write">
 					<div class="title">
