@@ -10,7 +10,8 @@ public interface MemberMapper {
 	public Member get(String nick); 	// select SQL~~
 	public int remove(String nick);		// delete SQL
 	public void modifyPw(Member vo);
-	
-	
+	public void followMember(String to, String from);
+	public void updateFollowMember(String to);
+	public int selectFollower(String to);
 }
  

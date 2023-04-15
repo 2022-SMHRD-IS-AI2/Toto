@@ -29,6 +29,19 @@
 	</delete>
 	
 	<update id="modifyPw" parameterType="kr.toto.entity.Member">
-	update Member set m_pw = ${m_pw} where m_nick=${m_nick}
+	update Member set m_pw = #{m_pw} where m_nick=#{m_nick}
 	</update>
+	<insert id="followMember">
+		insert into Favor values (#{f_to},#{f_from},now())
+	</insert>
+	<update id="updateFollowMember">
+		<selectKey keyProperty="followerCount" resultType="kr.toto.entity.Favor" order="BEFORE">
+		select count(f_to) from Favor where f_to=#{f_to} group by f_to
+		</selectKey>
+		update Member set m_like = #{follwerCount}
+	</update>
+	<select id="selectFollower">
+		select count(f_to) from Favor where f_to=#{f_to} group by f_to
+	</select>
+	
 </mapper>
