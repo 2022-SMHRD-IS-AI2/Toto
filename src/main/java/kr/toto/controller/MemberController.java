@@ -107,6 +107,17 @@ public class MemberController {
 		
 		return "redirect:/myPage";
 	}
+	@PostMapping("/followMember")
+	public int followMember(String to, String from) {
+		mapper.followMember(to,from);
+		mapper.updateFollowMember(to);
+		int cnt = mapper.selectFollower(to);
+		return cnt;
+	}
+	@RequestMapping("/othersPage")
+	public String othersPage() {
+		return "mypage/followPage";
+	}
 
 
 }

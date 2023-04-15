@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
     <div class="login">
-        <img src="${cPath}/resources/images/logo3.jpg" class="login-logo">
+        <img src="${cPath}/resources/images/logo3.jpg" class="login-logo" onclick="location.href='${cPath}/'">
         <form method="post" class="login-form" action="${cPath}/login.do">
             <h3>Email</h3>
             <input type="text" name="m_email" placeholder="Email">
@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
                 <input type="checkbox" id="remember-check">아이디 저장하기
             </label> -->
             <input type="submit" value="Login">
-            <input type="submit" value="Sign up">
+            <input type="button" value="Sign up" onclick="location.href='${cPath}/join.do'">
         </form>
     </div>
 </body>
