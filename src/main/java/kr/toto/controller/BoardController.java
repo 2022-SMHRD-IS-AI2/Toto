@@ -101,7 +101,7 @@ public class BoardController {
 	        // 파일 저장 경로 설정
 		    mapper.uploadFile(vo);
 	        String uploadPath = "C:\\test\\upload";
-	        왜안되는거야
+//	        왜안되는거야
 			/*
 			 * for(MultipartFile file : files) { // 업로드한 파일의 이름 String fileName =
 			 * files.getOriginalFilename();
