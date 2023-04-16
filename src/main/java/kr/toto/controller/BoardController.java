@@ -34,6 +34,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.fasterxml.jackson.annotation.JacksonInject.Value;
+
 import kr.toto.entity.BReple;
 import kr.toto.entity.Bulletin;
 import kr.toto.mapper.BoardMapper;
@@ -96,6 +98,15 @@ public class BoardController {
 		System.out.println(searchList);
 		return new ResponseEntity(searchList, HttpStatus.OK);
 	}
+	
+	@PostMapping("/writeReple.do")
+	public ResponseEntity<Integer> writeReple(@RequestBody BReple reple) throws Exception {
+		System.out.println("여기까지 왔음?");
+		int cnt =  mapper.writeReple(reple);
+		return new ResponseEntity(cnt, HttpStatus.OK);
+	}
+	
+	
 		
 	 @PostMapping(value = "/registerBoard.do")
 	    public String registerBoard(MultipartFile[] files ,Bulletin vo) throws IOException {

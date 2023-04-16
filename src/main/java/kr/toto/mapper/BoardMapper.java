@@ -15,8 +15,8 @@ public interface BoardMapper {
 	public void writeBoard(Bulletin vo);
 	public Bulletin seeInBoard(Bulletin vo);
 	public List<BReple> seeInReple(Bulletin vo);
-	public void writeReple(BReple vo);
-	public void wirteReReple(BReple vo);
+	public int writeReple(BReple vo);
+	//public void wirteReReple(BReple vo);
 	public List<Bulletin> searchContent(String search);
 	public void uploadFile(Bulletin vo);
 

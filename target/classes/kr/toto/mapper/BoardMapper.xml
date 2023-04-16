@@ -17,19 +17,19 @@
 		(#{m_nick},#{b_file_or_quiz},#{b_title},#{b_content},now(),0)
 	</insert>
 	<insert id="writeReple" parameterType="kr.toto.entity.BReple">
-		insert into B_reple (m_nick, r_content, r_date, r_group, r_modify_date) values
-		(#{m_nick},#{r_content},now(),#{r_group},#{r_modify_date})
+		insert into B_reple (b_num, m_nick, r_content, r_date) values
+		(#{b_num},#{m_nick},#{r_content},now())
 	</insert>
-	<insert id="writeReReple">
+	<!-- <insert id="writeReReple">
 		<selectKey keyProperty="r_group" resultType="kr.toto.entity.BReple" order="BEFORE">
 		select IFNULL(max(r_group)+1,0) as r_group from B_reple
 		</selectKey>
 		insert into B_reple (m_nick, r_content, r_date, r_group, r_modify_date, r_parent) values
 		(#{m_nick},#{r_content},now(),#{r_group},#{r_modify_date},#{r_parent})
-	</insert>
+	</insert> -->
 	<select id="seeInReple" parameterType="kr.toto.entity.Bulletin"
 		resultType="kr.toto.entity.BReple">
-		select * from B_reple where (b_num = #{b_num}) order by r_group asc, r_date desc
+		select * from B_reple where (b_num = #{b_num}) order by r_date desc
 	</select>
 	<select id="searchContent" resultType="kr.toto.entity.Bulletin">
 		SELECT * FROM Bulletin WHERE b_content LIKE CONCAT('%', #{search}, '%')

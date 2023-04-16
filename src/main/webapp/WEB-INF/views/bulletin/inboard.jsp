@@ -25,7 +25,7 @@
 
 	<jsp:include page="../left.jsp"></jsp:include>
 	<c:choose>
-		<c:when test="${info.b_num == 1}">
+		<c:when test="${info.b_file_or_quiz == 1}">
 			<div class="text-1">문항게시판</div>
 		</c:when>
 		<c:otherwise>
@@ -106,13 +106,16 @@
 				<div class="form-group">
 					<label for="comment-body">댓글:</label> <input id="comment-body"
 						name="comment-body" class="form-control" required></input>
+						<input type="hidden" id="nick" value="${memberVO.m_nick}">
+						<input type="hidden" id="b_num" value="${info.b_num}">
 				</div>
 				<div class="form-group-btn">
-					<button type="submit" class="btn btn-primary">등록</button>
+					<button type="button" class="btn btn-primary" onclick="repleSendGet()">등록</button>
 				</div>
 
 
 			</form>
+			<div class="comment" id="reple-container">
 			<c:choose>
 			<c:when test="${!empty reple}">
 			<c:forEach var="repleVO" items="${reple}">
@@ -156,6 +159,7 @@
 			
 			</c:otherwise>
 			</c:choose>
+			</div>
 			<div class="comment-footer">
 				<button class="chat-btn1-button2" onclick="toggleUp()">
 					<img class="empty" src="${cPath}/resources/images/handUp.svg"> <img
@@ -182,8 +186,60 @@
 
 
 	</div>
+	
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+		
+	<script type="text/javascript">
+			function repleSendGet(){
+				var repleText = document.getElementById('comment-body').value;
+				var writer = document.getElementById('nick').value;
+				var bulNum = Number(document.getElementById('b_num').value);
+				var param = {"m_nick":writer, "r_content":repleText, "b_num":bulNum};
+				let today = new Date();   
 
-	<script>
+				let year = today.getFullYear(); // 년도
+				let month = today.getMonth() + 1;  // 월
+				let date = today.getDate();  // 날짜
+				let day = today.getDay();  // 요일
+
+				var time = year+'-'+month+'-'+date;
+				$.ajax({
+					type:"POST",
+					url:"/toto/writeReple.do",
+					data:JSON.stringify(param),
+					dataType:"text",
+					contentType: "application/json; charset=UTF-8",
+					success:function(data){
+						console.log('tlqkf');
+						console.log(data);
+					var putReple = `<div class="comment">
+						<div class="comment-img">
+						<img class="profile-pic" src="${cPath}/resources/images/default.png" alt="프로필 사진">
+					</div>
+
+					<div class="comment-details">
+						<div>
+							<h6 class="comment-author">
+								`+writer+`
+								</h6>
+						</div>
+						<div class="comment-actions">
+							<p class="comment-text">`+repleText+`</p>
+							<span class="comment-date">`+time+`</span>
+
+						</div>
+					</div>
+				</div>`;
+					document.querySelector('#reple-container').insertAdjacentHTML('afterbegin',putReple);
+					document.getElementById('comment-body').value = '';
+					},
+					error:function(xhr, status, error){
+						alert('시스템 오류입니다. 죄송합니다. 새로고침을 해주세요!');
+						console.log(error);
+					}
+				})
+			}
+	
 		var heartButton = document.querySelector('.chat-btn1-button1');
 		var heartCount = document.getElementById('heartCount');
 
@@ -205,9 +261,7 @@
 			heartCount.textContent = count.toString();
 
 		}
-	</script>
 
-	<script>
 		var isUpVoted = false;
 		var isDownVoted = false;
 		var svgCount = 0;
@@ -271,9 +325,8 @@
 	</script>
 
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		crossorigin="anonymous"></script>
+
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
