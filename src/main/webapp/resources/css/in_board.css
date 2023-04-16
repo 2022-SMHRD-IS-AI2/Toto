@@ -1,6 +1,10 @@
 @charset "UTF-8";
 @import "reset.css";
 
+.q-nav{
+    display: flex;
+}
+
 
 /* 문항게시판 */
 .text-1{
@@ -11,7 +15,7 @@
     display: inline-block;
     /* margin-left: 580px; */
     padding-left: 354px;
-} 
+}
 
 .q-contents{
     width: 1300px;
@@ -24,15 +28,20 @@
     /* background-color: #acc9e6; */
     background-color: #f4f7fa;
 }
+.q-contents-text-2{
+    display: flex;
+    justify-content: center;
+}
 
 .text-2{
+    width: 80%;
     display: flex;
     justify-content: space-between;
     /* font-size: 20px; */
     font-size: large;
     /* background-color: aliceblue; */
     /* margin-left: 250px; */
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 /* .right-hr{
@@ -60,6 +69,7 @@ hr{
     /* letter-spacing: 0px; */
     word-spacing: 20px;
     margin-right: 160px;
+    font-size: 16px;
 }
 
 /* .text-2 div{
@@ -101,11 +111,12 @@ hr{
     border: 1px solid grey;
     border-radius: 15px;
     /* height: 250px; */
-    width: 1000px;
+    
     /* width: 1300px; */
     text-align: left;
     background-color: white;
     font-size: medium;
+    padding: 10px;
 }
 
 .text-box2{
@@ -113,19 +124,20 @@ hr{
     border: 1px solid grey;
     border-radius: 15px;
     /* height: 250px; */
-    width: 1000px;
+    
     text-align: left;
     background-color: white;
     font-size: medium;
+    padding: 10px;
 }
 
 /* 댓글 버튼 */
 .chat-btn{
     display: flex;
     /* justify-content: space-between; */
-    margin-left: 150px;
+    margin-left: 130px;
     margin-top: 20px;
-    width: 1000px;
+    width: 1030px;
 }
 
 .chat-btn1{
@@ -138,18 +150,7 @@ hr{
     /* justify-content: center; */
 }
 
-.chat-btn1-button1{
-    width: 50px;
-    height: 30px;
-    color: black;
-    /* font-weight: bolder;
-    font-size: 15px; */
-    font-size: small;
-    margin-right: 10px;
-    /* background-color: transparent; */
-    /* background-color: #acc9e6; */
-    background-color: rgb(150, 150, 150);
-}
+
 
 .chat-btn2{
     display: flex;
@@ -181,7 +182,7 @@ hr{
 
 .reviewer-info-header{
     width: 1000px;
-    height: 32px;
+    height: 70px;
     display: flex;
     padding: 20px 0px;
     justify-content: space-between;
@@ -309,18 +310,15 @@ hr{
 
 /* 버튼 */
 .btn{
-    display: flex;
-    width: 1300px;
-    height: 60px;
-    /* margin-left: 240px; */
-    margin-top: 20px;
+ 
+    height: 40px;
+    margin-left: 10px;
+    
     /* background-color: aliceblue; */
     justify-content: center;
 }
 
-.btn i{
-    margin-top: 17px;
-}
+
 
 .button{
     width: 100px;
@@ -334,8 +332,22 @@ hr{
     margin-right: 200px; */
 }
 
+#comments{
+    width: 1040px;
+    height: 300px;
+    margin-top: 60px;
+}
+
+.form-group-btn{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .reple{
-	width: 100%;
-	height: 30px;
-	border-bottom: 1px solid
+    width: 100%;
+    height: 30px;
+    
+    border-bottom: 1px solid;
 }

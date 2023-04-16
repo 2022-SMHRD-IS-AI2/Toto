@@ -10,6 +10,7 @@ public class Bulletin {
 	private int b_num;
 	private String m_nick;
 	private int b_file_or_quiz;
+	private int b_like;
 	private String b_title;
 	private String b_content;
 	private String b_file1;
