@@ -118,7 +118,7 @@
 			<c:forEach var="repleVO" items="${reple}">
 			<div class="comment">
 				<div class="comment-img">
-					<img class="profile-pic" src="/image/hl.jpg" alt="프로필 사진">
+					<img class="profile-pic" src="${cPath}/resources/images/default.png" alt="프로필 사진">
 				</div>
 
 				<div class="comment-details">
@@ -158,14 +158,14 @@
 			</c:choose>
 			<div class="comment-footer">
 				<button class="chat-btn1-button2" onclick="toggleUp()">
-					<img class="empty" src="image/handUp.svg"> <img
-						class="filled" src="image/handUpfill.svg" style="display: none;">
+					<img class="empty" src="${cPath}/resources/images/handUp.svg"> <img
+						class="filled" src="${cPath}/resources/images/handUpfill.svg" style="display: none;">
 				</button>
 				<span id="svgCount">0</span>
-				<button class="chat-btn1-button3" onclick="toggleDown()">
-					<img class="empty" src="image/handDown.svg"> <img
-						class="filled" src="image/handDownfill.svg" style="display: none;">
-				</button>
+				<%-- <button class="chat-btn1-button3" onclick="toggleDown()">
+					<img class="empty" src="${cPath}/resources/images/handDown.svg"> <img
+						class="filled" src="${cPath}/resources/images/handDownfill.svg" style="display: none;">
+				</button> --%>
 
 			</div>
 			<nav aria-label="Page navigation example">
