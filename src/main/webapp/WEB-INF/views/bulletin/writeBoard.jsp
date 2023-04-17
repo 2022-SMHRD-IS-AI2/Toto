@@ -21,7 +21,7 @@
 
 	<div class="w-contents">
 		<hr>
-		<form class="board_wrap" method="post"  enctype="mulitpart/form-data"  action="${cPath}/registerBoard.do">
+		<form class="board_wrap" method="post"  enctype="multipart/form-data"  action="${cPath}/registerBoard.do">
 			<div class="board_write_wrap">
 				<div class="board_write">
 					<div class="title">
@@ -45,19 +45,11 @@
 							</dd>
 						</dl>
 						<dl>
-						<!-- 	<dt>파일첨부</dt>
+								<dt>파일첨부</dt>
 							<dd>
-								<input type="file"  class = "form-control-file border" name="wordFile" multiple="multiple">단어파일
+								<input type="file"  class = "form-control-file border" name="files" multiple="multiple">최대3개 파일 첨부가능
 							</dd>
-							<dt></dt> -->
-							<dt>자료파일</dt>
-							<dd>
-								<input type="file" name="files"   multiple="multiple">
-							</dd>
-							<dt>자료파일</dt>
-							<dd>
-								<input type="file" name="files" multiple="multiple">
-							</dd>
+						
 						</dl>
 					</div>
 					<div class="cont">

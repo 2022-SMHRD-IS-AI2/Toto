@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Bulletin {
 	
-	private int b_num;
+	private Integer b_num;
 	private String m_nick;
 	private int b_file_or_quiz;
 	private int b_like;
