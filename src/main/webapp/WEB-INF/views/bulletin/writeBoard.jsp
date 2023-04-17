@@ -30,8 +30,8 @@
 							<dd>
 								<input type="text" placeholder="제목 입력" name="b_title">
 								<select name="b_file_or_quiz">
-									<option value="0">자료게시판</option>
-									<option value="1">문항게시판</option>
+									<option value=0>자료게시판</option>
+									<option value=1>문항게시판</option>
 								</select>
 							</dd>
 						</dl>

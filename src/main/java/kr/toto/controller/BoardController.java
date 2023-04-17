@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.annotation.JacksonInject.Value;
 
@@ -51,7 +52,7 @@ public class BoardController {
 	
 	
 	@RequestMapping("/fileSelect.do")
-	public String fileSelect(Model model, int num) {
+	public String fileSelect(Model model, Integer num) {
 		List<Bulletin> vo = mapper.getAllFile(num);
 		model.addAttribute("fileVO", vo);
 		return "bulletin/fileBulletin";
@@ -102,7 +103,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/registerBoard.do")
-	public String writeReple(MultipartFile[] files, Bulletin vo) throws Exception {
+	public String writeReple(MultipartFile[] files, Bulletin vo,RedirectAttributes rttr) throws Exception {
 		System.out.println("여기까지 왔음?");
 		System.out.println(vo.getM_nick());
 		System.out.println(vo.getB_content());
@@ -139,8 +140,13 @@ public class BoardController {
 		if(files[2]!=null){vo.setB_file3(files[2].getOriginalFilename()+today);}
 		System.out.println("여기는요?");
 		mapper.writeBoard(vo);
-
+		System.out.println("여기가 문제냐?");
+		rttr.addAttribute("num",0);
 //		int cnt =  mapper.writeReple(reple);
+		
+		
+		
+		
 		return "redirect:/fileSelect.do";
 	}
 	
