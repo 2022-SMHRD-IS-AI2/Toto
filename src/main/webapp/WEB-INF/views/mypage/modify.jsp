@@ -26,7 +26,7 @@ pageEncoding="UTF-8"%>
     
     <div class="page-content">
         <div class="page-upload">
-            <div>
+            <div>  
                 <img src="" class="uploadImage">
             <input type="file" id="inputImage" style="display:none;">
 
