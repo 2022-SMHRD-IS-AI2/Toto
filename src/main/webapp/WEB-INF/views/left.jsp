@@ -25,7 +25,7 @@
 			<c:when test="${!empty memberVO}">
 				<div class="profile">
 					<div class="profile-img">
-						<img src="${memberVO.m_profile}" alt="">
+						<img src="${cPath}/resources/images/simpleImg.png" alt="">
 					</div>
 					<div class="profile-info">
 						<span>${memberVO.m_nick}</span> <span>${memberVO.m_email}</span>

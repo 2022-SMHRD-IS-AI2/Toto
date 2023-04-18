@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -47,9 +48,22 @@
 
 		<hr>
 		<div class="text-3">
-			<!-- <div>자료 0개</div>
-            <div>등록날짜</div> -->
-			<p>자료0개 <fmt:formatDate value="${info.b_date}" pattern="yyyy-MM-dd" /></p>
+			 <div>자료 0개</div>
+            <div>등록날짜</div>
+			<%-- <div> 
+			<p><fmt:formatDate value="${info.b_date}" pattern="yyyy-MM-dd" /></p>
+
+			<c:if test="${!empty info.b_file1}">
+			<a href="<c:url value='${cPath}/fileDownload/${info.b_file1}'/> ">${info.b_file1} 파일 다운로드</a><br>
+			<button type="button" onclick="downloadFiles()">${info.b_file1} 다운로드</button>
+			</c:if>
+			<c:if test="${!empty info.b_file2}">
+			<a href="<c:url value='${cPath}/fileDownload/${info.b_file2}'/> ">${info.b_file2} 파일 다운로드</a><br>
+			</c:if>
+			<c:if test="${!empty info.b_file3}">
+			<a href="<c:url value='${cPath}/fileDownload/${info.b_file3}'/> ">${info.b_file3} 파일 다운로드</a><br>
+			</c:if>
+			</div> --%>
 		</div>
 		<div class="all-text-box">
 			<div class="text-box1">
@@ -190,6 +204,13 @@
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		
 	<script type="text/javascript">
+			
+			function downloadFiles(){
+					console.log('tlqkf');
+
+			}
+	
+	
 			function repleSendGet(){
 				var repleText = document.getElementById('comment-body').value;
 				var writer = document.getElementById('nick').value;

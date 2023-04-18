@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.ProcessBuilder.Redirect;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,8 +28,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -104,12 +108,6 @@ public class BoardController {
 	
 	@PostMapping("/registerBoard.do")
 	public String writeReple(MultipartFile[] files, Bulletin vo,RedirectAttributes rttr) throws Exception {
-		System.out.println("여기까지 왔음?");
-		System.out.println(vo.getM_nick());
-		System.out.println(vo.getB_content());
-		System.out.println(vo.getB_file_or_quiz());
-		System.out.println(vo.getB_title());
-		
 		
 		String today = new SimpleDateFormat("yyMMdd").format(new Date());
 		String saveFolder = "C:\\upload\\tmp";
@@ -120,11 +118,9 @@ public class BoardController {
 		}
 		
 		for(MultipartFile mfile: files) {
-			System.out.println("몇번 실행되느지 보자!");
 			String originalFileName = mfile.getOriginalFilename();
 			if(!originalFileName.isEmpty()) {
 				String saveFileName = originalFileName+ today+originalFileName.substring(originalFileName.lastIndexOf('.'));
-				System.out.println(saveFileName);
 				try {
 					mfile.transferTo(new java.io.File(folder, saveFileName));
 				} catch (IllegalStateException e) {
@@ -134,13 +130,10 @@ public class BoardController {
 				}
 			}
 		}
-		System.out.println("여기는?");
 		if(files[0]!=null){vo.setB_file1(files[0].getOriginalFilename()+today);}
 		if(files[1]!=null){vo.setB_file2(files[1].getOriginalFilename()+today);}
 		if(files[2]!=null){vo.setB_file3(files[2].getOriginalFilename()+today);}
-		System.out.println("여기는요?");
 		mapper.writeBoard(vo);
-		System.out.println("여기가 문제냐?");
 		rttr.addAttribute("num",0);
 //		int cnt =  mapper.writeReple(reple);
 		
@@ -150,36 +143,16 @@ public class BoardController {
 		return "redirect:/fileSelect.do";
 	}
 	
-	
-		
 	/*
-	 * @PostMapping(value = "/registerBoard.do") public String
-	 * registerBoard(MultipartFile[] files ,Bulletin vo) throws IOException {
-	 * System.out.println(vo.getB_content());
-	 * System.out.println(vo.getB_file_or_quiz());
-	 * System.out.println(vo.getB_num()); System.out.println(vo.getB_select());
-	 * System.out.println(vo.getB_title()); System.out.println(vo.getM_nick());
-	 * 
-	 * 
-	 * // 파일 저장 경로 설정 if(files[0]!=null)
-	 * {vo.setB_file1(files[0].getOriginalFilename());} if(files[1]!=null)
-	 * {vo.setB_file2(files[1].getOriginalFilename());} if(files[2]!=null)
-	 * {vo.setB_file3(files[2].getOriginalFilename());} mapper.uploadFile(vo);
-	 * String uploadPath = "C:\\test\\upload";
-	 * 
-	 * for(MultipartFile file : files) { // 업로드한 파일의 이름 String fileName = String
-	 * originalFileName = file.getOriginalFilename();
-	 * 
-	 * 
-	 * // 파일 저장 File saveFile = new File(uploadPath + fileName); File saveFile = new
-	 * File(uploadPath + originalFileName); file.transferTo(saveFile); } // 파일 업로드
-	 * 성공 후 처리할 로직 작성
-	 * 
-	 * return "redirect:/fileSelect.do"; }
+	 * @PostMapping("/fileDownload/{file}") public void fileDownload(@PathVariable
+	 * String file, HttpServletResponse response) throws IOException{ java.io.File f
+	 * = new java.io.File("C:\\upload\\tmp",file);
+	 * response.setContentType("application/download");
+	 * response.setContentLength((int)f.length());
+	 * response.setHeader("content-disposition",
+	 * "attachment;filename=\""+file+"\""); OutputStream os =
+	 * response.getOutputStream(); FileInputStream fis = new FileInputStream(f);
+	 * FileCopyUtils.copy(fis, os); fis.close(); os.close(); }
 	 */
-	}
-
 	
-
-	
-
+}	

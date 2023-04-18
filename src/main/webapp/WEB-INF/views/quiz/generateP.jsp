@@ -43,7 +43,7 @@
     <div class="gpt-footer">
         <div class="gpt-form" >
             <div class="gpt-text">
-                <textarea id="myTextarea"placeholder="문장을 입력해주세요."></textarea> 
+                <textarea id="myTextarea" placeholder="문장을 입력해주세요."></textarea> 
                 <button class="btn btn-outline-primary btn-sm send" id="send">전송</button>
             </div>
         </div>
@@ -51,6 +51,7 @@
  
       <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         <script type="module">
+
             import { Configuration, OpenAIApi }  from 'https://cdn.skypack.dev/openai';
                 	let cnt = 1;
                     document.querySelector(".send").addEventListener('click',function(){
@@ -59,7 +60,7 @@
                    		
                         const value =document.querySelector('#myTextarea').value;
 							document.querySelector('#myTextarea').value = '';
-						var firstTemplate = `<form class="gpt-inside"><div class="bgTransparent" type="button" id="clickP`+cnt+`"></div></form>`;
+						var firstTemplate = `<form class="gpt-inside"><div class="bgTransparent" id="clickP`+cnt+`"></div></form>`;
 						document.querySelector('.gpt-content').insertAdjacentHTML('beforeend',firstTemplate);
                         
                         var template =`<div class="gpt-problem">
@@ -73,7 +74,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -87,16 +88,13 @@
                         presence_penalty: 0,
                         
                       }).then((result)=>{
-						cnt++;
                         console.log(result.data.choices[0].text)
                         var template =`<div class="gpt-answer" >
                             <div class="gpt-answer-text">
                                 <span id="answerOutput`+cnt+`">`+result.data.choices[0].text+`</span>
                             </div>
-                        </div>
-                        `
+                        </div>`
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
-						cnt++;
 
                         
 						var quiz = '';
@@ -112,30 +110,24 @@
         					},
         						complete:function(xhr, status){
         							console.log('됐냐?');
-        						console.log(quiz);
         						}
         					})
 						var SendBtnId = "btnSend"+cnt;
 						var BoardBtnId = "btnBoard"+cnt;
-						setTimeout(() => { 
+						setTimeout(() => {
                         var template =`<div class="gpt-problem">
                             <div class="gpt-problem-text">
-                                <span id="answerOutput`+cnt+`">`+quiz+`</span>
+                                <span id="quizOutput`+cnt+`">`+quiz+`</span>
                             </div>
                         </div>
-                        <button type="submit" style="margin-right: 50px;" id="btnSend">내 문제 저장</button>
-                        <button type="button"  style="margin-left: 50p===x;" id = "btnBoard">문항 게시판에 올리기</button>`
+                        <button type="button" style="margin-right: 50px;" id="btnSend" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
+                        <button type="submit"  style="margin-left: 50px;" id = "btnBoard">문항 게시판에 올리기</button>`
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);}
 
-						
-
 						,3000);
-
-						
-                        
-
                         document.querySelector('.gpt-content').scrollTop = document.querySelector('.gpt-content').scrollHeight;
                         document.getElementById("send").disabled = false;
+						console.log('여기도?????');
                       })
 
 						++cnt;
@@ -144,15 +136,9 @@
 				
                 
       </script>
-     
-     
-    
       
-    
-    
-    <script>
-    	document.querySelector('.answer')
-    </script>
+     
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
