@@ -133,7 +133,7 @@
 			<c:choose>
 			<c:when test="${!empty reple}">
 			<c:forEach var="repleVO" items="${reple}">
-			<div class="comment">
+			<div class="comment2">
 				<div class="comment-img">
 					<img class="profile-pic" src="${cPath}/resources/images/default.png" alt="프로필 사진">
 				</div>
@@ -154,7 +154,7 @@
 			</c:forEach>
 			</c:when>
 			<c:otherwise>
-			<div class="comment">
+			<div class="comment2">
 				<div class="comment-img">
 				</div>
 
@@ -180,10 +180,10 @@
 						class="filled" src="${cPath}/resources/images/handUpfill.svg" style="display: none;">
 				</button>
 				<span id="svgCount">0</span>
-				<%-- <button class="chat-btn1-button3" onclick="toggleDown()">
+				 <button class="chat-btn1-button3" onclick="toggleDown()">
 					<img class="empty" src="${cPath}/resources/images/handDown.svg"> <img
 						class="filled" src="${cPath}/resources/images/handDownfill.svg" style="display: none;">
-				</button> --%>
+				</button> 
 
 			</div>
 			<nav aria-label="Page navigation example">
@@ -233,7 +233,7 @@
 					success:function(data){
 						console.log('tlqkf');
 						console.log(data);
-					var putReple = `<div class="comment">
+					var putReple = `<div class="comment2">
 						<div class="comment-img">
 						<img class="profile-pic" src="${cPath}/resources/images/default.png" alt="프로필 사진">
 					</div>

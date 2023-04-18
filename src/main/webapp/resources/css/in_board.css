@@ -269,7 +269,7 @@ hr{
 
 .comment2{
     width: 1000px;
-    height: 40px;
+    
     /* border-top: 1px solid  grey; */
     /* margin-top: 20px; */
     padding: 10px 0px;
@@ -334,8 +334,9 @@ hr{
 
 #comments{
     width: 1040px;
-    height: 300px;
+   
     margin-top: 60px;
+    margin-bottom :20px;
 }
 
 .form-group-btn{

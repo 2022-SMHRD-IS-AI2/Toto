@@ -74,7 +74,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
