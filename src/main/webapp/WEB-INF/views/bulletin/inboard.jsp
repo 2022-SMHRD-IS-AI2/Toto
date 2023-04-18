@@ -13,14 +13,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 
-<script src="https://kit.fontawesome.com/c3a31cbb00.js"
-	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="${cPath}/resources/css/in_board.css">
+<script src="https://kit.fontawesome.com/c3a31cbb00.js"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -201,21 +201,18 @@
 
 	</div>
 	
-		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-		
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript">
 			
-			function downloadFiles(){
-					console.log('tlqkf');
-
-			}
+	
 	
 	
 			function repleSendGet(){
-				var repleText = document.getElementById('comment-body').value;
-				var writer = document.getElementById('nick').value;
-				var bulNum = Number(document.getElementById('b_num').value);
-				var param = {"m_nick":writer, "r_content":repleText, "b_num":bulNum};
+				var repleText = document.querySelector('#comment-body').value;
+				console.log(repleText);
+				var writer = document.querySelector('#nick').value;
+				var bulNum = parseInt(document.querySelector('#b_num').value);
+				var param = {"m_nick":writer, "r_content":repleText,"b_num":bulNum};
 				let today = new Date();   
 
 				let year = today.getFullYear(); // 년도
@@ -231,7 +228,6 @@
 					dataType:"text",
 					contentType: "application/json; charset=UTF-8",
 					success:function(data){
-						console.log('tlqkf');
 						console.log(data);
 					var putReple = `<div class="comment2">
 						<div class="comment-img">

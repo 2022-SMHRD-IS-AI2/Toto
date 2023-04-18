@@ -106,6 +106,13 @@ public class BoardController {
 		return new ResponseEntity(searchList, HttpStatus.OK);
 	}
 	
+	@PostMapping("/writeReple.do")
+	public ResponseEntity writeReple(@RequestBody BReple reple){
+		System.out.println(reple.getM_nick());
+		int cnt = mapper.writeReple(reple);
+		return new ResponseEntity(cnt, HttpStatus.OK);
+	}
+	
 	@PostMapping("/registerBoard.do")
 	public String writeReple(MultipartFile[] files, Bulletin vo,RedirectAttributes rttr) throws Exception {
 		
