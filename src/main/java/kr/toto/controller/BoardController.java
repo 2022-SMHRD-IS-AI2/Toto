@@ -68,8 +68,8 @@ public class BoardController {
 		return "bulletin/quizBulletin";
 	}
 	@GetMapping("/registerBoard.do")
-	public String registerBoard() {   
-				
+	public String registerBoard(Model model,int num) {   
+		model.addAttribute("num", num);
 		
 		return "bulletin/writeBoard";
 	}

@@ -49,7 +49,6 @@ public class QuizController {
 	@PostMapping("generateP.do")
 	public ResponseEntity<Integer> generateP(@RequestBody Quiz quiz) { //, RedirectAttributes rttr
 		int cnt = mapper.insertQ(quiz);
-		System.out.println(quiz.getM_nick());
 		return new ResponseEntity(cnt, HttpStatus.OK);
 		
 	}

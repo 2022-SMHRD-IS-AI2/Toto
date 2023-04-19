@@ -75,7 +75,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -146,21 +146,21 @@
 				$(document).on("click",".btn_store",function(e){
    				  var clicked_num = e.target.dataset.count;
 					console.log(clicked_num);
-					var promptId = 'output'+clicked_num;
-					var gptAnswerId = 'answerOutput'+clicked_num;
-					var questionId = 'question'+clicked_num;
-					var answerId = 'answer'+clicked_num;
-					var wrongOneId = 'wrongOne'+clicked_num;
-					var wrongTwoId = 'wrongTwo'+clicked_num;
-					var wrongThreeId = 'wrongThree'+clicked_num;
-					var promptVal = document.getElementById(promptId).value;
-					var gptAnswerVal = document.getElementById(gptAnswerId).value;
-					var questionVal = document.getElementById(questionId).value;
-					var answerVal = document.getElementById(answerId).value;
-					var wrongOneVal = document.getElementById(wrongOneId).value;
-					var wrongTwoVal = document.getElementById(wrongTwoId).value;
-					var wrongThreeVal = document.getElementById(wrongThreeId).value;
-					var nickname = document.getElementById('nick').value;
+					let promptId = "#output"+clicked_num;
+					let gptAnswerId = "#answerOutput"+clicked_num;
+					let questionId = "#question"+clicked_num;
+					let answerId = "#answer"+clicked_num;
+					let wrongOneId = "#wrongOne"+clicked_num;
+					let wrongTwoId = "#wrongTwo"+clicked_num;
+					let wrongThreeId = "#wrongThree"+clicked_num;
+					let promptVal = document.querySelector(promptId).innerHTML;
+					let gptAnswerVal = document.querySelector(gptAnswerId).innerHTML;
+					let questionVal = document.querySelector(questionId).innerHTML;
+					let answerVal = document.querySelector(answerId).innerHTML;
+					let wrongOneVal = document.querySelector(wrongOneId).innerHTML;
+					let wrongTwoVal = document.querySelector(wrongTwoId).innerHTML;
+					let wrongThreeVal = document.querySelector(wrongThreeId).innerHTML;
+					let nickname = document.getElementById('nick').value;
 					var param = {"m_nick":nickname,"q_quest":questionVal,"q_sentence":promptVal,"q_paragraph":gptAnswerVal,"q_answer":answerVal,"q_wrong1":wrongOneVal,"q_wrong2":wrongTwoVal,"q_wrong3":wrongThreeVal};
 					$.ajax({
 					type:"POST",

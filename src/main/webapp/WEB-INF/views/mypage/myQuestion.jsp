@@ -32,9 +32,11 @@ pageEncoding="UTF-8"%>
                   </tr>
                 </thead>
                 <% int cnt = 0; %>
+                <tbody>
+              <c:choose>
+        <c:when test="${!empty quizs}">
         <c:forEach var="quizVO" items="${quizs}">
         <% cnt++; %>
-                <tbody>
                   
                     <tr>
                       <th scope="row"><%= cnt %></th>
@@ -43,25 +45,20 @@ pageEncoding="UTF-8"%>
                         
                         <div id="demo1" class="collapse">
                           <p>문제: ${quizVO.q_quest}</p>
-                          <p>선지 (1) ${quizVO.q_wrong1}<br> (2) ${quizVO.q_wrong2}<br> (3) ${quizVO.q_wrong3}<br> (4) ${quizVO.q_answer}<br> (5) ${quizVO.q_wrong4} </p>
+                          <p>오답 (1) ${quizVO.q_wrong1}<br> (2) ${quizVO.q_wrong2}<br> (3) ${quizVO.q_wrong3}<br></p>
                           <p>답: ${quizVO.q_answer}</p>
-                          <p>해설: ${quizVO.q_comment}</p>
                         </div>
                       </td>                   
                       <td><fmt:formatDate value="${quizVO.q_date}" pattern="yyyy-MM-dd HH:ss"/></td>
                     </tr>
         </c:forEach>
+        </c:when>
+        <c:otherwise>
+        	<tr><td rowspan="3">문제가 없습니다! 문제를 생성해보세요! <button onclick="location.href = '${cPath}/generateP.do'">문제 생성하기</button></td></tr>
+        </c:otherwise>
+              </c:choose>
             
-                  <tr>
-                    <th scope="row">2</th>
-                    <td><a href="#">Mark</a></td>
-                    <td>2023-04-04</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td><a href="#">Mark</a></td>
-                    <td>2023-04-04</td>
-                  </tr>
+                 
                 </tbody>
               
                 
