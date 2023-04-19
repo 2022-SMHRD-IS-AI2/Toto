@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <link rel="stylesheet" href="${cPath}/resources/css/generateP.css"> 
@@ -18,12 +19,13 @@
 <body>
     <jsp:include page="../left.jsp"></jsp:include>
        <div class="gpt">
-        <div class="gpt-content" style="overflow-y:auto">
+       <input type="hidden" id="path" value="${cPath}/generateP.do">
+       <input type="hidden" id="nick" value="${memberVO.m_nick}">
+               <div class="gpt-content" style="overflow-y:auto">
             <div class="gpt-model">   
                 Model-GPT3
             </div>
             <form action="" class="gpt-inside">
-            <button class="bgTransparent" type="button">
                 <div class="gpt-problem">
                     <p class="gpt-problem-text">
                        <span id="output">안녕?</span>
@@ -34,7 +36,6 @@
                         <span id="answerOutput">안녕!</span>
                     </p>
                 </div>
-            </button>
             </form>
             
         </div>
@@ -49,18 +50,18 @@
         </div>
     </div>
  
-      <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
         <script type="module">
 
             import { Configuration, OpenAIApi }  from 'https://cdn.skypack.dev/openai';
                 	let cnt = 1;
-                    document.querySelector(".send").addEventListener('click',function(){
+                    document.querySelector("#send").addEventListener('click',function(){
 
-                        document.getElementById("send").disabled = true; 
+                        document.getElementById("send").disabled = true;
                    		
                         const value =document.querySelector('#myTextarea').value;
 							document.querySelector('#myTextarea').value = '';
-						var firstTemplate = `<form class="gpt-inside"><div class="bgTransparent" id="clickP`+cnt+`"></div></form>`;
+						const path = document.querySelector('#path').value;
+						var firstTemplate = `<form class="gpt-inside" method="post" action = `+path+`><div class="bgTransparent" id="clickP`+cnt+`"></div></form>`;
 						document.querySelector('.gpt-content').insertAdjacentHTML('beforeend',firstTemplate);
                         
                         var template =`<div class="gpt-problem">
@@ -74,13 +75,13 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
                       openai.createCompletion({
                         model: "text-davinci-003",
-                        prompt:`${value}이라는 문장과 관련된 영어 문단 만들어줘.`,
+                        prompt: value + "이라는 문장과 관련된 영어 문단 만들어줘.",
                         temperature: 0.8,
                         max_tokens: 2000,
                         top_p: 1,
@@ -88,7 +89,7 @@
                         presence_penalty: 0,
                         
                       }).then((result)=>{
-                        console.log(result.data.choices[0].text)
+                        console.log(result.data.choices[0].text);
                         var template =`<div class="gpt-answer" >
                             <div class="gpt-answer-text">
                                 <span id="answerOutput`+cnt+`">`+result.data.choices[0].text+`</span>
@@ -98,11 +99,15 @@
 
                         
 						var quiz = '';
+						let para = {"s":result.data.choices[0].text}
        					 $.ajax({
-           				 url:'http://211.227.224.143:5000/',
-           				 type:'GET',
+           				 url:'http://211.227.224.143:5000/quiz/',
+           				 type:'POST',
+						 data:JSON.stringify(para),
+						 timeout:6000,
+						 contentType:"application/json; charset=utf-8",
            				 success:function(data, status, xhr){
-           						     quiz = data;
+           						   quiz = data;
              					   console.log(quiz);
            					 },
            					 error:function(xhr, status, error){
@@ -112,27 +117,68 @@
         							console.log('됐냐?');
         						}
         					})
-						var SendBtnId = "btnSend"+cnt;
-						var BoardBtnId = "btnBoard"+cnt;
+						
 						setTimeout(() => {
                         var template =`<div class="gpt-problem">
-                            <div class="gpt-problem-text">
-                                <span id="quizOutput`+cnt+`">`+quiz+`</span>
-                            </div>
-                        </div>
-                        <button type="button" style="margin-right: 50px;" id="btnSend" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
-                        <button type="submit"  style="margin-left: 50px;" id = "btnBoard">문항 게시판에 올리기</button>`
-                        document.querySelector(valueID).insertAdjacentHTML('beforeend',template);}
-
-						,3000);
-                        document.querySelector('.gpt-content').scrollTop = document.querySelector('.gpt-content').scrollHeight;
+                            <div class="gpt-problem-text2">
+                                <span id="question`+cnt+`">`+quiz["qSen"]+`</span><br>
+								<span>정답 : </span><span id="answer`+cnt+`">`+quiz['answer']+`</span><br>
+								<span>오답 선지들</span><br>
+								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><span id="wrongOne`+cnt+`">`+quiz['wrongs'][0]+`</span></span><br>
+								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><span id="wrongTwo`+cnt+`">`+quiz['wrongs'][1]+`</span></span><br>
+								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><span id="wrongThree`+cnt+`">`+quiz['wrongs'][2]+`</span></span><br>
+                            </div></div>
+						<div class="btn_align">
+                        <button type="button" style="margin-right: 50px;" class="btn_store" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
+                        <button type="submit"  style="margin-left: 50px;">문항 게시판에 올리기</button></div>
+						`
+                        
+                        document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
                         document.getElementById("send").disabled = false;
+                        document.querySelector('.gpt-content').scrollTop = document.querySelector('.gpt-content').scrollHeight;
+						++cnt;}
+						,5000);
 						console.log('여기도?????');
+						console.log(cnt);
                       })
 
-						++cnt;
                 });
-				
+				$(document).on("click",".btn_store",function(e){
+   				  var clicked_num = e.target.dataset.count;
+					console.log(clicked_num);
+					var promptId = 'output'+clicked_num;
+					var gptAnswerId = 'answerOutput'+clicked_num;
+					var questionId = 'question'+clicked_num;
+					var answerId = 'answer'+clicked_num;
+					var wrongOneId = 'wrongOne'+clicked_num;
+					var wrongTwoId = 'wrongTwo'+clicked_num;
+					var wrongThreeId = 'wrongThree'+clicked_num;
+					var promptVal = document.getElementById(promptId).value;
+					var gptAnswerVal = document.getElementById(gptAnswerId).value;
+					var questionVal = document.getElementById(questionId).value;
+					var answerVal = document.getElementById(answerId).value;
+					var wrongOneVal = document.getElementById(wrongOneId).value;
+					var wrongTwoVal = document.getElementById(wrongTwoId).value;
+					var wrongThreeVal = document.getElementById(wrongThreeId).value;
+					var nickname = document.getElementById('nick').value;
+					var param = {"m_nick":nickname,"q_quest":questionVal,"q_sentence":promptVal,"q_paragraph":gptAnswerVal,"q_answer":answerVal,"q_wrong1":wrongOneVal,"q_wrong2":wrongTwoVal,"q_wrong3":wrongThreeVal};
+					$.ajax({
+					type:"POST",
+					url:"/toto/generateP.do",
+					data:JSON.stringify(param),
+					dataType:"text",
+					contentType: "application/json; charset=UTF-8",
+					success:function(data){
+						console.log(data);
+						alert('문제를 성공적으로 저장하였습니다!');
+					},
+					error:function(xhr, status, error){
+						alert('시스템 오류입니다. 죄송합니다. 새로고침을 해주세요!');
+						console.log(error);
+					}
+				})
+					
+				});
 				
                 
       </script>

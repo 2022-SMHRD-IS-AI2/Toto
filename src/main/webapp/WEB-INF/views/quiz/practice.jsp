@@ -22,7 +22,7 @@
     
      function btnClicked(){
         var a = document.getElementById('p');
-        let para = {"q":"tlqkf"};
+        let para = {"s":"The purpose of the weekly training course is to teach employees how to use the company’s database software."};
         let jsonPara = JSON.stringify(para);
 
         $.ajax({
@@ -33,6 +33,7 @@
         	
         	contentType:"application/json; charset=utf-8",
         	success:function(data, status, xhr){
+        		console.log(data);
         		a.innerText = data
         	},
         	error:function(xhr, status, error){

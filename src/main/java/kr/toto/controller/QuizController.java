@@ -10,6 +10,8 @@ import java.net.URL;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,11 +19,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.toto.entity.Member;
-import kr.toto.entity.Paragraph;
 import kr.toto.entity.Quiz;
 import kr.toto.mapper.QuizMapper;
 
@@ -43,9 +45,16 @@ public class QuizController {
 	
 		return "quiz/generateP";
 	}
+	
+	@PostMapping("generateP.do")
+	public ResponseEntity<Integer> generateP(@RequestBody Quiz quiz) { //, RedirectAttributes rttr
+		int cnt = mapper.insertQ(quiz);
+		System.out.println(quiz.getM_nick());
+		return new ResponseEntity(cnt, HttpStatus.OK);
+		
+	}
 	@GetMapping("/generateQ.do")
 	public String generateQ() {
-		
 	return "quiz/generateQ";
 	}
 	
@@ -58,10 +67,11 @@ public class QuizController {
 		//rttr.addAttribute("question",vo.getP_sentence());
 		return "redirect:http://127.0.0.1:8000/hello";
 	}
+	
 	@RequestMapping("/hoho.do")
-	public String haha(Paragraph vo) {
-		System.out.println(vo.getP_sentence());
-		System.out.println(vo.getP_content());
+	public String haha(Quiz vo) {
+		System.out.println(vo.getQ_num());
+		System.out.println(vo.getQ_num());
 		System.out.println(vo.getM_nick());
 		
 		return null;
@@ -89,13 +99,6 @@ public class QuizController {
 	
 
 	
-	@PostMapping("generateP.do")
-	public String generateP(String data) { //, RedirectAttributes rttr
-//		rttr.addAttribute("sen", sentence);
-		System.out.println(data);
-		return "redirect:http://127.0.0.1:8000/hello";
-		
-	}
 	
 	@RequestMapping("practice.do")
 	public String practice() {
