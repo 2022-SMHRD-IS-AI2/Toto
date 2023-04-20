@@ -3,6 +3,7 @@ package kr.toto.controller;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.http.HttpSession;
 
 import java.net.HttpURLConnection;
@@ -57,6 +58,13 @@ public class QuizController {
 	return "quiz/generateQ";
 	}
 	
+	@PostMapping("/generateQ.do") 
+	public ResponseEntity<Integer> generateQ(@RequestBody Quiz vo) { // 문제 저장을 눌렀을 때 로직
+//		mapper.insertP(Paragraph vo);  이거는 그냥 위에 pragraph에서 하기 긔록 flash로 paragraph num 꼭 보내기
+		int cnt = mapper.insertQ(vo);
+		return new ResponseEntity(cnt, HttpStatus.OK);
+	}
+	
 	@PostMapping("/writeB.do")
 	public String writeB(Model model,Quiz quiz) {
 		model.addAttribute("num",1);
@@ -85,14 +93,6 @@ public class QuizController {
 	
 //	@GetMapping("/generateQ.do")  이거는 fast에서 데이터 가지고 오면 하기
 	
-	@PostMapping("/generateQ.do") 
-	public String generateQ(Quiz vo) { // 문제 저장을 눌렀을 때 로직
-		
-//		mapper.insertP(Paragraph vo);  이거는 그냥 위에 pragraph에서 하기 긔록 flash로 paragraph num 꼭 보내기
-		mapper.insertQ(vo);
-		
-		return "";
-	}
 	
 	@RequestMapping("/myQuestion.do")
 	public String myQuestion(Model model, HttpSession session) {
