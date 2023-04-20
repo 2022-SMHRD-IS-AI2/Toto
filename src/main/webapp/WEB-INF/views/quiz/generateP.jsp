@@ -76,7 +76,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -93,7 +93,7 @@
                         console.log(result.data.choices[0].text);
                         var template =`<div class="gpt-answer" >
                             <div class="gpt-answer-text">
-                                <textarea id="answerOutput`+cnt+`" name="q_paragraph" readonly="readonly">`+result.data.choices[0].text+`</textarea>
+                                <textarea style="background:#f4f7fa; border: none;width:100%;height: 100px;resize: none;" class="gpt-answer-textarea" id="answerOutput`+cnt+`" name="q_paragraph" readonly="readonly">`+result.data.choices[0].text+`</textarea>
                             </div>
                         </div>`
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
@@ -121,19 +121,20 @@
 						
 						setTimeout(() => {
                         var template =`<div class="gpt-problem">
-                            <div class="gpt-problem-text2">
+
+                            <div style="padding: 15px 20px; width: 60%;height: auto;display: flex;flex-direction:column;" class="gpt-problem-text2">
 								<input type="hidden" value="`+value+`" name="q_sentence" readonly="readonly">
 								<input type="hidden" value="`+nickname+`" name="m_nick" readonly="readonly">
-                                <textarea id="question`+cnt+`" name="q_quest" readonly="readonly">`+quiz["qSen"]+`</textarea><br>
-								<span>정답 : </span><input id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br>
+                                <textarea style="border: none;width:100%;height: 100px;resize: none;"  id="question`+cnt+`" name="q_quest" readonly="readonly">`+quiz["qSen"]+`</textarea><br>
+								<span>정답 : </span><input style="border: none;width:100%;height: auto;resize: none; id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br>
 								<span>오답 선지들</span><br>
-								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><input id="wrongOne`+cnt+`" value="`+quiz['wrongs'][0]+`" readonly="readonly" name="q_wrong1"></span><br>
-								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><input id="wrongTwo`+cnt+`" value="`+quiz['wrongs'][1]+`" readonly="readonly" name="q_wrong2"></span><br>
-								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><input id="wrongThree`+cnt+`" value="`+quiz['wrongs'][2]+`" readonly="readonly" name="q_wrong3"></span><br>
+								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><input style="border: none;" id="wrongOne`+cnt+`" value="`+quiz['wrongs'][0]+`" readonly="readonly" name="q_wrong1"></span><br>
+								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><input style="border: none;" id="wrongTwo`+cnt+`" value="`+quiz['wrongs'][1]+`" readonly="readonly" name="q_wrong2"></span><br>
+								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><input style="border: none;" id="wrongThree`+cnt+`" value="`+quiz['wrongs'][2]+`" readonly="readonly" name="q_wrong3"></span><br>
                             </div></div>
-						<div class="btn_align">
-                        <button type="button" style="margin-right: 50px;" class="btn_store" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
-                        <button type="submit"  style="margin-left: 50px;" class="btn_write" data-count="`+cnt+`">문항 게시판에 올리기</button></div>
+						<div class="gpt-answer">
+                        <button type="button" style="margin-right: 50px;" class="btn btn-outline-secondary" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
+                        <button type="submit"  style="margin-left: 50px;" class="btn btn-outline-secondary" data-count="`+cnt+`">문항 게시판에 올리기</button></div>
 						`
                         
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);

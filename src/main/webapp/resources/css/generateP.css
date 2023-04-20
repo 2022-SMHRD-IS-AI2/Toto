@@ -26,3 +26,6 @@ body{overflow-y: hidden;}
 .gpt-save button{outline: none;margin: 10px;width: 80px; height:  30px;background: midnightblue; color: white;} 
 
 .btn_align{display: flex;justify-content: center;}
+.gpt-answer-textarea{
+	width:100%; height:auto;
+}
