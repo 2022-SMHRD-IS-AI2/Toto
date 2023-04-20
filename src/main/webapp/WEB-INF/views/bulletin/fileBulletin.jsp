@@ -91,7 +91,7 @@
 					</div>
 					<button type="button" class="btn btn-outline-success"
 						style="margin-left: 10px;"
-						onclick="location.href='${cPath}/registerBoard.do'">글쓰기</button>
+						onclick="location.href='${cPath}/registerBoard.do?num=0'">글쓰기</button>
 				</div>
 
 

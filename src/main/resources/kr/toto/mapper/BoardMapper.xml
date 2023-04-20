@@ -34,8 +34,17 @@
 	<select id="searchContent" resultType="kr.toto.entity.Bulletin">
 		SELECT * FROM Bulletin WHERE b_content LIKE CONCAT('%', #{search}, '%')
 	</select>
-	
-	
+	<insert id="insertToGetNum" parameterType="kr.toto.entity.Quiz">
+	insert into Quiz (q_quest,q_wrong1, q_wrong2, q_wrong3, q_answer,q_sentence,q_paragraph,m_nick, q_date) values
+	 (#{q_quest},#{q_wrong1},#{q_wrong2},#{q_wrong3},#{q_answer},#{q_sentence},#{q_paragraph},#{m_nick}, now())
+	</insert>
+	<select id="getQuizNum" parameterType="kr.toto.entity.Quiz" resultType="int">
+		select q_num from Quiz where q_sentence = #{q_sentence} and m_nick =#{m_nick}
+	</select>
+	<insert id="writeQuiz" parameterType="kr.toto.entity.Bulletin">
+		insert into Bulletin (m_nick,b_file_or_quiz,b_like,b_title, b_content, b_file1, b_file2, b_file3, b_date, b_select, q_num) 
+		values (#{m_nick},#{b_file_or_quiz},0,#{b_title},#{b_content},#{b_file1},#{b_file2},#{b_file3},now(),0,#{q_num})
+	</insert>
 	
 	<!-- <select id="searchTitle" resultType="kr.toto.entity.Bulletin">
 		select * from Bulletin where b_title like '%#{search}%'

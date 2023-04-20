@@ -29,10 +29,7 @@
 							<dt>제목</dt>
 							<dd>
 								<input type="text" placeholder="제목 입력" name="b_title">
-								<select name="b_file_or_quiz">
-									<option value=0>자료게시판</option>
-									<option value=1>문항게시판</option>
-								</select>
+								<input type="hidden" value="${num}" name="b_file_or_quiz">
 							</dd>
 						</dl>
 					</div>
@@ -55,18 +52,28 @@
 					<div class="cont">
 						<textarea placeholder="내용 입력" name="b_content"></textarea>
 					</div>
+					<c:if test="${num ==1}">
 					<div class="cont1">
-						<textarea placeholder="지문 입력" name="q_paragraph"></textarea>
-						<textarea placeholder="문제 입력" name="b_quiz"></textarea>
-						<input placeholder="선지1" name="q_wrong1"> <input
-							placeholder="선지2" name="q_wrong2"> <input
-							placeholder="선지3" name="q_wrong3"> <input
-							placeholder="정답" name="q_answer">
-						<textarea placeholder="해설 입력" name="q_comment"></textarea>
+						<textarea placeholder="지문 입력" name="q_paragraph">${quizInfo.q_paragraph}</textarea>
+						<textarea placeholder="문제 입력" name="q_quest">${quizInfo.q_quest}</textarea>
+						<input placeholder="선지1" name="q_wrong1" value="${quizInfo.q_wrong1}">
+						<input placeholder="선지2" name="q_wrong2" value="${quizInfo.q_wrong2}">
+						<input placeholder="선지3" name="q_wrong3" value="${quizInfo.q_wrong3}">
+						<input placeholder="정답" name="q_answer" value="${quizInfo.q_answer}">
+						<input type="hidden" name="q_sentence" value="${quizInfo.q_sentence}">
 					</div>
+					</c:if>
 				</div>
 				<div class="bt_wrap">
-					<input type="submit"  value="등록" ><a href="${cPath}/fileSelect.do">취소</a>
+					<input type="submit"  value="등록" >
+					<c:choose>
+					<c:when test="${num==0}">
+					<a href="${cPath}/fileSelect.do">취소</a>
+					</c:when>
+					<c:otherwise>
+					<a href="${cPath}/quizSelect.do">취소</a>
+					</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</form>

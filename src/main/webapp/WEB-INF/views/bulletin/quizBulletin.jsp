@@ -44,7 +44,7 @@
                       <%cnt++; %>
                       <td class="hidden">
                         <div>
-                          <a href="${cPath}/seeInBoard.do?num=${quizVO.b_num}" data-toggle="collapse" data-target="#demo1">${vo.b_title}</a>
+                          <a href="${cPath}/seeInBoard.do?num=${vo.b_num}" data-toggle="collapse" data-target="#demo1">${vo.b_title}</a>
                         </div>
          
                       </td>                   

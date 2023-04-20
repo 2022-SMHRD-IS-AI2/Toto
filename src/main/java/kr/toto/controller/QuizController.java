@@ -57,7 +57,13 @@ public class QuizController {
 	return "quiz/generateQ";
 	}
 	
-	
+	@PostMapping("/writeB.do")
+	public String writeB(Model model,Quiz quiz) {
+		model.addAttribute("num",1);
+		model.addAttribute("quizInfo",quiz);
+		
+		return "bulletin/writeBoard";
+	}
 	
 // 여기 꼭 수정  + 일단 파이썬 서버하고 연결함
 	@RequestMapping("/heehee.do")

@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.toto.entity.BReple;
 import kr.toto.entity.Bulletin;
+import kr.toto.entity.Quiz;
 
 public interface BoardMapper {
 
@@ -17,7 +18,9 @@ public interface BoardMapper {
 	//public void wirteReReple(BReple vo);
 	public List<Bulletin> searchContent(String search);
 	public void uploadFile(Bulletin vo);
-
+	public void insertToGetNum(Quiz quiz);
+	public int getQuizNum(Quiz quiz);
+	public void writeQuiz(Bulletin vo);
 }
 
 

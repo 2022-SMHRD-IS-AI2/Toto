@@ -45,6 +45,7 @@ import com.fasterxml.jackson.annotation.JacksonInject.Value;
 
 import kr.toto.entity.BReple;
 import kr.toto.entity.Bulletin;
+import kr.toto.entity.Quiz;
 import kr.toto.mapper.BoardMapper;
 import lombok.extern.log4j.Log4j;
 @Controller
@@ -114,8 +115,10 @@ public class BoardController {
 	}
 	
 	@PostMapping("/registerBoard.do")
-	public String writeReple(MultipartFile[] files, Bulletin vo,RedirectAttributes rttr) throws Exception {
+	public String writeReple(MultipartFile[] files, Bulletin vo,Quiz quiz,RedirectAttributes rttr) throws Exception {
 		
+		if(files.length > 0) {
+			
 		String today = new SimpleDateFormat("yyMMdd").format(new Date());
 		String saveFolder = "C:\\upload\\tmp";
 		System.out.println(saveFolder);
@@ -137,17 +140,28 @@ public class BoardController {
 				}
 			}
 		}
-		if(files[0]!=null){vo.setB_file1(files[0].getOriginalFilename()+today);}
-		if(files[1]!=null){vo.setB_file2(files[1].getOriginalFilename()+today);}
-		if(files[2]!=null){vo.setB_file3(files[2].getOriginalFilename()+today);}
-		mapper.writeBoard(vo);
-		rttr.addAttribute("num",0);
+		if(files.length > 0){vo.setB_file1(files[0].getOriginalFilename()+today);}
+		if(files.length > 1){vo.setB_file2(files[1].getOriginalFilename()+today);}
+		if(files.length > 2){vo.setB_file3(files[2].getOriginalFilename()+today);}
+		}
+		if(vo.getB_file_or_quiz()==1) {
+			System.out.println("여기?0");
+			mapper.insertToGetNum(quiz);
+			int quizNum = mapper.getQuizNum(quiz);
+			System.out.println("여기?1");
+			vo.setQ_num(quizNum);
+			mapper.writeQuiz(vo);
+			System.out.println("여기?2");
+			rttr.addAttribute("num", 1);
+			System.out.println("여기?3");
+			return "redirect:/quizSelect.do";
+		}
+		else {
+			mapper.writeBoard(vo);
+			rttr.addAttribute("num",0);
 //		int cnt =  mapper.writeReple(reple);
-		
-		
-		
-		
-		return "redirect:/fileSelect.do";
+			return "redirect:/fileSelect.do";
+		}
 	}
 	
 	/*

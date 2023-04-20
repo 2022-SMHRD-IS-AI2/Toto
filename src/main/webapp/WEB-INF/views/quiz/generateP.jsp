@@ -19,13 +19,13 @@
 <body>
     <jsp:include page="../left.jsp"></jsp:include>
        <div class="gpt">
-       <input type="hidden" id="path" value="${cPath}/generateP.do">
+       <input type="hidden" id="path" value="${cPath}/writeB.do">
        <input type="hidden" id="nick" value="${memberVO.m_nick}">
                <div class="gpt-content" style="overflow-y:auto">
             <div class="gpt-model">   
                 Model-GPT3
             </div>
-            <form action="" class="gpt-inside">
+            <div class="gpt-inside">
                 <div class="gpt-problem">
                     <p class="gpt-problem-text">
                        <span id="output">안녕?</span>
@@ -36,9 +36,10 @@
                         <span id="answerOutput">안녕!</span>
                     </p>
                 </div>
-            </form>
+            </div>
             
         </div>
+        
        
     </div>
     <div class="gpt-footer">
@@ -57,7 +58,7 @@
                     document.querySelector("#send").addEventListener('click',function(){
 
                         document.getElementById("send").disabled = true;
-                   		
+                   							var nickname = document.getElementById('nick').value;
                         const value =document.querySelector('#myTextarea').value;
 							document.querySelector('#myTextarea').value = '';
 						const path = document.querySelector('#path').value;
@@ -75,7 +76,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -92,7 +93,7 @@
                         console.log(result.data.choices[0].text);
                         var template =`<div class="gpt-answer" >
                             <div class="gpt-answer-text">
-                                <span id="answerOutput`+cnt+`">`+result.data.choices[0].text+`</span>
+                                <textarea id="answerOutput`+cnt+`" name="q_paragraph" readonly="readonly">`+result.data.choices[0].text+`</textarea>
                             </div>
                         </div>`
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
@@ -121,16 +122,18 @@
 						setTimeout(() => {
                         var template =`<div class="gpt-problem">
                             <div class="gpt-problem-text2">
-                                <span id="question`+cnt+`">`+quiz["qSen"]+`</span><br>
-								<span>정답 : </span><span id="answer`+cnt+`">`+quiz['answer']+`</span><br>
+								<input type="hidden" value="`+value+`" name="q_sentence" readonly="readonly">
+								<input type="hidden" value="`+nickname+`" name="m_nick" readonly="readonly">
+                                <textarea id="question`+cnt+`" name="q_quest" readonly="readonly">`+quiz["qSen"]+`</textarea><br>
+								<span>정답 : </span><input id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br>
 								<span>오답 선지들</span><br>
-								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><span id="wrongOne`+cnt+`">`+quiz['wrongs'][0]+`</span></span><br>
-								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><span id="wrongTwo`+cnt+`">`+quiz['wrongs'][1]+`</span></span><br>
-								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><span id="wrongThree`+cnt+`">`+quiz['wrongs'][2]+`</span></span><br>
+								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><input id="wrongOne`+cnt+`" value="`+quiz['wrongs'][0]+`" readonly="readonly" name="q_wrong1"></span><br>
+								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><input id="wrongTwo`+cnt+`" value="`+quiz['wrongs'][1]+`" readonly="readonly" name="q_wrong2"></span><br>
+								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><input id="wrongThree`+cnt+`" value="`+quiz['wrongs'][2]+`" readonly="readonly" name="q_wrong3"></span><br>
                             </div></div>
 						<div class="btn_align">
                         <button type="button" style="margin-right: 50px;" class="btn_store" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
-                        <button type="submit"  style="margin-left: 50px;">문항 게시판에 올리기</button></div>
+                        <button type="submit"  style="margin-left: 50px;" class="btn_write" data-count="`+cnt+`">문항 게시판에 올리기</button></div>
 						`
                         
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
@@ -179,6 +182,7 @@
 				})
 					
 				});
+				
 				
                 
       </script>
