@@ -77,7 +77,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -127,21 +127,21 @@
 								<input type="hidden" value="`+value+`" name="q_sentence" readonly="readonly">
 								<input type="hidden" value="`+nickname+`" name="m_nick" readonly="readonly">
                                 <textarea style="border: none;width:100%;height: 170px;resize: none;"  id="question`+cnt+`" name="q_quest" readonly="readonly">`+quiz["qSen"]+`</textarea><br>
-								<div style="width:220px;display:flex;";><span>정답 : </span><input style="border: none;height: auto;resize: none; id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br></div>
+								<div style="width:220px;display:flex;";><span>정답 : </span><input style="border: none;height: auto;resize: none;" id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br></div>
 								<span>오답</span><br>
 								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><input style="border: none;" id="wrongOne`+cnt+`" value="`+quiz['wrongs'][0]+`" readonly="readonly" name="q_wrong1"></span><br>
 								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><input style="border: none;" id="wrongTwo`+cnt+`" value="`+quiz['wrongs'][1]+`" readonly="readonly" name="q_wrong2"></span><br>
 								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><input style="border: none;" id="wrongThree`+cnt+`" value="`+quiz['wrongs'][2]+`" readonly="readonly" name="q_wrong3"></span><br>
                             </div></div>
 						<div class="gpt-answer">
-                        <button type="button" style="margin-right: 50px;" class="btn btn-outline-secondary" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
+                        <button type="button" style="margin-right: 50px;" class="btn btn-outline-secondary btn_store" data-count="`+cnt+`" name="addMyQuiz">내 문제 저장</button>
                         <button type="submit"  style="margin-left: 50px;" class="btn btn-outline-secondary" data-count="`+cnt+`">문항 게시판에 올리기</button></div>
 						`
                         
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
                         document.getElementById("send").disabled = false;
                         
-						document.querySelector('.gpt-footer').scrollTop = document.querySelector('.gpt-footer').scrollHeight;
+						document.querySelector('.gpt-content').scrollTop = document.querySelector('.gpt-content').scrollHeight+document.querySelector('.gpt-footer').scrollHeight;  
 						++cnt;}
 						,5000);
 						console.log('여기도?????');
@@ -160,12 +160,12 @@
 					let wrongTwoId = "#wrongTwo"+clicked_num;
 					let wrongThreeId = "#wrongThree"+clicked_num;
 					let promptVal = document.querySelector(promptId).innerHTML;
-					let gptAnswerVal = document.querySelector(gptAnswerId).innerHTML;
-					let questionVal = document.querySelector(questionId).innerHTML;
-					let answerVal = document.querySelector(answerId).innerHTML;
-					let wrongOneVal = document.querySelector(wrongOneId).innerHTML;
-					let wrongTwoVal = document.querySelector(wrongTwoId).innerHTML;
-					let wrongThreeVal = document.querySelector(wrongThreeId).innerHTML;
+					let gptAnswerVal = document.querySelector(gptAnswerId).value;
+					let questionVal = document.querySelector(questionId).value;
+					let answerVal = document.querySelector(answerId).value;
+					let wrongOneVal = document.querySelector(wrongOneId).value;
+					let wrongTwoVal = document.querySelector(wrongTwoId).value;
+					let wrongThreeVal = document.querySelector(wrongThreeId).value;
 					let nickname = document.getElementById('nick').value;
 					var param = {"m_nick":nickname,"q_quest":questionVal,"q_sentence":promptVal,"q_paragraph":gptAnswerVal,"q_answer":answerVal,"q_wrong1":wrongOneVal,"q_wrong2":wrongTwoVal,"q_wrong3":wrongThreeVal};
 					$.ajax({

@@ -2,7 +2,7 @@
 @import "reset.css";
 
 
-body{overflow-y: hidden;}
+body{overflow-x:hidden;}
 .gpt{margin-left: 360px; width: 1540px;height: 900px; background:#f4f7fa;}
 .gpt-content{width: 100%;height: auto;position: relative; overflow-y: auto; overflow-x: hidden;}
 
