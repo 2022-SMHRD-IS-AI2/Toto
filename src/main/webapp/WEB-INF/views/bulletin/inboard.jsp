@@ -87,12 +87,10 @@
 					<tr>
 						<th>선지</th>
 					</tr>
-					<tr>
-						<td>정답 : ${quizInfo.q_answer}</td>
-						<td><i class="bi bi-1-circle"></i>${quizInfo.q_wrong1}</td>
-						<td><i class="bi bi-2-circle"></i>${quizInfo.q_wrong2}</td>
-						<td><i class="bi bi-3-circle"></i>${quizInfo.q_wrong3}</td>
-					</tr>
+					<tr><td>정답 : ${quizInfo.q_answer}</td></tr>
+					<tr><td><span><i class="bi bi-1-circle"></i></span>${quizInfo.q_wrong1}</td></tr>
+					<tr><td><span><i class="bi bi-2-circle"></i></span>${quizInfo.q_wrong2}</td></tr>
+					<tr><td><span><i class="bi bi-3-circle"></i></span>${quizInfo.q_wrong3}</td></tr>
 				</table>
 			</div>
 			</c:if>
