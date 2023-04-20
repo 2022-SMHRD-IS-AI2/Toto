@@ -28,12 +28,12 @@
             <div class="gpt-inside">
                 <div class="gpt-problem">
                     <p class="gpt-problem-text">
-                       <span id="output">안녕?</span>
+                       <span id="output">[예시:입력문장]There is evidence that even very simple algorithms can outperform expert judgement on simple prediction problems.</span>
                     </p>                   
                 </div>
                 <div class="gpt-answer" >
                     <p class="gpt-answer-text">
-                        <span id="answerOutput">안녕!</span>
+                        <span id="answerOutput">[예시:출력문장]Simple algorithms have long been used to predict simple outcomes, such as what the weather will be like tomorrow. However, recent research has shown that even very basic algorithms can outperform experts in predicting such outcomes. This suggests that algorithms may be able to provide more accurate predictions than humans in certain situations. As algorithms become more sophisticated, they are likely to become even more accurate and reliable than human judgement.</span>
                     </p>
                 </div>
             </div>
@@ -76,7 +76,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -139,7 +139,8 @@
                         
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
                         document.getElementById("send").disabled = false;
-                        document.querySelector('.gpt-content').scrollTop = document.querySelector('.gpt-content').scrollHeight;
+                        
+						document.querySelector('.gpt-answer').scrollTop = document.querySelector('.gpt-answer').scrollHeight;  
 						++cnt;}
 						,5000);
 						console.log('여기도?????');

@@ -22,6 +22,7 @@ public interface BoardMapper {
 	public int getQuizNum(Quiz quiz);
 	public void writeQuiz(Bulletin vo);
 	public Quiz getQuizInBoard(int q_num);
+	public void addSelect(Bulletin vo);
 }
 
 

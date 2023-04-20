@@ -20,13 +20,6 @@
 		insert into B_reple (b_num, m_nick, r_content, r_date) values
 		(#{b_num},#{m_nick},#{r_content},now())
 	</insert>
-	<!-- <insert id="writeReReple">
-		<selectKey keyProperty="r_group" resultType="kr.toto.entity.BReple" order="BEFORE">
-		select IFNULL(max(r_group)+1,0) as r_group from B_reple
-		</selectKey>
-		insert into B_reple (m_nick, r_content, r_date, r_group, r_modify_date, r_parent) values
-		(#{m_nick},#{r_content},now(),#{r_group},#{r_modify_date},#{r_parent})
-	</insert> -->
 	<select id="seeInReple" parameterType="kr.toto.entity.Bulletin"
 		resultType="kr.toto.entity.BReple">
 		select * from B_reple where (b_num = #{b_num}) order by r_date desc
@@ -55,6 +48,19 @@
 	<select id="getQuizInBoard" resultType="kr.toto.entity.Quiz">
 	select * from Quiz where q_num = #{q_num}
 	</select>
+	<update id="addSelect" parameterType="kr.toto.entity.Bulletin">
+	<selectKey keyProperty="b_select" resultType="kr.toto.entity.Bulletin" order="BEFORE">
+		select b_select from Bulletin where b_num = #{b_num}
+	</selectKey>
+		update Bulletin set b_select= (#{b_select}+1) where b_num = #{b_num}
+	</update>
+	<!-- <insert id="writeReReple">
+		<selectKey keyProperty="r_group" resultType="kr.toto.entity.BReple" order="BEFORE">
+		select IFNULL(max(r_group)+1,0) as r_group from B_reple
+		</selectKey>
+		insert into B_reple (m_nick, r_content, r_date, r_group, r_modify_date, r_parent) values
+		(#{m_nick},#{r_content},now(),#{r_group},#{r_modify_date},#{r_parent})
+	</insert> -->
 
 </mapper>
 	

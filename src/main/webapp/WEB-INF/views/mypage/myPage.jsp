@@ -53,7 +53,7 @@ pageEncoding="UTF-8"%>
                     <div class="card">
                         <div class="card-body1">
                             <div>
-                                <img src="${cPath}/resources/images/hl.jpg" alt="photo" class="rounded-circle positioned">
+                                <img src="${cPath}/resources/images/simpleImage.png" alt="photo" class="rounded-circle positioned">
                             </div>
                             <div class="name">
                                 <p class="w700">${memberVO.m_nick}</p>

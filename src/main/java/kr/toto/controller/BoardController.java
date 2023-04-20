@@ -88,6 +88,7 @@ public class BoardController {
 			model.addAttribute("quizInfo",quiz);
 		}
 		List<BReple> reple = mapper.seeInReple(vo);
+		mapper.addSelect(vo);
 		model.addAttribute("info",info);
 		model.addAttribute("reple",reple);
 		return "bulletin/inboard";
