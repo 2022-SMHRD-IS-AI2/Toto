@@ -44,11 +44,12 @@
                       <%cnt++; %>
                       <td class="hidden">
                         <div>
-                          <a href="${cPath}/seeInBoard.do?num=${vo.b_num}" data-toggle="collapse" data-target="#demo1">${vo.b_title}</a>
+                          <a href="${cPath}/seeInBoard.do?b_num=${vo.b_num}">${vo.b_title}</a>
+                          <!--  data-toggle="collapse" data-target="#demo1" -->
                         </div>
          
                       </td>                   
-                      <td>0</td>
+                      <td>${vo.b_like}</td>
                       <td>${vo.b_select}</td>
                       <td><fmt:formatDate value="${vo.b_date}" pattern="yyyy-MM-dd" /></td>
                     </tr>

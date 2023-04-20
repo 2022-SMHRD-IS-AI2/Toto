@@ -19,6 +19,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
 	href="${cPath}/resources/css/in_board.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 <script src="https://kit.fontawesome.com/c3a31cbb00.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -49,7 +50,7 @@
 		<hr>
 		<div class="text-3">
 			 <div>자료 0개</div>
-            <div>등록날짜</div>
+            <div>  <fmt:formatDate value="${info.b_date}" pattern="yyyy-MM-dd" /></div>
 			<%-- <div> 
 			<p><fmt:formatDate value="${info.b_date}" pattern="yyyy-MM-dd" /></p>
 
@@ -81,15 +82,16 @@
 						<th>[문제]</th>
 					</tr>
 					<tr>
-						<td>Which of the following best describe the reason why the
-							company is investing in a new line of eco-friendly cleaning
-							supplies?</td>
+						<td>${quizInfo.q_quest}</td>
 					</tr>
 					<tr>
-						<th>[해설]</th>
+						<th>선지</th>
 					</tr>
 					<tr>
-						<td>문제의 질문은 "환경 친화적 청소 용품 라인 개발에 대한 회사의 이유는 무엇인가? 입니다."</td>
+						<td>정답 : ${quizInfo.q_answer}</td>
+						<td><i class="bi bi-1-circle"></i>${quizInfo.q_wrong1}</td>
+						<td><i class="bi bi-2-circle"></i>${quizInfo.q_wrong2}</td>
+						<td><i class="bi bi-3-circle"></i>${quizInfo.q_wrong3}</td>
 					</tr>
 				</table>
 			</div>

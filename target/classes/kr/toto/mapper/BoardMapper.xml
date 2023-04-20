@@ -52,7 +52,9 @@
 	<select id="searchWriter" resultType="kr.toto.entity.Bulletin">
 		select * from Bulletin where m_nick like '%#{search}%;
 	</select> -->
-
+	<select id="getQuizInBoard" resultType="kr.toto.entity.Quiz">
+	select * from Quiz where q_num = #{q_num}
+	</select>
 
 </mapper>
 	

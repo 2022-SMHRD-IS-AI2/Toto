@@ -82,6 +82,11 @@ public class BoardController {
 	@RequestMapping("/seeInBoard.do")
 	public String seeInBoard(Model model, Bulletin vo) {
 		Bulletin info = mapper.seeInBoard(vo);
+		if(info.getB_file_or_quiz()==1) {
+			int q_num = info.getQ_num();
+			Quiz quiz = mapper.getQuizInBoard(q_num);
+			model.addAttribute("quizInfo",quiz);
+		}
 		List<BReple> reple = mapper.seeInReple(vo);
 		model.addAttribute("info",info);
 		model.addAttribute("reple",reple);
