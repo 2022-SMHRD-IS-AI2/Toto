@@ -53,7 +53,7 @@ pageEncoding="UTF-8"%>
                     <div class="card">
                         <div class="card-body1">
                             <div>
-                                <img src="${cPath}/resources/images/simpleImage.png" alt="photo" class="rounded-circle positioned">
+                                <img src="${cPath}/resources/images/simpleImg.png" alt="photo" class="rounded-circle positioned">
                             </div>
                             <div class="name">
                                 <p class="w700">${memberVO.m_nick}</p>
@@ -113,8 +113,10 @@ pageEncoding="UTF-8"%>
                         <span class="fw-semibold mb-0">대표문제</span>
                     </div>
                     
-                    <div class="myprofileTop-quiz"><p>1</p><p>2</p><p>3</p></div>
-                </div>
+                    <div class="myprofileTop-quiz">
+                    <p> In times of economic difficulties, many firms should develop plans to ____ employee productivity and reduce costs. </p>
+                    <p> 정답 : increase</p>
+                    <p>오답 : extend, limited, mitigate </p></div>
                 <div class="btnMypage">
                     <button type="submit" class="btn btn-outline-primary btn-sm" onclick="location.href ='${cPath}/modify.do'">수정하기</button>
                 </div>

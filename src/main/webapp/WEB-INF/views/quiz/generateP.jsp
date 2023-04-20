@@ -21,7 +21,7 @@
        <div class="gpt">
        <input type="hidden" id="path" value="${cPath}/writeB.do">
        <input type="hidden" id="nick" value="${memberVO.m_nick}">
-               <div class="gpt-content" style="overflow-y:auto">
+            <div class="gpt-content" style="overflow-y:auto">
             <div class="gpt-model">   
                 Model-GPT3
             </div>
@@ -39,17 +39,18 @@
             </div>
             
         </div>
-        
-       
-    </div>
-    <div class="gpt-footer">
+        <div class="gpt-footer">
         <div class="gpt-form" >
             <div class="gpt-text">
                 <textarea id="myTextarea" placeholder="문장을 입력해주세요."></textarea> 
                 <button class="btn btn-outline-primary btn-sm send" id="send">전송</button>
             </div>
         </div>
+    	</div>
+        
+       
     </div>
+    
  
         <script type="module">
 
@@ -76,7 +77,7 @@
 					console.log("여기성공?");
                     
                     const configuration = new Configuration({
-                        apiKey: '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',
+                        apiKey: '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',
                       });
                       const openai = new OpenAIApi(configuration);
                       
@@ -93,7 +94,7 @@
                         console.log(result.data.choices[0].text);
                         var template =`<div class="gpt-answer" >
                             <div class="gpt-answer-text">
-                                <textarea style="background:#f4f7fa; border: none;width:100%;height: 100px;resize: none;" class="gpt-answer-textarea" id="answerOutput`+cnt+`" name="q_paragraph" readonly="readonly">`+result.data.choices[0].text+`</textarea>
+                                <textarea style="background:#f4f7fa; border: none;width:100%;height: 170px;resize: none;" class="gpt-answer-textarea" id="answerOutput`+cnt+`" name="q_paragraph" readonly="readonly">`+result.data.choices[0].text+`</textarea>
                             </div>
                         </div>`
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
@@ -122,12 +123,12 @@
 						setTimeout(() => {
                         var template =`<div class="gpt-problem">
 
-                            <div style="padding: 15px 20px; width: 60%;height: auto;display: flex;flex-direction:column;" class="gpt-problem-text2">
+                            <div style="padding: 15px 20px; width: 60%;height: auto;display: flex;flex-direction:column;align-items: flex-start;" class="gpt-problem-text2">
 								<input type="hidden" value="`+value+`" name="q_sentence" readonly="readonly">
 								<input type="hidden" value="`+nickname+`" name="m_nick" readonly="readonly">
-                                <textarea style="border: none;width:100%;height: 100px;resize: none;"  id="question`+cnt+`" name="q_quest" readonly="readonly">`+quiz["qSen"]+`</textarea><br>
-								<span>정답 : </span><input style="border: none;width:100%;height: auto;resize: none; id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br>
-								<span>오답 선지들</span><br>
+                                <textarea style="border: none;width:100%;height: 170px;resize: none;"  id="question`+cnt+`" name="q_quest" readonly="readonly">`+quiz["qSen"]+`</textarea><br>
+								<div style="width:220px;display:flex;";><span>정답 : </span><input style="border: none;height: auto;resize: none; id="answer`+cnt+`" value="`+quiz['answer']+`" name="q_answer" readonly="readonly"><br></div>
+								<span>오답</span><br>
 								<span><span><i class="bi bi-1-circle"></i>`+" "+`</span><input style="border: none;" id="wrongOne`+cnt+`" value="`+quiz['wrongs'][0]+`" readonly="readonly" name="q_wrong1"></span><br>
 								<span><span><i class="bi bi-2-circle"></i>`+" "+`</span><input style="border: none;" id="wrongTwo`+cnt+`" value="`+quiz['wrongs'][1]+`" readonly="readonly" name="q_wrong2"></span><br>
 								<span><span><i class="bi bi-3-circle"></i>`+" "+`</span><input style="border: none;" id="wrongThree`+cnt+`" value="`+quiz['wrongs'][2]+`" readonly="readonly" name="q_wrong3"></span><br>
@@ -140,7 +141,7 @@
                         document.querySelector(valueID).insertAdjacentHTML('beforeend',template);
                         document.getElementById("send").disabled = false;
                         
-						document.querySelector('.gpt-answer').scrollTop = document.querySelector('.gpt-answer').scrollHeight;  
+						document.querySelector('.gpt-footer').scrollTop = document.querySelector('.gpt-footer').scrollHeight;
 						++cnt;}
 						,5000);
 						console.log('여기도?????');

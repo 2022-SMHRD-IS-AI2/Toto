@@ -70,9 +70,9 @@ pageEncoding="UTF-8"%>
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide"><img style="width:760px;height:430px;"src="${cPath}/resources/images/aaaaaa.png" ></div>
+          <div class="swiper-slide"><img style="width:760px;height:420px;"src="${cPath}/resources/images/bbbbb.png" ></div>
+          <div class="swiper-slide"><img style="width:760px;height:420px;"src="${cPath}/resources/images/cccc.png" ></div>
           ...
         </div>
         <!-- If we need pagination -->
@@ -125,7 +125,7 @@ pageEncoding="UTF-8"%>
         </footer>
       </div>
     
-    <script src="${cPath }/resources/css/index.css">
+    <script src="${cPath }/resources/js/index.js">
         
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

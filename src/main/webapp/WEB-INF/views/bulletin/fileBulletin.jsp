@@ -30,9 +30,7 @@
 							<div class="card-body contents-size">
 								<small class="text-body-secondary"><fmt:formatDate
 										value="${vo.b_date}" pattern="yyyy-MM-dd" /></small>
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
+								<p class="card-text">${vo.b_content}</p>
 							</div>
 							<div class="card-body back">
 								<p class="card-text">${vo.b_title}</p>

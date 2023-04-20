@@ -16,38 +16,7 @@ pageEncoding="UTF-8"%>
     <title>Document</title>
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="q-nav-profile">
-        <a href="index.html">
-            <img src="${cPath }/resources/images/logo.png">
-        </a>
-        
-        <div class="profile">
-            <div class="profile-img">
-                <img src="${cPath }/resources/images/hl.jpg" alt="">
-            </div>
-            <div class="profile-info">
-                <span>${vo.m_name}</span>
-                <span>${vo.m.email }</span>
-                <div class="profile-info-button">
-                    <button type="button" herf="${cPath }/ ">로그아웃</button>
-                </div>
-            </div>             
-            
-        </div>
-        
 
-        <ul class="q-board">
-                <li class="m-4"><a onclick="location.href=${cPath}/quiz/generateP.do">문장생성 </a></li>
-                <li class="m-4"><a onclick="location.href=${cPath}/bulletin/fileBulletin.do">문항게시판 </a></li>
-                <li class="m-4"><a onclick="location.href=${cPath}/bulletin/inboard.do">자료게시판 </a></li>
-                <li class="m-4"><a onclick="location.href=${cPath}/mypage/myPage.do">마이페이지 </a></li>
-
-        </ul>
-    </div>
-=======
-   
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-IS-AI2/Toto.git
     <jsp:include page="../left.jsp"></jsp:include>
     <div class="delete-title">
         <h2>Membership Withdrawal</h2>
